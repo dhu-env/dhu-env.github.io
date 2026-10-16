@@ -1,0 +1,33 @@
+.dhu-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  background: linear-gradient(135deg, rgba(46,125,50,.10), rgba(0,137,123,.08));
+  border: 1px solid rgba(46,125,50,.30);
+  border-radius: 8px;
+  padding: 8px 14px;
+  margin: 6px 0 14px;
+  font-size: .88rem;
+}
+.dhu-bar strong {
+  color: #1b5e20;
+  margin-right: 4px;
+}
+.dhu-tag {
+  display: inline-block;
+  background: #2e7d32;
+  color: #fff !important;
+  border-radius: 4px;
+  padding: 1px 10px;
+  font-size: .78rem;
+  font-weight: 600;
+  line-height: 1.6;
+}
+a.dhu-tag {
+  text-decoration: none;
+  transition: background .15s ease;
+}
+a.dhu-tag:hover {
+  background: #1b5e20;
+}
