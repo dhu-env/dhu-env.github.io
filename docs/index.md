@@ -26,7 +26,7 @@ Hi~😉！
 
     [**流体力学（能环）**](./courses/public/professional/流体力学（能环）.md)
 
-    （另有：环卓 / 环管 / 建环 专业页面）
+    （另有：环卓 / 环管 / 建能环 专业页面）
 
 -   :material-fire:{ .lg .middle } __工程热力学__
 
@@ -34,7 +34,7 @@ Hi~😉！
 
     [**工程热力学（能环）**](./courses/public/professional/工程热力学（能环）.md)
 
-    （另有：建环 专业页面）
+    （另有：建能环 专业页面）
 
 -   :material-heat-wave:{ .lg .middle } __传热学__
 
@@ -42,7 +42,7 @@ Hi~😉！
 
     [**传热学（能环）**](./courses/public/professional/传热学（能环）.md)
 
-    （另有：建环 专业页面）
+    （另有：建能环 专业页面）
 
 -   :material-flask:{ .lg .middle } __化工原理__
 

@@ -6,7 +6,7 @@ Generate the DHU College of Environmental Science & Engineering course-sharing s
 Course classification & naming rules (per user requirements):
   - Courses are merged ONLY when the course code (课程编号) is identical;
     same-name courses with different codes are NOT merged and get a major suffix,
-    e.g. 工程热力学（能环）/ 工程热力学（建环）.
+    e.g. 工程热力学（能环）/ 工程热力学（建能环）.
   - Courses shared by 2+ majors  -> public/ (fundamental basics & professional)
   - Courses unique to one major  -> routes/<major>/
   - 双学位 (环境工程与工商管理双学位) is abbreviated as 环管 everywhere.
@@ -30,11 +30,17 @@ MAJORS = ["能源与环境系统工程", "环境工程（卓越班）", "环境�
           "环境科学", "建筑环境与能源应用工程", "土木工程（绿色建造）"]
 MJ_SHORT = {"能源与环境系统工程": "能环", "环境工程（卓越班）": "环卓",
             "环境工程（双学位）": "环管", "环境科学": "环科",
-            "建筑环境与能源应用工程": "建环", "土木工程（绿色建造）": "土木"}
+            "建筑环境与能源应用工程": "建能环", "土木工程（绿色建造）": "土木"}
 
 # ---------- load parsed course data ----------
 with io.open(os.path.join(NET, "_all_courses.json"), encoding="utf-8") as f:
     DATA = json.load(f)  # major -> [course dicts]
+
+# 高等数学类：六个专业培养方案均安排在大一学年完成（教学计划仅标注“大一学年”）
+for _m in DATA:
+    for _c in DATA[_m]:
+        if _c["name"] == "高等数学类" and not _c.get("semester"):
+            _c["semester"] = "1A;1B"
 
 def find(major, name):
     for c in DATA.get(major, []):
@@ -48,7 +54,7 @@ SEM_LABEL = {"1A": "大一上", "1B": "大一下", "2A": "大二上",
 
 # 专业缩写 -> 专业方向页目录名（用于课程页状态栏索引链接）
 ROUTE_BY_SHORT = {"能环": "EnergyEnv", "环卓": "EnvEngExcellent", "环管": "EnvEngDual",
-                  "环科": "EnvScience", "建环": "BuildingEnv", "土木": "CivilGreen"}
+                  "环科": "EnvScience", "建能环": "BuildingEnv", "土木": "CivilGreen"}
 
 def fmt_sem(sem_raw):
     if not sem_raw:
@@ -56,12 +62,15 @@ def fmt_sem(sem_raw):
     parts = []
     for seg in sem_raw.split(";"):
         seg = seg.strip()
-        if not seg or ":" not in seg:
+        if not seg:
             continue
-        k, v = seg.split(":", 1)
-        k = k.strip(); v = v.strip()
-        if k in SEM_LABEL and v:
-            parts.append(f"{SEM_LABEL[k]} · {v}学时/周")
+        if ":" not in seg:
+            k, v = seg, ""
+        else:
+            k, v = seg.split(":", 1)
+            k = k.strip(); v = v.strip()
+        if k in SEM_LABEL:
+            parts.append(SEM_LABEL[k] if not v else f"{SEM_LABEL[k]} · {v}学时/周")
     return "；".join(parts) if parts else "（教学计划未标明）"
 
 def fmt_credit(x):
@@ -162,12 +171,13 @@ FUND_SECTIONS = [
         ("机械设计基础", ["能源与环境系统工程", "建筑环境与能源应用工程"], None, "两专业课程编号不同（080421 / 080069），按课程代码分设页面"),
         ("工程训练", ["能源与环境系统工程", "环境工程（卓越班）", "环境工程（双学位）", "建筑环境与能源应用工程", "土木工程（绿色建造）"],
          {"能源与环境系统工程": "工程训练(1)", "建筑环境与能源应用工程": "工程训练(1)",
-          "环境工程（卓越班）": "工程训练", "环境工程（双学位）": "工程训练", "土木工程（绿色建造）": "工程训练"}, "能环/建环分(1)(2)两个阶段"),
+          "环境工程（卓越班）": "工程训练", "环境工程（双学位）": "工程训练", "土木工程（绿色建造）": "工程训练"}, "能环/建能环分(1)(2)两个阶段"),
+        ("工程训练(2)", ["能源与环境系统工程", "建筑环境与能源应用工程"], None, "能环/建能环第二阶段（课程编号一致，合并为同一页面）"),
         ("制图大作业", ["能源与环境系统工程", "建筑环境与能源应用工程"], None, ""),
         ("机械设计课程设计", ["能源与环境系统工程", "建筑环境与能源应用工程"], None, ""),
         ("工程制图课程设计", ["环境工程（卓越班）", "环境工程（双学位）", "土木工程（绿色建造）"], None, ""),
         ("工程Auto CAD", ["能源与环境系统工程", "建筑环境与能源应用工程", "土木工程（绿色建造）"],
-         {"建筑环境与能源应用工程": "工程Auto CAD实践"}, "建环专业名为“工程Auto CAD实践”"),
+         {"建筑环境与能源应用工程": "工程Auto CAD实践"}, "建能环专业名为“工程Auto CAD实践”"),
     ]),
     ("电学及控制类", [
         ("电工电子技术B", ["能源与环境系统工程", "建筑环境与能源应用工程"], None, ""),
@@ -199,6 +209,7 @@ PROF_COURSES = [
     ("专业英语", ["能源与环境系统工程", "环境科学", "建筑环境与能源应用工程", "土木工程（绿色建造）"],
      {"能源与环境系统工程": "能环专业英语", "环境科学": "专业外语"}, "各专业课程名称与编号均不同，分设页面"),
     ("泵与风机", ["能源与环境系统工程", "建筑环境与能源应用工程"], None, "两专业课程编号不同，按课程代码分设页面"),
+    ("劳动教育类", MAJORS, None, "六个专业课程编号一致（888889），合并为同一页面"),
 ]
 
 ROUTE_SECTIONS = [
@@ -427,7 +438,7 @@ ROUTE_SECTIONS = [
             ("毕业论文", ["环境科学"], None, ""),
         ]),
     ]),
-    ("BuildingEnv", "建筑环境与能源应用工程", "建环",
+    ("BuildingEnv", "建筑环境与能源应用工程", "建能环",
      "建筑环境与能源应用工程", [
         ("专业核心课程（学科基础必修）", [
             ("工业通风", ["建筑环境与能源应用工程"], None, ""),
@@ -587,37 +598,65 @@ tags:
 > 该部分待完善
 """
 
-def route_index_page(dirname, title, short, sections, extra_sections=None):
-    out = [f"# {title}", ""]
-    out.append(f'<div class="dhu-bar"><strong>专业方向</strong><span class="dhu-tag">{short}</span></div>')
-    out.append("")
-    out.append("""!!! info "专业简介"
+# 环境科学专业方向（选修）在教学计划中分为两个模块，其余专业无模块结构
+ENVSCI_MODULES = {
+    "环境管理与规划模块": [
+        "环境法学", "环境信息系统", "大气环境学", "环境地学", "环境水文学",
+        "环境管理学", "环境规划学", "清洁生产审核与EHS", "环境科学前沿",
+    ],
+    "环境治理与修复模块": [
+        "基因工程", "生物工程", "环境材料", "环境生物技术", "水污染控制原理",
+        "地表水环境修复", "地表水环境修复（全英文）", "环境土壤学",
+        "环境土壤学（全英文）", "场地污染修复技术", "固废与资源化利用技术",
+        "物理污染控制技术",
+    ],
+}
 
-    该部分待完善。建议从学院官网、专业介绍手册或《本科培养方案》中摘录本专业的定位、主干学科、就业方向后补充。
-""")
-    for sec_name, courses in sections:
-        out.append(f"### {sec_name}")
+def route_full_index(dirname, major, title, short):
+    """按教学计划原始分类（课程类别·必修/选修，环境科学专业方向选修含模块）
+    全量列出本专业培养方案中的课程；重叠课程同样列出并跳转到对应课程页面，
+    不重复建设页面。返回 (页面文本, 分组数据, 缺失课程列表)。"""
+    out = [f"# {title}", "",
+           f'<div class="dhu-bar"><strong>专业方向</strong><span class="dhu-tag">{short}</span></div>', "",
+           '!!! info "专业简介"', '',
+           '该部分待完善。建议从学院官网、专业介绍手册或《本科培养方案》中摘录本专业的定位、主干学科、就业方向后补充。',
+           ""]
+    groups = {}   # (cat, req[, module]) -> [(pt, rel, rel_docs, cr, sem)]
+    order = []
+    missing_courses = []
+    for c in DATA[major]:
+        if c["cat"] in ("通识教育", "综合实践"):
+            continue  # 通识教育与综合实践为全校性环节，见「通识教育与公共环节总览」
+        nm = c["name"]
+        key = (c["cat"], c["req"])
+        if major == "环境科学" and c["cat"] == "专业方向" and c["req"] == "选修":
+            mod = next((m for m, lst in ENVSCI_MODULES.items() if nm in lst), None)
+            key = (c["cat"], c["req"], mod)
+        if key not in groups:
+            groups[key] = []
+            order.append(key)
+        reg = PAGE_REG.get((major, nm))
+        if reg is None:
+            missing_courses.append(nm)
+            continue
+        container, pt = reg
+        rel = os.path.relpath(os.path.join(container, f"{pt}.md"), os.path.join(ROUTES, dirname)).replace(os.sep, "/")
+        rel_docs = os.path.relpath(os.path.join(container, f"{pt}.md"), DOCS).replace(os.sep, "/")
+        groups[key].append((pt, rel, rel_docs, fmt_credit(c["credit"]), fmt_sem(c["semester"])))
+    for key in order:
+        cat, req = key[0], key[1]
+        mod = key[2] if len(key) > 2 else None
+        sec = f"{cat}（{'必修' if req == '必修' else '选修'}）"
+        if mod:
+            sec = f"{sec} · {mod}"
+        out.append(f"### {sec}")
         out.append("")
         out.append("| 课程名称 | 学分 | 建议学期 | 资料情况 |")
         out.append("| ------- | ---- | ---- | ---- |")
-        for (t, majors, nm, note) in courses:
-            for m in majors:
-                key = (m, (nm or {}).get(m, t))
-                if key in PAGE_REG:
-                    container, pt = PAGE_REG[key]
-                    rel = os.path.relpath(os.path.join(container, f"{pt}.md"), os.path.join(ROUTES, dirname)).replace(os.sep, "/")
-                    c = find(m, key[1])
-                    cr = fmt_credit(c["credit"]) if c else "—"
-                    sem = fmt_sem(c["semester"]) if c else "—"
-                    out.append(f"| [**{pt}**]({rel}) | {cr} | {sem} | :x: 待完善 |")
+        for pt, rel, rel_docs, cr, sem in groups[key]:
+            out.append(f"| [**{pt}**]({rel}) | {cr} | {sem} | :x: 待完善 |")
         out.append("")
-    for sec_name, items in (extra_sections or []):
-        out.append(f"### {sec_name}")
-        out.append("")
-        for t, p in items:
-            out.append(f"- [**{t}**]({p})")
-        out.append("")
-    return "\n".join(out)
+    return "\n".join(out), groups, missing_courses
 
 # ---------- build ----------
 os.chdir(TOOLS)  # avoid locking OUT as cwd
@@ -697,7 +736,7 @@ gen_page = """# 通识教育与公共环节总览
 
 !!! info "说明"
 
-    以下课程为东华大学环境学院**六个专业（能环、环卓、环管、环科、建环、土木）均需修读**的通识教育课程与公共实践环节。
+    以下课程为东华大学环境学院**六个专业（能环、环卓、环管、环科、建能环、土木）均需修读**的通识教育课程与公共实践环节。
     其中自然科学类课程（高等数学、线性代数、概率论与数理统计、大学物理、工程数学及化学类课程）已在「公共基础课程」中单列课程页面，此处不再重复。
 
 ## 通识教育课程（六个专业共有）
@@ -720,7 +759,7 @@ pub_idx = ["# 公共基础课程", "",
     1. **公共基础课程**：两个及以上专业共同修读的基础学科课程（数理、化学、力学、机械制图、电学等），按学科模块整理；
     2. **专业方向课程**：各专业开设的课程见各专业方向页面，专业间重叠的课程不重复建设页面，跳转后仍为同一课程界面。
 
-    同名课程仅当**课程编号一致**时合并为同一页面；课程编号不一致的同名课程分设页面并以专业缩写区分（如“工程热力学（能环）”“工程热力学（建环）”）。各课程页面顶部状态栏标注该课程所属专业（可点击跳转至对应专业方向页），便于按专业索引。
+    同名课程仅当**课程编号一致**时合并为同一页面；课程编号不一致的同名课程分设页面并以专业缩写区分（如“工程热力学（能环）”“工程热力学（建能环）”）。各课程页面顶部状态栏标注该课程所属专业（可点击跳转至对应专业方向页），便于按专业索引。
 """]
 for sec_name, items in all_fund.items():
     pub_idx.append(f"### {sec_name}")
@@ -744,7 +783,7 @@ with io.open(os.path.join(PUB, "index.md"), "w", encoding="utf-8") as f:
 pro_idx = ["# 公共专业课程", "",
 """!!! info "说明"
 
-    以下为**两个及以上专业共同修读**的专业性质课程。同名课程按课程编号一致与否决定合并或分设页面（如“流体力学（能环）”“流体力学（建环）”等）；仅单个专业开设的课程请前往对应专业方向页面查看。
+    以下为**两个及以上专业共同修读**的专业性质课程。同名课程按课程编号一致与否决定合并或分设页面（如“流体力学（能环）”“流体力学（建能环）”等）；仅单个专业开设的课程请前往对应专业方向页面查看。
 """,
 "| 课程名称 | 学分 | 适用专业 | 资料情况 |",
 "| ------- | ---- | ---- | ---- |"]
@@ -756,18 +795,17 @@ with io.open(os.path.join(PROF, "index.md"), "w", encoding="utf-8") as f:
     f.write("\n".join(pro_idx))
 
 # routes
-route_nav = {}  # dirname -> [section_name -> [page titles]]
+route_nav_data = {}  # dirname -> [(sec_title, [(page_title, rel_docs)])]
 for dirname, major, short, title, sections in ROUTE_SECTIONS:
     rdir = os.path.join(ROUTES, dirname)
     os.makedirs(rdir, exist_ok=True)
-    route_nav[dirname] = []
+    # 1) 课程页注册：仅生成尚未在公共区或其他方向生成的课程页面（重叠课程仅跳转）
     for sec_name, courses in sections:
-        titles = []
         for (t, majors, nm, note) in courses:
             keys = [(m, (nm or {}).get(m, t)) for m in majors]
             if all(k in PAGE_REG for k in keys):
                 # 该课程页面已在公共区或其他专业方向生成（重叠课程）：
-                # 不重复生成页面，仅保留表格超链接跳转
+                # 不重复生成页面，仅保留超链接跳转
                 continue
             pages, _ = expand_entry(t, majors, nm, note, rdir)
             if pages is None:
@@ -776,18 +814,21 @@ for dirname, major, short, title, sections in ROUTE_SECTIONS:
             for p in pages:
                 with io.open(os.path.join(rdir, f"{p['title']}.md"), "w", encoding="utf-8") as f:
                     f.write(course_page(p))
-                titles.append(p["title"])
-        route_nav[dirname].append((sec_name, titles))
-    # route index course links: only rows for THIS route's own major
-    sections_for_index = []
-    for sec_name, courses in sections:
-        rows = []
-        for (t, majors, nm, note) in courses:
-            if major in majors:
-                rows.append((t, majors, nm, note))
-        sections_for_index.append((sec_name, rows))
+    # 2) 方向导航页：按教学计划分类全量列出本专业培养方案课程（重叠课程同样列出并跳转）
+    text, groups, miss = route_full_index(dirname, major, title, short)
+    for nm in miss:
+        missing.append((dirname, nm))
     with io.open(os.path.join(rdir, "index.md"), "w", encoding="utf-8") as f:
-        f.write(route_index_page(dirname, title, short, sections_for_index))
+        f.write(text)
+    nav_rows = []
+    for key, items in groups.items():
+        cat, req = key[0], key[1]
+        mod = key[2] if len(key) > 2 else None
+        sec = f"{cat}（{'必修' if req == '必修' else '选修'}）"
+        if mod:
+            sec = f"{sec} · {mod}"
+        nav_rows.append((sec, [(pt, rel_docs) for pt, rel, rel_docs, cr, sem in items]))
+    route_nav_data[dirname] = nav_rows
 
 # courses.md
 courses_md = """# 本科课程大纲
@@ -810,7 +851,7 @@ courses_md = """# 本科课程大纲
 
 #### 待完善内容
 
-- 各课程页面的「教材 / 资源 / 笔记 / 学习建议」均为待完善状态，欢迎投稿补充（见[平台贡献指南](./guideline.md)与[站点完善指南](./完善指南.md)）。
+- 各课程页面的「教材 / 资源 / 笔记 / 学习建议」均为待完善状态，欢迎投稿补充（见[平台贡献指南](./guideline.md)）。
 """
 with io.open(os.path.join(DOCS, "courses.md"), "w", encoding="utf-8") as f:
     f.write(courses_md)
@@ -874,7 +915,6 @@ nav = ["nav:",
        "  - 主页:",
        "    - 首页: index.md",
        "    - 平台贡献指南: guideline.md",
-       "    - 站点完善指南: 完善指南.md",
        "    - 本科课程大纲: courses.md",
        "  - 公共基础课程:",
        "    - 导航页: courses/public/index.md",
@@ -886,10 +926,10 @@ for sec_name, entries in FUND_SECTIONS:
 for dirname, major, short, title, sections in ROUTE_SECTIONS:
     nav.append(f"  - {title}:")
     nav.append(f"    - 导航页: courses/routes/{dirname}/index.md")
-    for sec_name, titles in route_nav[dirname]:
-        nav.append(f"    - {sec_name}:")
-        for t in titles:
-            nav.append(f"      - {t}: courses/routes/{dirname}/{t}.md")
+    for sec, rows in route_nav_data[dirname]:
+        nav.append(f"    - {sec}:")
+        for pt, rel_docs in rows:
+            nav.append(f"      - {pt}: {rel_docs}")
 nav.append("  - 平台资料:")
 nav.append("    - 本科课程大纲: courses.md")
 
@@ -898,6 +938,7 @@ site_url: https://bullet016.github.io/DHU-Env.github.io/
 # 部署到自己的 GitHub Pages 后请将上面的 site_url 改为实际网址（如 https://<用户名>.github.io/<仓库名>/）
 exclude_docs: |
   /courses/load.md
+  /完善指南.md
 extra_css:
   - stylesheets/extra.css
 markdown_extensions:
@@ -964,6 +1005,6 @@ with io.open(os.path.join(OUT, "mkdocs.yml"), "w", encoding="utf-8") as f:
 print("Missing courses:", missing)
 print("fund pages:", sum(len(v) for v in all_fund.values()))
 print("prof pages:", len(prof_pages))
-print("routes:", [(d, sum(len(s) for _, s in route_nav[d])) for d, *_ in [(r[0], r) for r in ROUTE_SECTIONS]])
+print("routes:", [(d, sum(len(s) for _, s in route_nav_data[d])) for d, *_ in [(r[0], r) for r in ROUTE_SECTIONS]])
 print("splits:", sorted({p['title'] for sec in all_fund.values() for p in sec if '（' in p['title']} |
                         {p['title'] for p in prof_pages if '（' in p['title']}))
