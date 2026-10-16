@@ -48,25 +48,23 @@ Hi~😉！
 
     ---
 
-    [**化工原理（环卓）**](./courses/public/professional/化工原理（环卓）.md)
+    [**化工原理（环卓·环管）**](./courses/public/professional/化工原理（环卓·环管）.md)
 
-    （另有：环管、环科 专业页面）
+    （另有：环科 专业页面）
 
 -   :material-test-tube:{ .lg .middle } __环境监测__
 
     ---
 
-    [**环境监测（环卓）**](./courses/public/professional/环境监测（环卓）.md)
+    [**环境监测（环卓·环管）**](./courses/public/professional/环境监测（环卓·环管）.md)
 
-    （另有：环管、环科 专业页面）
+    （另有：环科 专业页面）
 
 -   :material-school:{ .lg .middle } __高等数学类__
 
     ---
 
-    [**高等数学类（能环）**](./courses/public/fundamental/高等数学类（能环）.md)
-
-    （另有：环卓 / 环管 / 环科 / 建环 / 土木 专业页面）
+    [**高等数学类（六个专业公共基础课程）**](./courses/public/fundamental/高等数学类.md)
 
 </div>
 
