@@ -1013,7 +1013,10 @@ nav_js = r"""/* 东华环院课程攻略 · 侧边导航"专业上下文保持"�
   });
 })();
 """
-with io.open(os.path.join(DOCS, "js", "dhu_nav.js"), "w", encoding="utf-8") as f:
+# 文件名带内容哈希：JS 内容变更时文件名随之变化，避免浏览器缓存旧版脚本
+import hashlib as _hashlib
+nav_js_name = "dhu_nav." + _hashlib.md5(nav_js.encode("utf-8")).hexdigest()[:8] + ".js"
+with io.open(os.path.join(DOCS, "js", nav_js_name), "w", encoding="utf-8") as f:
     f.write(nav_js)
 
 # ---------- copy hand-written static pages back ----------
@@ -1056,7 +1059,7 @@ for dirname, major, short, title, sections in ROUTE_SECTIONS:
 nav.append("  - 平台资料:")
 nav.append("    - 本科课程大纲: courses.md")
 
-mkdocs_head = """site_name: 东华环院课程攻略
+mkdocs_head = f"""site_name: 东华环院课程攻略
 site_url: https://dhu-env.github.io/
 # 部署到自己的 GitHub Pages 后请将上面的 site_url 改为实际网址（如 https://<用户名>.github.io/<仓库名>/）
 exclude_docs: |
@@ -1065,7 +1068,7 @@ exclude_docs: |
 extra_css:
   - stylesheets/extra.css
 extra_javascript:
-  - js/dhu_nav.js
+  - js/{nav_js_name}
 markdown_extensions:
   - pymdownx.pathconverter:
       base_path: ''
