@@ -82,61 +82,28 @@ def fmt_credit(x):
 PAGE_REG = {}
 
 def expand_entry(title, majors, name_map, note, container):
-    """Group (major, course) by course code. Same code -> merged page;
-    different codes -> separate pages with major-suffix titles.
-    Returns (pages, major_to_page). Pages are dicts for course_page()."""
-    groups = {}
-    names = {}
+    """每门课程按专业生成独立页面：多专业课程在标题后加专业缩写后缀
+    （如“理论力学(1)（能环）”“理论力学(1)（土木）”），页面内容为对应
+    专业的课程信息，避免从某专业进入共有课程时出现跨专业跳转感。
+    返回 (pages, major_to_page)。"""
+    pages = []
+    major_to_page = {}
+    multi = len(majors) > 1
     for m in majors:
         nm = (name_map or {}).get(m, title)
         c = find(m, nm)
         if c is None:
             return None, None
-        names[m] = nm
-        key = c["id"] or ("__NOID__" + m)
-        groups.setdefault(key, []).append(m)
-    pages = []
-    major_to_page = {}
-    multi = len(groups) > 1
-    for code, ms in groups.items():
-        gname = names[ms[0]]
-        if multi:
-            pt = f"{gname}（{'·'.join(MJ_SHORT[m] for m in ms)}）"
-        elif name_map is not None:
-            # 多专业按课程编号合并、且各专业课程名不同时，页面标题使用登记名（title）
-            pt = title
-        else:
-            pt = gname
-        infos = [(m, find(m, names[m])) for m in ms]
-        ids, credits, hours, sems, cats = [], [], [], [], []
-        for m, c in infos:
-            if c["id"] and c["id"] not in ids:
-                ids.append(c["id"])
-            cr = fmt_credit(c["credit"])
-            ent = f"{cr}（{MJ_SHORT[m]}）" if len(ms) > 1 else cr
-            if ent not in credits:
-                credits.append(ent)
-            if c["h_total"]:
-                ent_h = f"{c['h_total']}（{MJ_SHORT[m]}）" if len(ms) > 1 else c["h_total"]
-                if ent_h not in hours:
-                    hours.append(ent_h)
-            sem = fmt_sem(c["semester"])
-            ent_s = f"{sem}（{MJ_SHORT[m]}）" if len(ms) > 1 else sem
-            if ent_s not in sems:
-                sems.append(ent_s)
-            cat = f"{c['cat']}·{c['req']}（{MJ_SHORT[m]}）" if len(ms) > 1 else f"{c['cat']}·{c['req']}"
-            if cat not in cats:
-                cats.append(cat)
+        pt = f"{nm}（{MJ_SHORT[m]}）" if multi else nm
         page = {
-            "title": pt, "majors": [MJ_SHORT[m] for m in ms], "majors_full": ms,
-            "ids": "、".join(ids), "credits": "；".join(credits),
-            "hours": "；".join(hours), "sems": "；".join(sems),
-            "cats": "；".join(cats), "note": note, "container": container,
+            "title": pt, "majors": [MJ_SHORT[m]], "majors_full": [m],
+            "ids": c["id"] or "", "credits": fmt_credit(c["credit"]),
+            "hours": c["h_total"] or "", "sems": fmt_sem(c["semester"]),
+            "cats": f"{c['cat']}·{c['req']}", "note": note, "container": container,
         }
         pages.append(page)
-        for m in ms:
-            major_to_page[m] = pt
-            PAGE_REG[(m, names[m])] = (container, pt)
+        major_to_page[m] = pt
+        PAGE_REG[(m, nm)] = (container, pt)
     return pages, major_to_page
 
 # ---------- classification ----------
@@ -774,7 +741,7 @@ pub_idx = ["# 公共基础课程", "",
     1. **公共基础课程**：两个及以上专业共同修读的基础学科课程（数理、化学、力学、机械制图、电学等），按学科模块整理；
     2. **专业方向课程**：各专业开设的课程见各专业方向页面，专业间重叠的课程不重复建设页面，跳转后仍为同一课程界面。
 
-    同名课程仅当**课程编号一致**时合并为同一页面；课程编号不一致的同名课程分设页面并以专业缩写区分（如“工程热力学（能环）”“工程热力学（建环）”）。各课程页面顶部状态栏标注该课程所属专业（可点击跳转至对应专业方向页），便于按专业索引。
+    多专业共有的同名课程按专业分设页面，并以专业缩写区分（如“工程热力学（能环）”“工程热力学（建环）”）。各课程页面顶部状态栏标注该课程所属专业（可点击跳转至对应专业方向页），便于按专业索引。
 """]
 for sec_name, items in all_fund.items():
     pub_idx.append(f"### {sec_name}")
@@ -798,7 +765,7 @@ with io.open(os.path.join(PUB, "index.md"), "w", encoding="utf-8") as f:
 pro_idx = ["# 公共专业课程", "",
 """!!! info "说明"
 
-    以下为**两个及以上专业共同修读**的专业性质课程。同名课程按课程编号一致与否决定合并或分设页面（如“流体力学（能环）”“流体力学（建环）”等）；仅单个专业开设的课程请前往对应专业方向页面查看。
+    以下为**两个及以上专业共同修读**的专业性质课程，按专业分设页面（如“流体力学（能环）”“流体力学（建环）”等）；仅单个专业开设的课程请前往对应专业方向页面查看。
 """,
 "| 课程名称 | 学分 | 适用专业 | 资料情况 |",
 "| ------- | ---- | ---- | ---- |"]
@@ -950,7 +917,7 @@ nav.append("  - 平台资料:")
 nav.append("    - 本科课程大纲: courses.md")
 
 mkdocs_head = """site_name: 东华环院课程攻略
-site_url: https://bullet016.github.io/DHU-Env.github.io/
+site_url: https://dhu-env.github.io/
 # 部署到自己的 GitHub Pages 后请将上面的 site_url 改为实际网址（如 https://<用户名>.github.io/<仓库名>/）
 exclude_docs: |
   /courses/load.md

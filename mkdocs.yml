@@ -1,5 +1,5 @@
 site_name: 东华环院课程攻略
-site_url: https://bullet016.github.io/DHU-Env.github.io/
+site_url: https://dhu-env.github.io/
 # 部署到自己的 GitHub Pages 后请将上面的 site_url 改为实际网址（如 https://<用户名>.github.io/<仓库名>/）
 exclude_docs: |
   /courses/load.md
@@ -73,64 +73,137 @@ nav:
     - 导航页: courses/public/index.md
     - 通识教育与公共环节总览: courses/public/fundamental/通识教育.md
     - 数理类:
-      - 高等数学类: courses/public/fundamental/高等数学类.md
-      - 线性代数A或B: courses/public/fundamental/线性代数A或B.md
-      - 概率论与数理统计A或B: courses/public/fundamental/概率论与数理统计A或B.md
-      - 工程数学(1): courses/public/fundamental/工程数学(1).md
-      - 工程数学(2): courses/public/fundamental/工程数学(2).md
-      - 大学物理A(1): courses/public/fundamental/大学物理A(1).md
-      - 大学物理A(2): courses/public/fundamental/大学物理A(2).md
-      - 大学物理实验(1): courses/public/fundamental/大学物理实验(1).md
-      - 大学物理实验(2): courses/public/fundamental/大学物理实验(2).md
+      - 高等数学类（能环）: courses/public/fundamental/高等数学类（能环）.md
+      - 高等数学类（环卓）: courses/public/fundamental/高等数学类（环卓）.md
+      - 高等数学类（环管）: courses/public/fundamental/高等数学类（环管）.md
+      - 高等数学类（环科）: courses/public/fundamental/高等数学类（环科）.md
+      - 高等数学类（建环）: courses/public/fundamental/高等数学类（建环）.md
+      - 高等数学类（土木）: courses/public/fundamental/高等数学类（土木）.md
+      - 线性代数A或B（能环）: courses/public/fundamental/线性代数A或B（能环）.md
+      - 线性代数A或B（环科）: courses/public/fundamental/线性代数A或B（环科）.md
+      - 线性代数A或B（建环）: courses/public/fundamental/线性代数A或B（建环）.md
+      - 线性代数A或B（土木）: courses/public/fundamental/线性代数A或B（土木）.md
+      - 概率论与数理统计A或B（能环）: courses/public/fundamental/概率论与数理统计A或B（能环）.md
+      - 概率论与数理统计A或B（环科）: courses/public/fundamental/概率论与数理统计A或B（环科）.md
+      - 概率论与数理统计A或B（建环）: courses/public/fundamental/概率论与数理统计A或B（建环）.md
+      - 概率论与数理统计A或B（土木）: courses/public/fundamental/概率论与数理统计A或B（土木）.md
+      - 工程数学(1)（环卓）: courses/public/fundamental/工程数学(1)（环卓）.md
+      - 工程数学(1)（环管）: courses/public/fundamental/工程数学(1)（环管）.md
+      - 工程数学(2)（环卓）: courses/public/fundamental/工程数学(2)（环卓）.md
+      - 工程数学(2)（环管）: courses/public/fundamental/工程数学(2)（环管）.md
+      - 大学物理A(1)（能环）: courses/public/fundamental/大学物理A(1)（能环）.md
+      - 大学物理A(1)（环卓）: courses/public/fundamental/大学物理A(1)（环卓）.md
+      - 大学物理A(1)（环管）: courses/public/fundamental/大学物理A(1)（环管）.md
+      - 大学物理A(1)（环科）: courses/public/fundamental/大学物理A(1)（环科）.md
+      - 大学物理A(1)（建环）: courses/public/fundamental/大学物理A(1)（建环）.md
+      - 大学物理A(1)（土木）: courses/public/fundamental/大学物理A(1)（土木）.md
+      - 大学物理A(2)（能环）: courses/public/fundamental/大学物理A(2)（能环）.md
+      - 大学物理A(2)（环卓）: courses/public/fundamental/大学物理A(2)（环卓）.md
+      - 大学物理A(2)（环管）: courses/public/fundamental/大学物理A(2)（环管）.md
+      - 大学物理A(2)（环科）: courses/public/fundamental/大学物理A(2)（环科）.md
+      - 大学物理A(2)（建环）: courses/public/fundamental/大学物理A(2)（建环）.md
+      - 大学物理A(2)（土木）: courses/public/fundamental/大学物理A(2)（土木）.md
+      - 大学物理实验(1)（能环）: courses/public/fundamental/大学物理实验(1)（能环）.md
+      - 大学物理实验(1)（环卓）: courses/public/fundamental/大学物理实验(1)（环卓）.md
+      - 大学物理实验(1)（环管）: courses/public/fundamental/大学物理实验(1)（环管）.md
+      - 大学物理实验(1)（环科）: courses/public/fundamental/大学物理实验(1)（环科）.md
+      - 大学物理实验(1)（建环）: courses/public/fundamental/大学物理实验(1)（建环）.md
+      - 大学物理实验(1)（土木）: courses/public/fundamental/大学物理实验(1)（土木）.md
+      - 大学物理实验(2)（能环）: courses/public/fundamental/大学物理实验(2)（能环）.md
+      - 大学物理实验(2)（环卓）: courses/public/fundamental/大学物理实验(2)（环卓）.md
+      - 大学物理实验(2)（环管）: courses/public/fundamental/大学物理实验(2)（环管）.md
+      - 大学物理实验(2)（环科）: courses/public/fundamental/大学物理实验(2)（环科）.md
+      - 大学物理实验(2)（建环）: courses/public/fundamental/大学物理实验(2)（建环）.md
+      - 大学物理实验(2)（土木）: courses/public/fundamental/大学物理实验(2)（土木）.md
       - 高等数学实验: courses/public/fundamental/高等数学实验.md
     - 化学类:
-      - 工程化学基础: courses/public/fundamental/工程化学基础.md
-      - 无机化学: courses/public/fundamental/无机化学.md
-      - 无机化学实验: courses/public/fundamental/无机化学实验.md
-      - 有机化学: courses/public/fundamental/有机化学.md
-      - 有机化学实验(1): courses/public/fundamental/有机化学实验(1).md
-      - 物理化学: courses/public/fundamental/物理化学.md
-      - 物理化学实验: courses/public/fundamental/物理化学实验.md
+      - 工程化学基础（能环）: courses/public/fundamental/工程化学基础（能环）.md
+      - 工程化学基础（建环）: courses/public/fundamental/工程化学基础（建环）.md
+      - 工程化学基础（土木）: courses/public/fundamental/工程化学基础（土木）.md
+      - 无机化学（环卓）: courses/public/fundamental/无机化学（环卓）.md
+      - 无机化学（环管）: courses/public/fundamental/无机化学（环管）.md
+      - 无机化学（环科）: courses/public/fundamental/无机化学（环科）.md
+      - 无机化学实验（环卓）: courses/public/fundamental/无机化学实验（环卓）.md
+      - 无机化学实验（环管）: courses/public/fundamental/无机化学实验（环管）.md
+      - 无机化学实验（环科）: courses/public/fundamental/无机化学实验（环科）.md
+      - 有机化学（环卓）: courses/public/fundamental/有机化学（环卓）.md
+      - 有机化学（环管）: courses/public/fundamental/有机化学（环管）.md
+      - 有机化学（环科）: courses/public/fundamental/有机化学（环科）.md
+      - 有机化学实验(1)（环卓）: courses/public/fundamental/有机化学实验(1)（环卓）.md
+      - 有机化学实验(1)（环管）: courses/public/fundamental/有机化学实验(1)（环管）.md
+      - 有机化学实验(1)（环科）: courses/public/fundamental/有机化学实验(1)（环科）.md
+      - 物理化学（环卓）: courses/public/fundamental/物理化学（环卓）.md
+      - 物理化学（环管）: courses/public/fundamental/物理化学（环管）.md
+      - 物理化学（环科）: courses/public/fundamental/物理化学（环科）.md
+      - 物理化学实验（环卓）: courses/public/fundamental/物理化学实验（环卓）.md
+      - 物理化学实验（环管）: courses/public/fundamental/物理化学实验（环管）.md
+      - 物理化学实验（环科）: courses/public/fundamental/物理化学实验（环科）.md
     - 力学类:
-      - 理论力学(1): courses/public/fundamental/理论力学(1).md
-      - 理论力学(2): courses/public/fundamental/理论力学(2).md
-      - 材料力学: courses/public/fundamental/材料力学.md
+      - 理论力学(1)（能环）: courses/public/fundamental/理论力学(1)（能环）.md
+      - 理论力学(1)（土木）: courses/public/fundamental/理论力学(1)（土木）.md
+      - 理论力学(2)（能环）: courses/public/fundamental/理论力学(2)（能环）.md
+      - 理论力学(2)（土木）: courses/public/fundamental/理论力学(2)（土木）.md
+      - 材料力学（能环）: courses/public/fundamental/材料力学（能环）.md
+      - 材料力学（土木）: courses/public/fundamental/材料力学（土木）.md
       - 工程力学: courses/public/fundamental/工程力学.md
-      - 工程力学与土建基础: courses/public/fundamental/工程力学与土建基础.md
+      - 工程力学与土建基础（环卓）: courses/public/fundamental/工程力学与土建基础（环卓）.md
+      - 工程力学与土建基础（环管）: courses/public/fundamental/工程力学与土建基础（环管）.md
     - 机械与制图类:
-      - 画法几何及工程制图（1）: courses/public/fundamental/画法几何及工程制图（1）.md
-      - 画法几何及工程制图（2）: courses/public/fundamental/画法几何及工程制图（2）.md
-      - 工程制图: courses/public/fundamental/工程制图.md
+      - 画法几何及工程制图（1）（能环）: courses/public/fundamental/画法几何及工程制图（1）（能环）.md
+      - 画法几何及工程制图（1）（建环）: courses/public/fundamental/画法几何及工程制图（1）（建环）.md
+      - 画法几何及工程制图（2）（能环）: courses/public/fundamental/画法几何及工程制图（2）（能环）.md
+      - 画法几何及工程制图（2）（建环）: courses/public/fundamental/画法几何及工程制图（2）（建环）.md
+      - 工程制图（环卓）: courses/public/fundamental/工程制图（环卓）.md
+      - 工程制图（环管）: courses/public/fundamental/工程制图（环管）.md
+      - 工程制图（土木）: courses/public/fundamental/工程制图（土木）.md
       - 机械设计基础（能环）: courses/public/fundamental/机械设计基础（能环）.md
       - 机械设计基础（建环）: courses/public/fundamental/机械设计基础（建环）.md
-      - 工程训练(1)（能环·建环）: courses/public/fundamental/工程训练(1)（能环·建环）.md
-      - 工程训练（环卓·环管）: courses/public/fundamental/工程训练（环卓·环管）.md
+      - 工程训练(1)（能环）: courses/public/fundamental/工程训练(1)（能环）.md
+      - 工程训练（环卓）: courses/public/fundamental/工程训练（环卓）.md
+      - 工程训练（环管）: courses/public/fundamental/工程训练（环管）.md
+      - 工程训练(1)（建环）: courses/public/fundamental/工程训练(1)（建环）.md
       - 工程训练（土木）: courses/public/fundamental/工程训练（土木）.md
-      - 工程训练(2): courses/public/fundamental/工程训练(2).md
-      - 制图大作业: courses/public/fundamental/制图大作业.md
-      - 机械设计课程设计: courses/public/fundamental/机械设计课程设计.md
-      - 工程制图课程设计: courses/public/fundamental/工程制图课程设计.md
+      - 工程训练(2)（能环）: courses/public/fundamental/工程训练(2)（能环）.md
+      - 工程训练(2)（建环）: courses/public/fundamental/工程训练(2)（建环）.md
+      - 制图大作业（能环）: courses/public/fundamental/制图大作业（能环）.md
+      - 制图大作业（建环）: courses/public/fundamental/制图大作业（建环）.md
+      - 机械设计课程设计（能环）: courses/public/fundamental/机械设计课程设计（能环）.md
+      - 机械设计课程设计（建环）: courses/public/fundamental/机械设计课程设计（建环）.md
+      - 工程制图课程设计（环卓）: courses/public/fundamental/工程制图课程设计（环卓）.md
+      - 工程制图课程设计（环管）: courses/public/fundamental/工程制图课程设计（环管）.md
+      - 工程制图课程设计（土木）: courses/public/fundamental/工程制图课程设计（土木）.md
       - 工程Auto CAD（能环）: courses/public/fundamental/工程Auto CAD（能环）.md
       - 工程Auto CAD实践（建环）: courses/public/fundamental/工程Auto CAD实践（建环）.md
       - 工程Auto CAD（土木）: courses/public/fundamental/工程Auto CAD（土木）.md
     - 电学及控制类:
-      - 电工电子技术B: courses/public/fundamental/电工电子技术B.md
-      - 电工电子技术C: courses/public/fundamental/电工电子技术C.md
-      - 电工电子技术实验B: courses/public/fundamental/电工电子技术实验B.md
-      - 电工电子技术实验C: courses/public/fundamental/电工电子技术实验C.md
+      - 电工电子技术B（能环）: courses/public/fundamental/电工电子技术B（能环）.md
+      - 电工电子技术B（建环）: courses/public/fundamental/电工电子技术B（建环）.md
+      - 电工电子技术C（环卓）: courses/public/fundamental/电工电子技术C（环卓）.md
+      - 电工电子技术C（环管）: courses/public/fundamental/电工电子技术C（环管）.md
+      - 电工电子技术C（环科）: courses/public/fundamental/电工电子技术C（环科）.md
+      - 电工电子技术实验B（能环）: courses/public/fundamental/电工电子技术实验B（能环）.md
+      - 电工电子技术实验B（建环）: courses/public/fundamental/电工电子技术实验B（建环）.md
+      - 电工电子技术实验C（环卓）: courses/public/fundamental/电工电子技术实验C（环卓）.md
+      - 电工电子技术实验C（环管）: courses/public/fundamental/电工电子技术实验C（环管）.md
+      - 电工电子技术实验C（环科）: courses/public/fundamental/电工电子技术实验C（环科）.md
     - 计算机类:
-      - 计算思维与人工智能（Python语言程序设计）: courses/public/fundamental/计算思维与人工智能（Python语言程序设计）.md
+      - 计算机类（能环）: courses/public/fundamental/计算机类（能环）.md
+      - 计算机类（环卓）: courses/public/fundamental/计算机类（环卓）.md
+      - 计算机类（环管）: courses/public/fundamental/计算机类（环管）.md
+      - 计算机类（环科）: courses/public/fundamental/计算机类（环科）.md
+      - 计算机类（建环）: courses/public/fundamental/计算机类（建环）.md
+      - 计算机类（土木）: courses/public/fundamental/计算机类（土木）.md
   - 能环:
     - 导航页: courses/routes/EnergyEnv/index.md
     - 学科基础（必修）:
-      - 概率论与数理统计A或B: courses/public/fundamental/概率论与数理统计A或B.md
-      - 理论力学(1): courses/public/fundamental/理论力学(1).md
-      - 理论力学(2): courses/public/fundamental/理论力学(2).md
-      - 材料力学: courses/public/fundamental/材料力学.md
-      - 画法几何及工程制图（1）: courses/public/fundamental/画法几何及工程制图（1）.md
-      - 画法几何及工程制图（2）: courses/public/fundamental/画法几何及工程制图（2）.md
+      - 概率论与数理统计A或B（能环）: courses/public/fundamental/概率论与数理统计A或B（能环）.md
+      - 理论力学(1)（能环）: courses/public/fundamental/理论力学(1)（能环）.md
+      - 理论力学(2)（能环）: courses/public/fundamental/理论力学(2)（能环）.md
+      - 材料力学（能环）: courses/public/fundamental/材料力学（能环）.md
+      - 画法几何及工程制图（1）（能环）: courses/public/fundamental/画法几何及工程制图（1）（能环）.md
+      - 画法几何及工程制图（2）（能环）: courses/public/fundamental/画法几何及工程制图（2）（能环）.md
       - 机械设计基础（能环）: courses/public/fundamental/机械设计基础（能环）.md
-      - 电工电子技术B: courses/public/fundamental/电工电子技术B.md
+      - 电工电子技术B（能环）: courses/public/fundamental/电工电子技术B（能环）.md
       - 热交换器原理与设计: courses/routes/EnergyEnv/热交换器原理与设计.md
       - 大气污染控制技术: courses/routes/EnergyEnv/大气污染控制技术.md
       - 流体力学（能环）: courses/public/professional/流体力学（能环）.md
@@ -154,13 +227,13 @@ nav:
       - 能源审计: courses/routes/EnergyEnv/能源审计.md
       - 太阳能利用技术: courses/routes/EnergyEnv/太阳能利用技术.md
       - 氢能及燃料电池基础: courses/routes/EnergyEnv/氢能及燃料电池基础.md
-      - 信息检索与资源利用: courses/public/professional/信息检索与资源利用.md
+      - 信息检索与资源利用（能环）: courses/public/professional/信息检索与资源利用（能环）.md
     - 实践教学（必修）:
-      - 工程训练(1)（能环·建环）: courses/public/fundamental/工程训练(1)（能环·建环）.md
-      - 工程训练(2): courses/public/fundamental/工程训练(2).md
-      - 制图大作业: courses/public/fundamental/制图大作业.md
-      - 机械设计课程设计: courses/public/fundamental/机械设计课程设计.md
-      - 电工电子技术实验B: courses/public/fundamental/电工电子技术实验B.md
+      - 工程训练(1)（能环）: courses/public/fundamental/工程训练(1)（能环）.md
+      - 工程训练(2)（能环）: courses/public/fundamental/工程训练(2)（能环）.md
+      - 制图大作业（能环）: courses/public/fundamental/制图大作业（能环）.md
+      - 机械设计课程设计（能环）: courses/public/fundamental/机械设计课程设计（能环）.md
+      - 电工电子技术实验B（能环）: courses/public/fundamental/电工电子技术实验B（能环）.md
       - 制冷课程设计: courses/routes/EnergyEnv/制冷课程设计.md
       - 热工测试技术与实验（一）: courses/routes/EnergyEnv/热工测试技术与实验（一）.md
       - 热工测试技术与实验（二）: courses/routes/EnergyEnv/热工测试技术与实验（二）.md
@@ -177,169 +250,169 @@ nav:
   - 环卓:
     - 导航页: courses/routes/EnvEngExcellent/index.md
     - 学科基础（必修）:
-      - 工程数学(1): courses/public/fundamental/工程数学(1).md
-      - 工程数学(2): courses/public/fundamental/工程数学(2).md
-      - 工程制图: courses/public/fundamental/工程制图.md
-      - 电工电子技术C: courses/public/fundamental/电工电子技术C.md
-      - 电工电子技术实验C: courses/public/fundamental/电工电子技术实验C.md
-      - 有机化学实验(1): courses/public/fundamental/有机化学实验(1).md
-      - 有机化学: courses/public/fundamental/有机化学.md
-      - 物理化学实验: courses/public/fundamental/物理化学实验.md
-      - 物理化学: courses/public/fundamental/物理化学.md
-      - 工程项目管理: courses/routes/EnvEngExcellent/工程项目管理.md
-      - 化工原理（环卓·环管）: courses/public/professional/化工原理（环卓·环管）.md
-      - 化工原理实验（环卓·环管）: courses/public/professional/化工原理实验（环卓·环管）.md
-      - 环境学: courses/public/professional/环境学.md
-      - 工程力学与土建基础: courses/public/fundamental/工程力学与土建基础.md
+      - 工程数学(1)（环卓）: courses/public/fundamental/工程数学(1)（环卓）.md
+      - 工程数学(2)（环卓）: courses/public/fundamental/工程数学(2)（环卓）.md
+      - 工程制图（环卓）: courses/public/fundamental/工程制图（环卓）.md
+      - 电工电子技术C（环卓）: courses/public/fundamental/电工电子技术C（环卓）.md
+      - 电工电子技术实验C（环卓）: courses/public/fundamental/电工电子技术实验C（环卓）.md
+      - 有机化学实验(1)（环卓）: courses/public/fundamental/有机化学实验(1)（环卓）.md
+      - 有机化学（环卓）: courses/public/fundamental/有机化学（环卓）.md
+      - 物理化学实验（环卓）: courses/public/fundamental/物理化学实验（环卓）.md
+      - 物理化学（环卓）: courses/public/fundamental/物理化学（环卓）.md
+      - 工程项目管理（环卓）: courses/routes/EnvEngExcellent/工程项目管理（环卓）.md
+      - 化工原理（环卓）: courses/public/professional/化工原理（环卓）.md
+      - 化工原理实验（环卓）: courses/public/professional/化工原理实验（环卓）.md
+      - 环境学（环卓）: courses/public/professional/环境学（环卓）.md
+      - 工程力学与土建基础（环卓）: courses/public/fundamental/工程力学与土建基础（环卓）.md
       - 流体力学（环卓）: courses/public/professional/流体力学（环卓）.md
-      - 环境微生物学: courses/routes/EnvEngExcellent/环境微生物学.md
-      - 环境分析化学: courses/public/professional/环境分析化学.md
-      - 环境分析化学实验: courses/public/professional/环境分析化学实验.md
-      - 环境监测（环卓·环管）: courses/public/professional/环境监测（环卓·环管）.md
-      - 环境监测实验（环卓·环管）: courses/public/professional/环境监测实验（环卓·环管）.md
+      - 环境微生物学（环卓）: courses/routes/EnvEngExcellent/环境微生物学（环卓）.md
+      - 环境分析化学（环卓）: courses/public/professional/环境分析化学（环卓）.md
+      - 环境分析化学实验（环卓）: courses/public/professional/环境分析化学实验（环卓）.md
+      - 环境监测（环卓）: courses/public/professional/环境监测（环卓）.md
+      - 环境监测实验（环卓）: courses/public/professional/环境监测实验（环卓）.md
       - 创新思维与方法: courses/routes/EnvEngExcellent/创新思维与方法.md
     - 学科基础（选修）:
-      - 环境问题分析与研讨: courses/routes/EnvEngExcellent/环境问题分析与研讨.md
-      - 智慧环保技术: courses/routes/EnvEngExcellent/智慧环保技术.md
-      - 工程概预算: courses/routes/EnvEngExcellent/工程概预算.md
+      - 环境问题分析与研讨（环卓）: courses/routes/EnvEngExcellent/环境问题分析与研讨（环卓）.md
+      - 智慧环保技术（环卓）: courses/routes/EnvEngExcellent/智慧环保技术（环卓）.md
+      - 工程概预算（环卓）: courses/routes/EnvEngExcellent/工程概预算（环卓）.md
       - 环境系统分析: courses/routes/EnvEngExcellent/环境系统分析.md
-      - 环境工程CAD: courses/routes/EnvEngExcellent/环境工程CAD.md
-      - 环境仪器分析（环卓·环管）: courses/public/professional/环境仪器分析（环卓·环管）.md
-      - 建筑概论及制图: courses/routes/EnvEngExcellent/建筑概论及制图.md
-      - 信息检索与资源利用: courses/public/professional/信息检索与资源利用.md
+      - 环境工程CAD（环卓）: courses/routes/EnvEngExcellent/环境工程CAD（环卓）.md
+      - 环境仪器分析（环卓）: courses/public/professional/环境仪器分析（环卓）.md
+      - 建筑概论及制图（环卓）: courses/routes/EnvEngExcellent/建筑概论及制图（环卓）.md
+      - 信息检索与资源利用（环卓）: courses/public/professional/信息检索与资源利用（环卓）.md
     - 专业方向（必修）:
-      - 大气污染控制工程: courses/routes/EnvEngExcellent/大气污染控制工程.md
-      - 固体废物处理与处置: courses/routes/EnvEngExcellent/固体废物处理与处置.md
-      - 环境评价学（环卓·环管）: courses/public/professional/环境评价学（环卓·环管）.md
-      - 环境管理与规划: courses/routes/EnvEngExcellent/环境管理与规划.md
-      - 物理性污染控制: courses/routes/EnvEngExcellent/物理性污染控制.md
-      - 水污染控制工程(上): courses/routes/EnvEngExcellent/水污染控制工程(上).md
-      - 水污染控制工程(下): courses/routes/EnvEngExcellent/水污染控制工程(下).md
-      - 环保设备基础与智能控制: courses/routes/EnvEngExcellent/环保设备基础与智能控制.md
+      - 大气污染控制工程（环卓）: courses/routes/EnvEngExcellent/大气污染控制工程（环卓）.md
+      - 固体废物处理与处置（环卓）: courses/routes/EnvEngExcellent/固体废物处理与处置（环卓）.md
+      - 环境评价学（环卓）: courses/public/professional/环境评价学（环卓）.md
+      - 环境管理与规划（环卓）: courses/routes/EnvEngExcellent/环境管理与规划（环卓）.md
+      - 物理性污染控制（环卓）: courses/routes/EnvEngExcellent/物理性污染控制（环卓）.md
+      - 水污染控制工程(上)（环卓）: courses/routes/EnvEngExcellent/水污染控制工程(上)（环卓）.md
+      - 水污染控制工程(下)（环卓）: courses/routes/EnvEngExcellent/水污染控制工程(下)（环卓）.md
+      - 环保设备基础与智能控制（环卓）: courses/routes/EnvEngExcellent/环保设备基础与智能控制（环卓）.md
     - 专业方向（选修）:
-      - 工业污染和排放管理: courses/routes/EnvEngExcellent/工业污染和排放管理.md
-      - 清洁生产工艺学: courses/routes/EnvEngExcellent/清洁生产工艺学.md
-      - 排水管网: courses/routes/EnvEngExcellent/排水管网.md
-      - 工业废水处理: courses/routes/EnvEngExcellent/工业废水处理.md
-      - 建筑给水排水工程: courses/routes/EnvEngExcellent/建筑给水排水工程.md
+      - 工业污染和排放管理（环卓）: courses/routes/EnvEngExcellent/工业污染和排放管理（环卓）.md
+      - 清洁生产工艺学（环卓）: courses/routes/EnvEngExcellent/清洁生产工艺学（环卓）.md
+      - 排水管网（环卓）: courses/routes/EnvEngExcellent/排水管网（环卓）.md
+      - 工业废水处理（环卓）: courses/routes/EnvEngExcellent/工业废水处理（环卓）.md
+      - 建筑给水排水工程（环卓）: courses/routes/EnvEngExcellent/建筑给水排水工程（环卓）.md
       - 环境工程专业前沿课程: courses/routes/EnvEngExcellent/环境工程专业前沿课程.md
-      - 土壤和地下水污染修复: courses/routes/EnvEngExcellent/土壤和地下水污染修复.md
-      - 生态工程: courses/routes/EnvEngExcellent/生态工程.md
+      - 土壤和地下水污染修复（环卓）: courses/routes/EnvEngExcellent/土壤和地下水污染修复（环卓）.md
+      - 生态工程（环卓）: courses/routes/EnvEngExcellent/生态工程（环卓）.md
     - 实践教学（必修）:
-      - 工程制图课程设计: courses/public/fundamental/工程制图课程设计.md
-      - 工程训练（环卓·环管）: courses/public/fundamental/工程训练（环卓·环管）.md
-      - 水污染控制工程课程设计: courses/routes/EnvEngExcellent/水污染控制工程课程设计.md
-      - 环境微生物学实验: courses/routes/EnvEngExcellent/环境微生物学实验.md
-      - 环境监测大实验（环卓·环管）: courses/public/professional/环境监测大实验（环卓·环管）.md
-      - 固体废物处理与处置课程设计: courses/routes/EnvEngExcellent/固体废物处理与处置课程设计.md
+      - 工程制图课程设计（环卓）: courses/public/fundamental/工程制图课程设计（环卓）.md
+      - 工程训练（环卓）: courses/public/fundamental/工程训练（环卓）.md
+      - 水污染控制工程课程设计（环卓）: courses/routes/EnvEngExcellent/水污染控制工程课程设计（环卓）.md
+      - 环境微生物学实验（环卓）: courses/routes/EnvEngExcellent/环境微生物学实验（环卓）.md
+      - 环境监测大实验（环卓）: courses/public/professional/环境监测大实验（环卓）.md
+      - 固体废物处理与处置课程设计（环卓）: courses/routes/EnvEngExcellent/固体废物处理与处置课程设计（环卓）.md
       - 环境评价课程设计（环卓）: courses/routes/EnvEngExcellent/环境评价课程设计（环卓）.md
-      - 大气污染控制工程课程设计: courses/routes/EnvEngExcellent/大气污染控制工程课程设计.md
-      - 固体废物处理与处置实验: courses/routes/EnvEngExcellent/固体废物处理与处置实验.md
-      - 大气污染控制工程实验: courses/routes/EnvEngExcellent/大气污染控制工程实验.md
+      - 大气污染控制工程课程设计（环卓）: courses/routes/EnvEngExcellent/大气污染控制工程课程设计（环卓）.md
+      - 固体废物处理与处置实验（环卓）: courses/routes/EnvEngExcellent/固体废物处理与处置实验（环卓）.md
+      - 大气污染控制工程实验（环卓）: courses/routes/EnvEngExcellent/大气污染控制工程实验（环卓）.md
       - 水污染控制工程实验(2)（环卓）: courses/routes/EnvEngExcellent/水污染控制工程实验(2)（环卓）.md
-      - 水污染控制工程实验(1): courses/routes/EnvEngExcellent/水污染控制工程实验(1).md
+      - 水污染控制工程实验(1)（环卓）: courses/routes/EnvEngExcellent/水污染控制工程实验(1)（环卓）.md
       - 毕业实习: courses/routes/EnvEngExcellent/毕业实习.md
       - 生产实习: courses/routes/EnvEngExcellent/生产实习.md
       - 认识实习: courses/routes/EnvEngExcellent/认识实习.md
       - 微机上机与环境大数据分析: courses/routes/EnvEngExcellent/微机上机与环境大数据分析.md
-      - 化工原理课程设计（环卓·环管）: courses/public/professional/化工原理课程设计（环卓·环管）.md
+      - 化工原理课程设计（环卓）: courses/public/professional/化工原理课程设计（环卓）.md
       - 毕业设计: courses/routes/EnvEngExcellent/毕业设计.md
   - 环管:
     - 导航页: courses/routes/EnvEngDual/index.md
     - 学科基础（必修）:
-      - 工程数学(1): courses/public/fundamental/工程数学(1).md
-      - 工程数学(2): courses/public/fundamental/工程数学(2).md
-      - 工程制图: courses/public/fundamental/工程制图.md
-      - 电工电子技术C: courses/public/fundamental/电工电子技术C.md
-      - 电工电子技术实验C: courses/public/fundamental/电工电子技术实验C.md
-      - 有机化学实验(1): courses/public/fundamental/有机化学实验(1).md
-      - 有机化学: courses/public/fundamental/有机化学.md
-      - 物理化学实验: courses/public/fundamental/物理化学实验.md
-      - 物理化学: courses/public/fundamental/物理化学.md
+      - 工程数学(1)（环管）: courses/public/fundamental/工程数学(1)（环管）.md
+      - 工程数学(2)（环管）: courses/public/fundamental/工程数学(2)（环管）.md
+      - 工程制图（环管）: courses/public/fundamental/工程制图（环管）.md
+      - 电工电子技术C（环管）: courses/public/fundamental/电工电子技术C（环管）.md
+      - 电工电子技术实验C（环管）: courses/public/fundamental/电工电子技术实验C（环管）.md
+      - 有机化学实验(1)（环管）: courses/public/fundamental/有机化学实验(1)（环管）.md
+      - 有机化学（环管）: courses/public/fundamental/有机化学（环管）.md
+      - 物理化学实验（环管）: courses/public/fundamental/物理化学实验（环管）.md
+      - 物理化学（环管）: courses/public/fundamental/物理化学（环管）.md
       - 管理学: courses/routes/EnvEngDual/管理学.md
-      - 工程项目管理: courses/routes/EnvEngExcellent/工程项目管理.md
+      - 工程项目管理（环管）: courses/routes/EnvEngExcellent/工程项目管理（环管）.md
       - 环管融合创新思维与方法: courses/routes/EnvEngDual/环管融合创新思维与方法.md
-      - 化工原理（环卓·环管）: courses/public/professional/化工原理（环卓·环管）.md
-      - 化工原理实验（环卓·环管）: courses/public/professional/化工原理实验（环卓·环管）.md
+      - 化工原理（环管）: courses/public/professional/化工原理（环管）.md
+      - 化工原理实验（环管）: courses/public/professional/化工原理实验（环管）.md
       - 宏观经济学: courses/routes/EnvEngDual/宏观经济学.md
       - 微观经济学: courses/routes/EnvEngDual/微观经济学.md
-      - 工程力学与土建基础: courses/public/fundamental/工程力学与土建基础.md
+      - 工程力学与土建基础（环管）: courses/public/fundamental/工程力学与土建基础（环管）.md
       - 流体力学（环管）: courses/public/professional/流体力学（环管）.md
-      - 环境微生物学: courses/routes/EnvEngExcellent/环境微生物学.md
-      - 环境分析化学: courses/public/professional/环境分析化学.md
-      - 环境分析化学实验: courses/public/professional/环境分析化学实验.md
-      - 环境监测（环卓·环管）: courses/public/professional/环境监测（环卓·环管）.md
-      - 环境监测实验（环卓·环管）: courses/public/professional/环境监测实验（环卓·环管）.md
+      - 环境微生物学（环管）: courses/routes/EnvEngExcellent/环境微生物学（环管）.md
+      - 环境分析化学（环管）: courses/public/professional/环境分析化学（环管）.md
+      - 环境分析化学实验（环管）: courses/public/professional/环境分析化学实验（环管）.md
+      - 环境监测（环管）: courses/public/professional/环境监测（环管）.md
+      - 环境监测实验（环管）: courses/public/professional/环境监测实验（环管）.md
       - 环管融合专业导论: courses/routes/EnvEngDual/环管融合专业导论.md
     - 学科基础（选修）:
       - 会计学: courses/routes/EnvEngDual/会计学.md
       - 环境系统分析与管理: courses/routes/EnvEngDual/环境系统分析与管理.md
-      - 环境问题分析与研讨: courses/routes/EnvEngExcellent/环境问题分析与研讨.md
-      - 智慧环保技术: courses/routes/EnvEngExcellent/智慧环保技术.md
+      - 环境问题分析与研讨（环管）: courses/routes/EnvEngExcellent/环境问题分析与研讨（环管）.md
+      - 智慧环保技术（环管）: courses/routes/EnvEngExcellent/智慧环保技术（环管）.md
       - 环境与经济法基础: courses/routes/EnvEngDual/环境与经济法基础.md
       - 组织行为学: courses/routes/EnvEngDual/组织行为学.md
-      - 工程概预算: courses/routes/EnvEngExcellent/工程概预算.md
-      - 环境工程CAD: courses/routes/EnvEngExcellent/环境工程CAD.md
-      - 环境仪器分析（环卓·环管）: courses/public/professional/环境仪器分析（环卓·环管）.md
-      - 建筑概论及制图: courses/routes/EnvEngExcellent/建筑概论及制图.md
-      - 信息检索与资源利用: courses/public/professional/信息检索与资源利用.md
+      - 工程概预算（环管）: courses/routes/EnvEngExcellent/工程概预算（环管）.md
+      - 环境工程CAD（环管）: courses/routes/EnvEngExcellent/环境工程CAD（环管）.md
+      - 环境仪器分析（环管）: courses/public/professional/环境仪器分析（环管）.md
+      - 建筑概论及制图（环管）: courses/routes/EnvEngExcellent/建筑概论及制图（环管）.md
+      - 信息检索与资源利用（环管）: courses/public/professional/信息检索与资源利用（环管）.md
     - 专业方向（必修）:
       - 管理信息系统: courses/routes/EnvEngDual/管理信息系统.md
       - 环境经济学（环管）: courses/public/professional/环境经济学（环管）.md
-      - 大气污染控制工程: courses/routes/EnvEngExcellent/大气污染控制工程.md
-      - 固体废物处理与处置: courses/routes/EnvEngExcellent/固体废物处理与处置.md
-      - 环境评价学（环卓·环管）: courses/public/professional/环境评价学（环卓·环管）.md
-      - 环境管理与规划: courses/routes/EnvEngExcellent/环境管理与规划.md
-      - 物理性污染控制: courses/routes/EnvEngExcellent/物理性污染控制.md
-      - 水污染控制工程(上): courses/routes/EnvEngExcellent/水污染控制工程(上).md
-      - 水污染控制工程(下): courses/routes/EnvEngExcellent/水污染控制工程(下).md
-      - 环保设备基础与智能控制: courses/routes/EnvEngExcellent/环保设备基础与智能控制.md
+      - 大气污染控制工程（环管）: courses/routes/EnvEngExcellent/大气污染控制工程（环管）.md
+      - 固体废物处理与处置（环管）: courses/routes/EnvEngExcellent/固体废物处理与处置（环管）.md
+      - 环境评价学（环管）: courses/public/professional/环境评价学（环管）.md
+      - 环境管理与规划（环管）: courses/routes/EnvEngExcellent/环境管理与规划（环管）.md
+      - 物理性污染控制（环管）: courses/routes/EnvEngExcellent/物理性污染控制（环管）.md
+      - 水污染控制工程(上)（环管）: courses/routes/EnvEngExcellent/水污染控制工程(上)（环管）.md
+      - 水污染控制工程(下)（环管）: courses/routes/EnvEngExcellent/水污染控制工程(下)（环管）.md
+      - 环保设备基础与智能控制（环管）: courses/routes/EnvEngExcellent/环保设备基础与智能控制（环管）.md
     - 专业方向（选修）:
       - 企业经营管理: courses/routes/EnvEngDual/企业经营管理.md
       - 环管融合专业前沿课程: courses/routes/EnvEngDual/环管融合专业前沿课程.md
-      - 工业污染和排放管理: courses/routes/EnvEngExcellent/工业污染和排放管理.md
+      - 工业污染和排放管理（环管）: courses/routes/EnvEngExcellent/工业污染和排放管理（环管）.md
       - 数据库系统及应用: courses/routes/EnvEngDual/数据库系统及应用.md
-      - 清洁生产工艺学: courses/routes/EnvEngExcellent/清洁生产工艺学.md
-      - 排水管网: courses/routes/EnvEngExcellent/排水管网.md
-      - 工业废水处理: courses/routes/EnvEngExcellent/工业废水处理.md
-      - 建筑给水排水工程: courses/routes/EnvEngExcellent/建筑给水排水工程.md
-      - 土壤和地下水污染修复: courses/routes/EnvEngExcellent/土壤和地下水污染修复.md
-      - 生态工程: courses/routes/EnvEngExcellent/生态工程.md
+      - 清洁生产工艺学（环管）: courses/routes/EnvEngExcellent/清洁生产工艺学（环管）.md
+      - 排水管网（环管）: courses/routes/EnvEngExcellent/排水管网（环管）.md
+      - 工业废水处理（环管）: courses/routes/EnvEngExcellent/工业废水处理（环管）.md
+      - 建筑给水排水工程（环管）: courses/routes/EnvEngExcellent/建筑给水排水工程（环管）.md
+      - 土壤和地下水污染修复（环管）: courses/routes/EnvEngExcellent/土壤和地下水污染修复（环管）.md
+      - 生态工程（环管）: courses/routes/EnvEngExcellent/生态工程（环管）.md
     - 实践教学（必修）:
-      - 工程制图课程设计: courses/public/fundamental/工程制图课程设计.md
-      - 工程训练（环卓·环管）: courses/public/fundamental/工程训练（环卓·环管）.md
+      - 工程制图课程设计（环管）: courses/public/fundamental/工程制图课程设计（环管）.md
+      - 工程训练（环管）: courses/public/fundamental/工程训练（环管）.md
       - 环管融合生产实习: courses/routes/EnvEngDual/环管融合生产实习.md
       - 环管融合认识实习: courses/routes/EnvEngDual/环管融合认识实习.md
       - 环管融合毕业实习: courses/routes/EnvEngDual/环管融合毕业实习.md
-      - 水污染控制工程课程设计: courses/routes/EnvEngExcellent/水污染控制工程课程设计.md
+      - 水污染控制工程课程设计（环管）: courses/routes/EnvEngExcellent/水污染控制工程课程设计（环管）.md
       - 创业决策: courses/routes/EnvEngDual/创业决策.md
       - 微机上机和管理系统: courses/routes/EnvEngDual/微机上机和管理系统.md
-      - 环境微生物学实验: courses/routes/EnvEngExcellent/环境微生物学实验.md
-      - 环境监测大实验（环卓·环管）: courses/public/professional/环境监测大实验（环卓·环管）.md
-      - 固体废物处理与处置课程设计: courses/routes/EnvEngExcellent/固体废物处理与处置课程设计.md
+      - 环境微生物学实验（环管）: courses/routes/EnvEngExcellent/环境微生物学实验（环管）.md
+      - 环境监测大实验（环管）: courses/public/professional/环境监测大实验（环管）.md
+      - 固体废物处理与处置课程设计（环管）: courses/routes/EnvEngExcellent/固体废物处理与处置课程设计（环管）.md
       - 环境评价课程设计（环管）: courses/routes/EnvEngExcellent/环境评价课程设计（环管）.md
-      - 大气污染控制工程课程设计: courses/routes/EnvEngExcellent/大气污染控制工程课程设计.md
-      - 固体废物处理与处置实验: courses/routes/EnvEngExcellent/固体废物处理与处置实验.md
-      - 大气污染控制工程实验: courses/routes/EnvEngExcellent/大气污染控制工程实验.md
+      - 大气污染控制工程课程设计（环管）: courses/routes/EnvEngExcellent/大气污染控制工程课程设计（环管）.md
+      - 固体废物处理与处置实验（环管）: courses/routes/EnvEngExcellent/固体废物处理与处置实验（环管）.md
+      - 大气污染控制工程实验（环管）: courses/routes/EnvEngExcellent/大气污染控制工程实验（环管）.md
       - 水污染控制工程实验（2）（环管）: courses/routes/EnvEngExcellent/水污染控制工程实验（2）（环管）.md
-      - 水污染控制工程实验(1): courses/routes/EnvEngExcellent/水污染控制工程实验(1).md
-      - 化工原理课程设计（环卓·环管）: courses/public/professional/化工原理课程设计（环卓·环管）.md
+      - 水污染控制工程实验(1)（环管）: courses/routes/EnvEngExcellent/水污染控制工程实验(1)（环管）.md
+      - 化工原理课程设计（环管）: courses/public/professional/化工原理课程设计（环管）.md
       - 毕业设计: courses/routes/EnvEngDual/毕业设计.md
   - 环科:
     - 导航页: courses/routes/EnvScience/index.md
     - 学科基础（必修）:
-      - 概率论与数理统计A或B: courses/public/fundamental/概率论与数理统计A或B.md
-      - 电工电子技术C: courses/public/fundamental/电工电子技术C.md
-      - 电工电子技术实验C: courses/public/fundamental/电工电子技术实验C.md
-      - 有机化学实验(1): courses/public/fundamental/有机化学实验(1).md
+      - 概率论与数理统计A或B（环科）: courses/public/fundamental/概率论与数理统计A或B（环科）.md
+      - 电工电子技术C（环科）: courses/public/fundamental/电工电子技术C（环科）.md
+      - 电工电子技术实验C（环科）: courses/public/fundamental/电工电子技术实验C（环科）.md
+      - 有机化学实验(1)（环科）: courses/public/fundamental/有机化学实验(1)（环科）.md
       - 生物化学: courses/routes/EnvScience/生物化学.md
       - 生物化学实验: courses/routes/EnvScience/生物化学实验.md
-      - 有机化学: courses/public/fundamental/有机化学.md
-      - 物理化学实验: courses/public/fundamental/物理化学实验.md
-      - 物理化学: courses/public/fundamental/物理化学.md
+      - 有机化学（环科）: courses/public/fundamental/有机化学（环科）.md
+      - 物理化学实验（环科）: courses/public/fundamental/物理化学实验（环科）.md
+      - 物理化学（环科）: courses/public/fundamental/物理化学（环科）.md
       - 化工原理（环科）: courses/public/professional/化工原理（环科）.md
       - 化工原理实验（环科）: courses/public/professional/化工原理实验（环科）.md
-      - 环境学: courses/public/professional/环境学.md
+      - 环境学（环科）: courses/public/professional/环境学（环科）.md
       - 环境化学: courses/routes/EnvScience/环境化学.md
       - 环境生物学: courses/routes/EnvScience/环境生物学.md
       - 环境工程学实验: courses/routes/EnvScience/环境工程学实验.md
@@ -347,7 +420,7 @@ nav:
       - 环境生物学实验: courses/routes/EnvScience/环境生物学实验.md
       - 生态学: courses/routes/EnvScience/生态学.md
       - 环境工程制图: courses/routes/EnvScience/环境工程制图.md
-      - 环境分析化学实验: courses/public/professional/环境分析化学实验.md
+      - 环境分析化学实验（环科）: courses/public/professional/环境分析化学实验（环科）.md
       - 环境监测（环科）: courses/public/professional/环境监测（环科）.md
       - 环境监测实验（环科）: courses/public/professional/环境监测实验（环科）.md
       - 环境仪器分析（环科）: courses/public/professional/环境仪器分析（环科）.md
@@ -358,7 +431,7 @@ nav:
     - 专业方向（选修）:
       - 环境经济学（环科）: courses/public/professional/环境经济学（环科）.md
       - 专业外语（环科）: courses/public/professional/专业外语（环科）.md
-      - 信息检索与资源利用: courses/public/professional/信息检索与资源利用.md
+      - 信息检索与资源利用（环科）: courses/public/professional/信息检索与资源利用（环科）.md
     - 专业方向（选修） · 环境管理与规划模块:
       - 环境法学: courses/routes/EnvScience/环境法学.md
       - 环境信息系统: courses/routes/EnvScience/环境信息系统.md
@@ -397,12 +470,12 @@ nav:
   - 建环:
     - 导航页: courses/routes/BuildingEnv/index.md
     - 学科基础（必修）:
-      - 概率论与数理统计A或B: courses/public/fundamental/概率论与数理统计A或B.md
+      - 概率论与数理统计A或B（建环）: courses/public/fundamental/概率论与数理统计A或B（建环）.md
       - 工程力学: courses/public/fundamental/工程力学.md
-      - 画法几何及工程制图（1）: courses/public/fundamental/画法几何及工程制图（1）.md
-      - 画法几何及工程制图（2）: courses/public/fundamental/画法几何及工程制图（2）.md
+      - 画法几何及工程制图（1）（建环）: courses/public/fundamental/画法几何及工程制图（1）（建环）.md
+      - 画法几何及工程制图（2）（建环）: courses/public/fundamental/画法几何及工程制图（2）（建环）.md
       - 机械设计基础（建环）: courses/public/fundamental/机械设计基础（建环）.md
-      - 电工电子技术B: courses/public/fundamental/电工电子技术B.md
+      - 电工电子技术B（建环）: courses/public/fundamental/电工电子技术B（建环）.md
       - 工业通风: courses/routes/BuildingEnv/工业通风.md
       - 自动控制原理: courses/routes/BuildingEnv/自动控制原理.md
       - 工程管理: courses/routes/BuildingEnv/工程管理.md
@@ -434,13 +507,13 @@ nav:
       - 专业英语（建环）: courses/public/professional/专业英语（建环）.md
       - 专业报告写作与表达: courses/routes/BuildingEnv/专业报告写作与表达.md
       - BIM技术与应用实践: courses/routes/BuildingEnv/BIM技术与应用实践.md
-      - 信息检索与资源利用: courses/public/professional/信息检索与资源利用.md
+      - 信息检索与资源利用（建环）: courses/public/professional/信息检索与资源利用（建环）.md
     - 实践教学（必修）:
-      - 工程训练(1)（能环·建环）: courses/public/fundamental/工程训练(1)（能环·建环）.md
-      - 工程训练(2): courses/public/fundamental/工程训练(2).md
-      - 制图大作业: courses/public/fundamental/制图大作业.md
-      - 机械设计课程设计: courses/public/fundamental/机械设计课程设计.md
-      - 电工电子技术实验B: courses/public/fundamental/电工电子技术实验B.md
+      - 工程训练(1)（建环）: courses/public/fundamental/工程训练(1)（建环）.md
+      - 工程训练(2)（建环）: courses/public/fundamental/工程训练(2)（建环）.md
+      - 制图大作业（建环）: courses/public/fundamental/制图大作业（建环）.md
+      - 机械设计课程设计（建环）: courses/public/fundamental/机械设计课程设计（建环）.md
+      - 电工电子技术实验B（建环）: courses/public/fundamental/电工电子技术实验B（建环）.md
       - 通风课程设计: courses/routes/BuildingEnv/通风课程设计.md
       - 制冷课程设计: courses/routes/BuildingEnv/制冷课程设计.md
       - 专业基础实验（一）: courses/routes/BuildingEnv/专业基础实验（一）.md
@@ -458,11 +531,11 @@ nav:
   - 土木:
     - 导航页: courses/routes/CivilGreen/index.md
     - 学科基础（必修）:
-      - 概率论与数理统计A或B: courses/public/fundamental/概率论与数理统计A或B.md
-      - 理论力学(1): courses/public/fundamental/理论力学(1).md
-      - 理论力学(2): courses/public/fundamental/理论力学(2).md
-      - 材料力学: courses/public/fundamental/材料力学.md
-      - 工程制图: courses/public/fundamental/工程制图.md
+      - 概率论与数理统计A或B（土木）: courses/public/fundamental/概率论与数理统计A或B（土木）.md
+      - 理论力学(1)（土木）: courses/public/fundamental/理论力学(1)（土木）.md
+      - 理论力学(2)（土木）: courses/public/fundamental/理论力学(2)（土木）.md
+      - 材料力学（土木）: courses/public/fundamental/材料力学（土木）.md
+      - 工程制图（土木）: courses/public/fundamental/工程制图（土木）.md
       - 土木工程概论: courses/routes/CivilGreen/土木工程概论.md
       - 土木工程材料: courses/routes/CivilGreen/土木工程材料.md
       - 荷载与可靠度设计原理: courses/routes/CivilGreen/荷载与可靠度设计原理.md
@@ -495,7 +568,7 @@ nav:
       - 建筑业碳排放: courses/routes/CivilGreen/建筑业碳排放.md
       - 给排水工程: courses/routes/CivilGreen/给排水工程.md
     - 实践教学（必修）:
-      - 工程制图课程设计: courses/public/fundamental/工程制图课程设计.md
+      - 工程制图课程设计（土木）: courses/public/fundamental/工程制图课程设计（土木）.md
       - 工程训练（土木）: courses/public/fundamental/工程训练（土木）.md
       - 绿色低碳地基处理设计: courses/routes/CivilGreen/绿色低碳地基处理设计.md
       - 土木工程信息化设计: courses/routes/CivilGreen/土木工程信息化设计.md
