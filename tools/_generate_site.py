@@ -1061,8 +1061,9 @@ nav_js = r"""/* 东华环院课程攻略 · 侧边导航"专业上下文保持"�
         if ((links[i].textContent || "").trim() !== courseName) continue;
         var t2 = topOf(links[i], root);
         if (t2) {
-          var t3 = t2.querySelector(":scope > .md-nav__link a, :scope > .md-nav__link");
-          var key = t3 ? (t3.getAttribute("href") || t2.id) : (t2.id || "top");
+          /* 顶层分区唯一标识：分区 label 的 id（如 __nav_5_label），避免不同分区被折叠为同一 key */
+          var lb = t2.querySelector(":scope > .md-nav__link");
+          var key = (lb && lb.id) || t2.id || "top";
           if (!seen[key]) { seen[key] = 1; wantTops.push(t2); }
         }
       }
