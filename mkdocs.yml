@@ -1,5 +1,5 @@
 site_name: 东华环院课程攻略
-site_url: https://bullet016.github.io
+site_url: https://bullet016.github.io/DHU-Env.github.io/
 # 部署到自己的 GitHub Pages 后请将上面的 site_url 改为实际网址（如 https://<用户名>.github.io/<仓库名>/）
 exclude_docs: |
   /courses/load.md
