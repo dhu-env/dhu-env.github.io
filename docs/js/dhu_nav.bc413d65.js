@@ -14,13 +14,8 @@
     return m ? m[1] : null;
   }
 
-  function isPublicListPage() {
-    /* 仅真正的列表/导航页（URL 以 index.html 结尾）不干预；
-       课程页（/courses/public/…/<课程>/）必须走下面的专业上下文逻辑，
-       否则会被 Material 默认展开最后一个匹配分区（如环管），造成“从环卓点入跳到环管”。 */
-    return /\/courses\/public\//.test(location.pathname) &&
-           location.pathname.indexOf("index.html") !== -1;
-  }
+  /* 导航/列表页（URL 以 index.html 结尾：主页、公共列表页、各专业方向导航页）
+     由 Material 按当前页自动处理，不干预；其余均为课程页，必须走专业上下文逻辑。 */
 
   /* 禁用侧边导航的展开/收起过渡动画，消除点击跳转后的视觉延迟与跳动 */
   (function () {
@@ -123,10 +118,12 @@
   document.addEventListener("DOMContentLoaded", function () {
     var root = document.querySelector('.md-nav[data-md-level="0"]');
     if (!root) return;
-    /* 方向页与公共列表页的导航由 MkDocs Material 按当前页自动高亮，不干预 */
-    if (currentRouteDir() || isPublicListPage()) return;
+    /* 导航/列表页（URL 以 index.html 结尾）由 Material 按当前页自动处理，不干预 */
+    if (location.pathname.indexOf("index.html") !== -1) return;
     var curPath = location.pathname.replace(/\/+$/, "");
-    var dir = sessionStorage.getItem(KEY);
+    /* 来源专业：优先 sessionStorage（点击课程/侧边栏时记录），其次当前所在专业方向目录
+       （方向页课程页如 /routes/EnvEngExcellent/<课程>/ 默认归属该专业） */
+    var dir = sessionStorage.getItem(KEY) || currentRouteDir();
     var topList = root.querySelector(":scope > .md-nav__list");
     if (!topList) return;
     var links = root.querySelectorAll(".md-nav__link");
