@@ -947,13 +947,30 @@ nav_js = r"""/* 东华环院课程攻略 · 侧边导航"专业上下文保持"�
     if (!a) return;
     var href = a.getAttribute("href") || "";
     if (href === "#" || href.indexOf("#") === 0 || href.indexOf("http") === 0) return;
+    if (href.indexOf("index.html") !== -1 || href.indexOf(".md") !== -1) return;
+    /* 判断点击链接所属的顶层导航分区（仅侧边栏链接才有） */
+    var root = document.querySelector('.md-nav[data-md-level="0"]');
+    var topItem = null;
+    if (root) {
+      var topList = root.querySelector(":scope > .md-nav__list");
+      var it = a.closest(".md-nav__item");
+      while (it && topList && it.parentElement !== topList) it = it.parentElement;
+      if (it && topList) topItem = it;
+    }
+    if (topItem) {
+      /* 点击侧边栏链接：按目标分区设置专业上下文；公共区等无专业分区则清除 */
+      var topLink = topItem.querySelector(":scope > .md-nav__link");
+      var th = topLink ? (topLink.getAttribute("href") || "") : "";
+      var m = th.match(/routes\/([^\/]+)\//);
+      if (m) sessionStorage.setItem(KEY, m[1]);
+      else sessionStorage.removeItem(KEY);
+      return;
+    }
+    /* 点击内容区链接（方向页表格、公共列表表格等）：按当前页面更新 */
     var dir = currentRouteDir();
     if (dir) {
-      /* 在专业上下文内：点击课程页链接（排除导航页/文档页）时记录来源专业 */
-      if (href.indexOf("index.html") !== -1 || href.indexOf(".md") !== -1) return;
       sessionStorage.setItem(KEY, dir);
     } else if (isPublicListPage()) {
-      /* 从全校性列表页进入：清除专业上下文 */
       sessionStorage.removeItem(KEY);
     }
   });
