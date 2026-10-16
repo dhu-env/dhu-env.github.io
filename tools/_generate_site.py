@@ -958,11 +958,17 @@ nav_js = r"""/* 东华环院课程攻略 · 侧边导航"专业上下文保持"�
       if (it && topList) topItem = it;
     }
     if (topItem) {
-      /* 点击侧边栏链接：按目标分区设置专业上下文；公共区等无专业分区则清除 */
-      var topLink = topItem.querySelector(":scope > .md-nav__link");
-      var th = topLink ? (topLink.getAttribute("href") || "") : "";
-      var m = th.match(/routes\/([^\/]+)\//);
-      if (m) sessionStorage.setItem(KEY, m[1]);
+      /* 点击侧边栏链接：按目标顶层分区设置专业上下文。
+         顶层分区 label 无 href，改从分区内第一个指向 routes/<dir> 的链接识别分区；
+         公共基础课程等无专业分区则清除上下文 */
+      var topDir = null;
+      var segLinks = topItem.querySelectorAll(":scope > nav .md-nav__link");
+      for (var s = 0; s < segLinks.length; s++) {
+        var sh = segLinks[s].getAttribute("href") || "";
+        var mm = sh.match(/routes\/([^\/]+)\//);
+        if (mm) { topDir = mm[1]; break; }
+      }
+      if (topDir) sessionStorage.setItem(KEY, topDir);
       else sessionStorage.removeItem(KEY);
       return;
     }
