@@ -966,11 +966,11 @@ nav_js = r"""/* 东华环院课程攻略 · 侧边导航"专业上下文保持"�
       else sessionStorage.removeItem(KEY);
       return;
     }
-    /* 点击内容区链接（方向页表格、公共列表表格等）：按当前页面更新 */
+    /* 点击内容区链接（方向页表格等）：方向页记录来源专业；其余页面（主页/公共列表）清除上下文 */
     var dir = currentRouteDir();
     if (dir) {
       sessionStorage.setItem(KEY, dir);
-    } else if (isPublicListPage()) {
+    } else {
       sessionStorage.removeItem(KEY);
     }
   });
@@ -1001,44 +1001,96 @@ nav_js = r"""/* 东华环院课程攻略 · 侧边导航"专业上下文保持"�
     return foundItem;
   }
 
+  /* 展开单个顶层分区路径上的所有折叠开关 */
+  function expandTop(topItem, root) {
+    if (!topItem) return;
+    var node = topItem;
+    while (node && node !== root) {
+      var toggle = node.querySelector(":scope > .md-nav__toggle");
+      if (toggle && !toggle.checked) toggle.checked = true;
+      node = node.parentElement;
+    }
+  }
+
+  /* 找到链接所属的顶层分区 */
+  function topOf(link, root) {
+    var topList = root.querySelector(":scope > .md-nav__list");
+    var it = link.closest(".md-nav__item");
+    while (it && topList && it.parentElement !== topList) it = it.parentElement;
+    return it && topList ? it : null;
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
-    var dir = sessionStorage.getItem(KEY);
-    /* 方向页自身的导航由 MkDocs Material 按当前页自动高亮，无需应用记录 */
-    if (currentRouteDir()) return;
     var root = document.querySelector('.md-nav[data-md-level="0"]');
     if (!root) return;
+    /* 方向页与公共列表页的导航由 MkDocs Material 按当前页自动高亮，不干预 */
+    if (currentRouteDir() || isPublicListPage()) return;
     var curPath = location.pathname.replace(/\/+$/, "");
-    var needle = dir ? "routes/" + dir + "/" : null;
-    var found = null;
+    var dir = sessionStorage.getItem(KEY);
+    var topList = root.querySelector(":scope > .md-nav__list");
+    if (!topList) return;
     var links = root.querySelectorAll(".md-nav__link");
-    for (var i = 0; i < links.length; i++) {
-      var href = links[i].getAttribute("href") || "";
-      if (!href) continue; /* 跳过无链接的导航项（label） */
-      if (needle) {
+    var wantTops = [];
+    var i, href, abs;
+    if (dir) {
+      /* 有来源专业：展开该专业分区 */
+      var needle = "routes/" + dir + "/";
+      var found = null;
+      for (i = 0; i < links.length; i++) {
+        href = links[i].getAttribute("href") || "";
+        if (!href) continue;
         if (href.indexOf(needle) !== -1) { found = links[i]; break; }
-      } else {
-        var abs = absPath(href).replace(/\/+$/, "");
-        if (abs === curPath) { found = links[i]; break; }
+      }
+      if (found) {
+        var t = topOf(found, root);
+        if (t) wantTops.push(t);
+      }
+    } else {
+      /* 无来源专业：展开所有包含当前课程的顶层分区（公共区+各引用专业） */
+      var seen = {};
+      for (i = 0; i < links.length; i++) {
+        href = links[i].getAttribute("href") || "";
+        if (!href) continue;
+        abs = absPath(href).replace(/\/+$/, "");
+        if (abs !== curPath) continue;
+        var t2 = topOf(links[i], root);
+        if (t2) {
+          var t3 = t2.querySelector(":scope > .md-nav__link a, :scope > .md-nav__link");
+          var key = t3 ? (t3.getAttribute("href") || t2.id) : (t2.id || "top");
+          if (!seen[key]) { seen[key] = 1; wantTops.push(t2); }
+        }
       }
     }
-    if (!found) return;
-    var foundItem = expandTo(found, root);
-    if (!foundItem) return;
-    /* 高亮本分区内匹配当前 URL 的课程链接，并清除其他位置的高亮 */
-    var curLink = null;
-    var itemLinks = foundItem.querySelectorAll(".md-nav__link");
-    for (var k = 0; k < itemLinks.length; k++) {
-      var abs2 = absPath(itemLinks[k].getAttribute("href") || "").replace(/\/+$/, "");
-      if (abs2 === curPath) { curLink = itemLinks[k]; break; }
+    if (!wantTops.length) return;
+    wantTops.forEach(function (ti) { expandTop(ti, root); });
+    /* 收起未匹配的根级分区 */
+    var tops = topList.children;
+    for (var j = 0; j < tops.length; j++) {
+      var item = tops[j];
+      if (item && wantTops.indexOf(item) === -1 && item.classList.contains("md-nav__item--nested")) {
+        var t = item.querySelector(":scope > .md-nav__toggle");
+        if (t && t.checked) t.checked = false;
+      }
     }
-    document.querySelectorAll(".md-nav__item--active").forEach(function (it) {
-      if (!foundItem.contains(it)) it.classList.remove("md-nav__item--active");
+    /* 高亮：各展开分区内匹配当前 URL 的课程链接，清除其它高亮 */
+    var keepItems = [];
+    wantTops.forEach(function (ti) {
+      var itemLinks = ti.querySelectorAll(".md-nav__link");
+      for (var k = 0; k < itemLinks.length; k++) {
+        var abs2 = absPath(itemLinks[k].getAttribute("href") || "").replace(/\/+$/, "");
+        if (abs2 === curPath) {
+          var cli = itemLinks[k].closest(".md-nav__item");
+          if (cli && keepItems.indexOf(cli) === -1) {
+            cli.classList.add("md-nav__item--active");
+            keepItems.push(cli);
+          }
+        }
+      }
     });
-    if (curLink) {
-      var cli = curLink.closest(".md-nav__item");
-      if (cli) cli.classList.add("md-nav__item--active");
-    }
-    foundItem.classList.add("md-nav__item--active");
+    document.querySelectorAll(".md-nav__item--active").forEach(function (it) {
+      if (keepItems.indexOf(it) === -1) it.classList.remove("md-nav__item--active");
+    });
+    wantTops.forEach(function (ti) { ti.classList.add("md-nav__item--active"); });
   });
 })();
 """
