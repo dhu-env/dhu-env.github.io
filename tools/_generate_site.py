@@ -659,7 +659,9 @@ def route_full_index(dirname, major, title, short):
         container, pt = reg
         rel = os.path.relpath(os.path.join(container, f"{pt}.md"), os.path.join(ROUTES, dirname)).replace(os.sep, "/")
         rel_docs = os.path.relpath(os.path.join(container, f"{pt}.md"), DOCS).replace(os.sep, "/")
-        groups[key].append((pt, rel, rel_docs, fmt_credit(c["credit"]), fmt_sem(c["semester"])))
+        # 标记该课程是否已建在「公共基础课程」目录（侧边导航分区将剔除，表格仍保留全量）
+        fund_flag = (os.path.normpath(container) == os.path.normpath(FUND))
+        groups[key].append((pt, rel, rel_docs, fmt_credit(c["credit"]), fmt_sem(c["semester"]), fund_flag))
     for key in order:
         cat, req = key[0], key[1]
         mod = key[2] if len(key) > 2 else None
@@ -670,7 +672,7 @@ def route_full_index(dirname, major, title, short):
         out.append("")
         out.append("| 课程名称 | 学分 | 建议学期 | 资料情况 |")
         out.append("| ------- | ---- | ---- | ---- |")
-        for pt, rel, rel_docs, cr, sem in groups[key]:
+        for pt, rel, rel_docs, cr, sem, _fg in groups[key]:
             out.append(f"| [**{pt}**]({rel}) | {cr} | {sem} | :x: 待完善 |")
         out.append("")
     return "\n".join(out), groups, missing_courses
@@ -844,7 +846,10 @@ for dirname, major, short, title, sections in ROUTE_SECTIONS:
         sec = f"{cat}（{'必修' if req == '必修' else '选修'}）"
         if mod:
             sec = f"{sec} · {mod}"
-        nav_rows.append((sec, [(pt, rel_docs) for pt, rel, rel_docs, cr, sem in items]))
+        # 侧边导航分区：剔除已在「公共基础课程」建页的课程（其内容仅保留在公共基础课程目录内）
+        rows = [(pt, rel_docs) for pt, rel, rel_docs, cr, sem, fg in items if not fg]
+        if rows:
+            nav_rows.append((sec, rows))
     route_nav_data[dirname] = nav_rows
 
 # courses.md
@@ -930,10 +935,19 @@ nav_js = r"""/* 东华环院课程攻略 · 侧边导航"专业上下文保持"�
   }
 
   function isPublicListPage() {
+    /* 仅真正的列表/导航页（URL 以 index.html 结尾）不干预；
+       课程页（/courses/public/…/<课程>/）必须走下面的专业上下文逻辑，
+       否则会被 Material 默认展开最后一个匹配分区（如环管），造成“从环卓点入跳到环管”。 */
     return /\/courses\/public\//.test(location.pathname) &&
-           (location.pathname.indexOf("index.html") !== -1 ||
-            /\/courses\/public\/[^\/]+\/$/.test(location.pathname));
+           location.pathname.indexOf("index.html") !== -1;
   }
+
+  /* 禁用侧边导航的展开/收起过渡动画，消除点击跳转后的视觉延迟与跳动 */
+  (function () {
+    var st = document.createElement("style");
+    st.textContent = ".md-nav__toggle:checked ~ .md-nav, .md-nav__item--nested > .md-nav { transition: none !important; }";
+    (document.head || document.documentElement).appendChild(st);
+  })();
 
   /* 把相对 href 解析为绝对路径（用于与 location.pathname 比对） */
   function absPath(href) {

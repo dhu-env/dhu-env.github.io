@@ -7,7 +7,7 @@ exclude_docs: |
 extra_css:
   - stylesheets/extra.css
 extra_javascript:
-  - js/dhu_nav.7e53541e.js
+  - js/dhu_nav.d45946a4.js
 markdown_extensions:
   - pymdownx.pathconverter:
       base_path: ''
@@ -125,14 +125,6 @@ nav:
   - 能环:
     - 导航页: courses/routes/EnergyEnv/index.md
     - 学科基础（必修）:
-      - 概率论与数理统计A或B: courses/public/fundamental/概率论与数理统计A或B.md
-      - 理论力学(1): courses/public/fundamental/理论力学(1).md
-      - 理论力学(2): courses/public/fundamental/理论力学(2).md
-      - 材料力学: courses/public/fundamental/材料力学.md
-      - 画法几何及工程制图（1）: courses/public/fundamental/画法几何及工程制图（1）.md
-      - 画法几何及工程制图（2）: courses/public/fundamental/画法几何及工程制图（2）.md
-      - 机械设计基础（能环）: courses/public/fundamental/机械设计基础（能环）.md
-      - 电工电子技术B: courses/public/fundamental/电工电子技术B.md
       - 热交换器原理与设计: courses/routes/EnergyEnv/热交换器原理与设计.md
       - 大气污染控制技术: courses/routes/EnergyEnv/大气污染控制技术.md
       - 流体力学（能环）: courses/public/professional/流体力学（能环）.md
@@ -158,18 +150,12 @@ nav:
       - 氢能及燃料电池基础: courses/routes/EnergyEnv/氢能及燃料电池基础.md
       - 信息检索与资源利用: courses/public/professional/信息检索与资源利用.md
     - 实践教学（必修）:
-      - 工程训练(1)（能环·建环）: courses/public/fundamental/工程训练(1)（能环·建环）.md
-      - 工程训练(2): courses/public/fundamental/工程训练(2).md
-      - 制图大作业: courses/public/fundamental/制图大作业.md
-      - 机械设计课程设计: courses/public/fundamental/机械设计课程设计.md
-      - 电工电子技术实验B: courses/public/fundamental/电工电子技术实验B.md
       - 制冷课程设计: courses/routes/EnergyEnv/制冷课程设计.md
       - 热工测试技术与实验（一）: courses/routes/EnergyEnv/热工测试技术与实验（一）.md
       - 热工测试技术与实验（二）: courses/routes/EnergyEnv/热工测试技术与实验（二）.md
       - 热工基础实验（一）: courses/routes/EnergyEnv/热工基础实验（一）.md
       - 热工基础实验（二）: courses/routes/EnergyEnv/热工基础实验（二）.md
       - 热力系统工程课程设计: courses/routes/EnergyEnv/热力系统工程课程设计.md
-      - 工程Auto CAD（能环）: courses/public/fundamental/工程Auto CAD（能环）.md
       - 毕业论文: courses/routes/EnergyEnv/毕业论文.md
       - 毕业实习: courses/routes/EnergyEnv/毕业实习.md
       - 热交换器课程设计: courses/routes/EnergyEnv/热交换器课程设计.md
@@ -179,20 +165,10 @@ nav:
   - 环卓:
     - 导航页: courses/routes/EnvEngExcellent/index.md
     - 学科基础（必修）:
-      - 工程数学(1): courses/public/fundamental/工程数学(1).md
-      - 工程数学(2): courses/public/fundamental/工程数学(2).md
-      - 工程制图: courses/public/fundamental/工程制图.md
-      - 电工电子技术C: courses/public/fundamental/电工电子技术C.md
-      - 电工电子技术实验C: courses/public/fundamental/电工电子技术实验C.md
-      - 有机化学实验(1): courses/public/fundamental/有机化学实验(1).md
-      - 有机化学: courses/public/fundamental/有机化学.md
-      - 物理化学实验: courses/public/fundamental/物理化学实验.md
-      - 物理化学: courses/public/fundamental/物理化学.md
       - 工程项目管理: courses/routes/EnvEngExcellent/工程项目管理.md
       - 化工原理（环卓·环管）: courses/public/professional/化工原理（环卓·环管）.md
       - 化工原理实验（环卓·环管）: courses/public/professional/化工原理实验（环卓·环管）.md
       - 环境学: courses/public/professional/环境学.md
-      - 工程力学与土建基础: courses/public/fundamental/工程力学与土建基础.md
       - 流体力学（环卓）: courses/public/professional/流体力学（环卓）.md
       - 环境微生物学: courses/routes/EnvEngExcellent/环境微生物学.md
       - 环境分析化学: courses/public/professional/环境分析化学.md
@@ -228,8 +204,6 @@ nav:
       - 土壤和地下水污染修复: courses/routes/EnvEngExcellent/土壤和地下水污染修复.md
       - 生态工程: courses/routes/EnvEngExcellent/生态工程.md
     - 实践教学（必修）:
-      - 工程制图课程设计: courses/public/fundamental/工程制图课程设计.md
-      - 工程训练（环卓·环管）: courses/public/fundamental/工程训练（环卓·环管）.md
       - 水污染控制工程课程设计: courses/routes/EnvEngExcellent/水污染控制工程课程设计.md
       - 环境微生物学实验: courses/routes/EnvEngExcellent/环境微生物学实验.md
       - 环境监测大实验（环卓·环管）: courses/public/professional/环境监测大实验（环卓·环管）.md
@@ -249,15 +223,6 @@ nav:
   - 环管:
     - 导航页: courses/routes/EnvEngDual/index.md
     - 学科基础（必修）:
-      - 工程数学(1): courses/public/fundamental/工程数学(1).md
-      - 工程数学(2): courses/public/fundamental/工程数学(2).md
-      - 工程制图: courses/public/fundamental/工程制图.md
-      - 电工电子技术C: courses/public/fundamental/电工电子技术C.md
-      - 电工电子技术实验C: courses/public/fundamental/电工电子技术实验C.md
-      - 有机化学实验(1): courses/public/fundamental/有机化学实验(1).md
-      - 有机化学: courses/public/fundamental/有机化学.md
-      - 物理化学实验: courses/public/fundamental/物理化学实验.md
-      - 物理化学: courses/public/fundamental/物理化学.md
       - 管理学: courses/routes/EnvEngDual/管理学.md
       - 工程项目管理: courses/routes/EnvEngExcellent/工程项目管理.md
       - 环管融合创新思维与方法: courses/routes/EnvEngDual/环管融合创新思维与方法.md
@@ -265,7 +230,6 @@ nav:
       - 化工原理实验（环卓·环管）: courses/public/professional/化工原理实验（环卓·环管）.md
       - 宏观经济学: courses/routes/EnvEngDual/宏观经济学.md
       - 微观经济学: courses/routes/EnvEngDual/微观经济学.md
-      - 工程力学与土建基础: courses/public/fundamental/工程力学与土建基础.md
       - 流体力学（环管）: courses/public/professional/流体力学（环管）.md
       - 环境微生物学: courses/routes/EnvEngExcellent/环境微生物学.md
       - 环境分析化学: courses/public/professional/环境分析化学.md
@@ -308,8 +272,6 @@ nav:
       - 土壤和地下水污染修复: courses/routes/EnvEngExcellent/土壤和地下水污染修复.md
       - 生态工程: courses/routes/EnvEngExcellent/生态工程.md
     - 实践教学（必修）:
-      - 工程制图课程设计: courses/public/fundamental/工程制图课程设计.md
-      - 工程训练（环卓·环管）: courses/public/fundamental/工程训练（环卓·环管）.md
       - 环管融合生产实习: courses/routes/EnvEngDual/环管融合生产实习.md
       - 环管融合认识实习: courses/routes/EnvEngDual/环管融合认识实习.md
       - 环管融合毕业实习: courses/routes/EnvEngDual/环管融合毕业实习.md
@@ -330,15 +292,8 @@ nav:
   - 环科:
     - 导航页: courses/routes/EnvScience/index.md
     - 学科基础（必修）:
-      - 概率论与数理统计A或B: courses/public/fundamental/概率论与数理统计A或B.md
-      - 电工电子技术C: courses/public/fundamental/电工电子技术C.md
-      - 电工电子技术实验C: courses/public/fundamental/电工电子技术实验C.md
-      - 有机化学实验(1): courses/public/fundamental/有机化学实验(1).md
       - 生物化学: courses/routes/EnvScience/生物化学.md
       - 生物化学实验: courses/routes/EnvScience/生物化学实验.md
-      - 有机化学: courses/public/fundamental/有机化学.md
-      - 物理化学实验: courses/public/fundamental/物理化学实验.md
-      - 物理化学: courses/public/fundamental/物理化学.md
       - 化工原理（环科）: courses/public/professional/化工原理（环科）.md
       - 化工原理实验（环科）: courses/public/professional/化工原理实验（环科）.md
       - 环境学: courses/public/professional/环境学.md
@@ -399,12 +354,6 @@ nav:
   - 建环:
     - 导航页: courses/routes/BuildingEnv/index.md
     - 学科基础（必修）:
-      - 概率论与数理统计A或B: courses/public/fundamental/概率论与数理统计A或B.md
-      - 工程力学: courses/public/fundamental/工程力学.md
-      - 画法几何及工程制图（1）: courses/public/fundamental/画法几何及工程制图（1）.md
-      - 画法几何及工程制图（2）: courses/public/fundamental/画法几何及工程制图（2）.md
-      - 机械设计基础（建环）: courses/public/fundamental/机械设计基础（建环）.md
-      - 电工电子技术B: courses/public/fundamental/电工电子技术B.md
       - 工业通风: courses/routes/BuildingEnv/工业通风.md
       - 自动控制原理: courses/routes/BuildingEnv/自动控制原理.md
       - 工程管理: courses/routes/BuildingEnv/工程管理.md
@@ -438,11 +387,6 @@ nav:
       - BIM技术与应用实践: courses/routes/BuildingEnv/BIM技术与应用实践.md
       - 信息检索与资源利用: courses/public/professional/信息检索与资源利用.md
     - 实践教学（必修）:
-      - 工程训练(1)（能环·建环）: courses/public/fundamental/工程训练(1)（能环·建环）.md
-      - 工程训练(2): courses/public/fundamental/工程训练(2).md
-      - 制图大作业: courses/public/fundamental/制图大作业.md
-      - 机械设计课程设计: courses/public/fundamental/机械设计课程设计.md
-      - 电工电子技术实验B: courses/public/fundamental/电工电子技术实验B.md
       - 通风课程设计: courses/routes/BuildingEnv/通风课程设计.md
       - 制冷课程设计: courses/routes/BuildingEnv/制冷课程设计.md
       - 专业基础实验（一）: courses/routes/BuildingEnv/专业基础实验（一）.md
@@ -452,7 +396,6 @@ nav:
       - 生产实习: courses/routes/BuildingEnv/生产实习.md
       - 毕业论文: courses/routes/BuildingEnv/毕业论文.md
       - 毕业实习: courses/routes/BuildingEnv/毕业实习.md
-      - 工程Auto CAD实践（建环）: courses/public/fundamental/工程Auto CAD实践（建环）.md
       - 空调课程设计: courses/routes/BuildingEnv/空调课程设计.md
       - 供热课程设计: courses/routes/BuildingEnv/供热课程设计.md
       - 锅炉课程设计: courses/routes/BuildingEnv/锅炉课程设计.md
@@ -460,11 +403,6 @@ nav:
   - 土木:
     - 导航页: courses/routes/CivilGreen/index.md
     - 学科基础（必修）:
-      - 概率论与数理统计A或B: courses/public/fundamental/概率论与数理统计A或B.md
-      - 理论力学(1): courses/public/fundamental/理论力学(1).md
-      - 理论力学(2): courses/public/fundamental/理论力学(2).md
-      - 材料力学: courses/public/fundamental/材料力学.md
-      - 工程制图: courses/public/fundamental/工程制图.md
       - 土木工程概论: courses/routes/CivilGreen/土木工程概论.md
       - 土木工程材料: courses/routes/CivilGreen/土木工程材料.md
       - 荷载与可靠度设计原理: courses/routes/CivilGreen/荷载与可靠度设计原理.md
@@ -487,7 +425,6 @@ nav:
       - 钢结构设计原理: courses/routes/CivilGreen/钢结构设计原理.md
       - 建筑结构抗震设计原理: courses/routes/CivilGreen/建筑结构抗震设计原理.md
       - 土木工程施工与工程经济: courses/routes/CivilGreen/土木工程施工与工程经济.md
-      - 工程Auto CAD（土木）: courses/public/fundamental/工程Auto CAD（土木）.md
     - 专业方向（选修）:
       - 特殊土地基处理: courses/routes/CivilGreen/特殊土地基处理.md
       - 地下综合管廊工程: courses/routes/CivilGreen/地下综合管廊工程.md
@@ -497,8 +434,6 @@ nav:
       - 建筑业碳排放: courses/routes/CivilGreen/建筑业碳排放.md
       - 给排水工程: courses/routes/CivilGreen/给排水工程.md
     - 实践教学（必修）:
-      - 工程制图课程设计: courses/public/fundamental/工程制图课程设计.md
-      - 工程训练（土木）: courses/public/fundamental/工程训练（土木）.md
       - 绿色低碳地基处理设计: courses/routes/CivilGreen/绿色低碳地基处理设计.md
       - 土木工程信息化设计: courses/routes/CivilGreen/土木工程信息化设计.md
       - 工程地质实习: courses/routes/CivilGreen/工程地质实习.md

@@ -15,10 +15,19 @@
   }
 
   function isPublicListPage() {
+    /* 仅真正的列表/导航页（URL 以 index.html 结尾）不干预；
+       课程页（/courses/public/…/<课程>/）必须走下面的专业上下文逻辑，
+       否则会被 Material 默认展开最后一个匹配分区（如环管），造成“从环卓点入跳到环管”。 */
     return /\/courses\/public\//.test(location.pathname) &&
-           (location.pathname.indexOf("index.html") !== -1 ||
-            /\/courses\/public\/[^\/]+\/$/.test(location.pathname));
+           location.pathname.indexOf("index.html") !== -1;
   }
+
+  /* 禁用侧边导航的展开/收起过渡动画，消除点击跳转后的视觉延迟与跳动 */
+  (function () {
+    var st = document.createElement("style");
+    st.textContent = ".md-nav__toggle:checked ~ .md-nav, .md-nav__item--nested > .md-nav { transition: none !important; }";
+    (document.head || document.documentElement).appendChild(st);
+  })();
 
   /* 把相对 href 解析为绝对路径（用于与 location.pathname 比对） */
   function absPath(href) {
