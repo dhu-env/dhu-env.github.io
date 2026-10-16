@@ -928,6 +928,11 @@ nav_js = r"""/* 东华环院课程攻略 · 侧边导航"专业上下文保持"�
 (function () {
   "use strict";
   var KEY = "dhu-major-dir";
+  /* 专业目录名 → 顶部/侧边导航使用的缩写（顶层分区 label 文本） */
+  var DIR_SHORT = {
+    "EnergyEnv": "能环", "EnvEngExcellent": "环卓", "EnvEngDual": "环管",
+    "EnvScience": "环科", "BuildingEnv": "建环", "CivilGreen": "土木"
+  };
 
   function currentRouteDir() {
     var m = location.pathname.match(/\/courses\/routes\/([^\/]+)\//);
@@ -967,15 +972,14 @@ nav_js = r"""/* 东华环院课程攻略 · 侧边导航"专业上下文保持"�
       if (it && topList) topItem = it;
     }
     if (topItem) {
-      /* 点击侧边栏链接：按目标顶层分区设置专业上下文。
-         顶层分区 label 无 href，改从分区内第一个指向 routes/<dir> 的链接识别分区；
-         公共基础课程等无专业分区则清除上下文 */
+      /* 点击侧边栏链接：按目标顶层分区的 label 文本（专业缩写）设置专业上下文；
+         公共基础课程等非专业分区则清除上下文。
+         不用 href 扫描：方向页课程页内同分区链接为相对短路径，不含 routes/<dir>/ 子串 */
+      var lbx = topItem.querySelector(":scope > .md-nav__link");
+      var txtx = (lbx && (lbx.textContent || "") || "").trim();
       var topDir = null;
-      var segLinks = topItem.querySelectorAll(":scope > nav .md-nav__link");
-      for (var s = 0; s < segLinks.length; s++) {
-        var sh = segLinks[s].getAttribute("href") || "";
-        var mm = sh.match(/routes\/([^\/]+)\//);
-        if (mm) { topDir = mm[1]; break; }
+      for (var d in DIR_SHORT) {
+        if (DIR_SHORT[d] === txtx) { topDir = d; break; }
       }
       if (topDir) sessionStorage.setItem(KEY, topDir);
       else sessionStorage.removeItem(KEY);
@@ -1052,17 +1056,30 @@ nav_js = r"""/* 东华环院课程攻略 · 侧边导航"专业上下文保持"�
     /* 当前课程名（用于 Material 改写当前页 href 后的课程级匹配） */
     var courseName = decodeURIComponent((curPath.split("/").pop() || "").replace(/\.html?$/, ""));
     if (dir) {
-      /* 有来源专业：展开该专业分区 */
-      var needle = "routes/" + dir + "/";
-      var found = null;
-      for (i = 0; i < links.length; i++) {
-        href = links[i].getAttribute("href") || "";
-        if (!href) continue;
-        if (href.indexOf(needle) !== -1) { found = links[i]; break; }
+      /* 有来源专业：按顶层分区 label 文本（专业缩写）直接定位并展开该分区。
+         不依赖 href 匹配：在 /routes/<dir>/<课程>/ 下同分区链接为相对短路径，
+         不含 "routes/<dir>/" 子串，旧 href 匹配会失败导致 Material 默认展开其他分区。 */
+      var short = DIR_SHORT[dir];
+      var topChildren = topList.children;
+      for (var p = 0; p < topChildren.length; p++) {
+        var ti = topChildren[p];
+        if (!ti || !ti.classList.contains("md-nav__item--nested")) continue;
+        var lb = ti.querySelector(":scope > .md-nav__link");
+        var txt = (lb && (lb.textContent || "") || "").trim();
+        if (txt === short) { wantTops.push(ti); break; }
       }
-      if (found) {
-        var t = topOf(found, root);
-        if (t) wantTops.push(t);
+      /* 兜底：缩写未命中时仍尝试 href 匹配（public 课程页等相对路径含 routes/<dir>/ 的场景） */
+      if (!wantTops.length) {
+        var needle = "routes/" + dir + "/";
+        for (i = 0; i < links.length; i++) {
+          href = links[i].getAttribute("href") || "";
+          if (!href) continue;
+          if (href.indexOf(needle) !== -1) {
+            var t5 = topOf(links[i], root);
+            if (t5) wantTops.push(t5);
+            break;
+          }
+        }
       }
     } else {
       /* 无来源专业：按当前 URL 的课程名匹配 nav 条目，展开所有匹配的顶层分区（公共区+各引用专业）。
