@@ -1038,6 +1038,8 @@ nav_js = r"""/* 东华环院课程攻略 · 侧边导航"专业上下文保持"�
     var links = root.querySelectorAll(".md-nav__link");
     var wantTops = [];
     var i, href, abs;
+    /* 当前课程名（用于 Material 改写当前页 href 后的课程级匹配） */
+    var courseName = decodeURIComponent((curPath.split("/").pop() || "").replace(/\.html?$/, ""));
     if (dir) {
       /* 有来源专业：展开该专业分区 */
       var needle = "routes/" + dir + "/";
@@ -1052,18 +1054,27 @@ nav_js = r"""/* 东华环院课程攻略 · 侧边导航"专业上下文保持"�
         if (t) wantTops.push(t);
       }
     } else {
-      /* 无来源专业：展开所有包含当前课程的顶层分区（公共区+各引用专业） */
+      /* 无来源专业：按当前 URL 的课程名匹配 nav 条目，展开所有匹配的顶层分区（公共区+各引用专业）。
+         Material 会把当前页条目的 href 改写为 "./"，因此不能依赖 href 匹配当前页。 */
       var seen = {};
       for (i = 0; i < links.length; i++) {
-        href = links[i].getAttribute("href") || "";
-        if (!href) continue;
-        abs = absPath(href).replace(/\/+$/, "");
-        if (abs !== curPath) continue;
+        if ((links[i].textContent || "").trim() !== courseName) continue;
         var t2 = topOf(links[i], root);
         if (t2) {
           var t3 = t2.querySelector(":scope > .md-nav__link a, :scope > .md-nav__link");
           var key = t3 ? (t3.getAttribute("href") || t2.id) : (t2.id || "top");
           if (!seen[key]) { seen[key] = 1; wantTops.push(t2); }
+        }
+      }
+      /* 兜底：课程名匹配不到时回退到 href 匹配（./ 目录回退链接） */
+      if (!wantTops.length) {
+        for (i = 0; i < links.length; i++) {
+          href = links[i].getAttribute("href") || "";
+          if (!href) continue;
+          abs = absPath(href).replace(/\/+$/, "");
+          if (abs !== curPath) continue;
+          var t4 = topOf(links[i], root);
+          if (t4 && wantTops.indexOf(t4) === -1) wantTops.push(t4);
         }
       }
     }
@@ -1078,18 +1089,16 @@ nav_js = r"""/* 东华环院课程攻略 · 侧边导航"专业上下文保持"�
         if (t && t.checked) t.checked = false;
       }
     }
-    /* 高亮：各展开分区内匹配当前 URL 的课程链接，清除其它高亮 */
+    /* 高亮：各展开分区内课程名匹配当前课程的链接，清除其它高亮 */
     var keepItems = [];
     wantTops.forEach(function (ti) {
       var itemLinks = ti.querySelectorAll(".md-nav__link");
       for (var k = 0; k < itemLinks.length; k++) {
-        var abs2 = absPath(itemLinks[k].getAttribute("href") || "").replace(/\/+$/, "");
-        if (abs2 === curPath) {
-          var cli = itemLinks[k].closest(".md-nav__item");
-          if (cli && keepItems.indexOf(cli) === -1) {
-            cli.classList.add("md-nav__item--active");
-            keepItems.push(cli);
-          }
+        if ((itemLinks[k].textContent || "").trim() !== courseName) continue;
+        var cli = itemLinks[k].closest(".md-nav__item");
+        if (cli && keepItems.indexOf(cli) === -1) {
+          cli.classList.add("md-nav__item--active");
+          keepItems.push(cli);
         }
       }
     });
