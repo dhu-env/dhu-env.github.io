@@ -6,6 +6,8 @@ exclude_docs: |
   /完善指南.md
 extra_css:
   - stylesheets/extra.css
+extra_javascript:
+  - js/dhu_nav.js
 markdown_extensions:
   - pymdownx.pathconverter:
       base_path: ''
