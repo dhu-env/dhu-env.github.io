@@ -996,6 +996,7 @@ nav_js = r"""/* 东华环院课程攻略 · 侧边导航"专业上下文保持"�
     var links = root.querySelectorAll(".md-nav__link");
     for (var i = 0; i < links.length; i++) {
       var href = links[i].getAttribute("href") || "";
+      if (!href) continue; /* 跳过无链接的导航项（label） */
       if (needle) {
         if (href.indexOf(needle) !== -1) { found = links[i]; break; }
       } else {

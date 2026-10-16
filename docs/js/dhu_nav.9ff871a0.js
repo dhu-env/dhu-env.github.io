@@ -81,6 +81,7 @@
     var links = root.querySelectorAll(".md-nav__link");
     for (var i = 0; i < links.length; i++) {
       var href = links[i].getAttribute("href") || "";
+      if (!href) continue; /* 跳过无链接的导航项（label） */
       if (needle) {
         if (href.indexOf(needle) !== -1) { found = links[i]; break; }
       } else {
