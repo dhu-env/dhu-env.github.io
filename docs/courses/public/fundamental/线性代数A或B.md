@@ -2,13 +2,13 @@
 tags:
   - 能环
   - 环科
-  - 建能环
+  - 建环
   - 土木
 ---
 
 # 线性代数A或B
 
-<div class="dhu-bar"><strong>所属专业</strong><a class="dhu-tag" href="../../routes/EnergyEnv/index.md">能环</a><a class="dhu-tag" href="../../routes/EnvScience/index.md">环科</a><a class="dhu-tag" href="../../routes/BuildingEnv/index.md">建能环</a><a class="dhu-tag" href="../../routes/CivilGreen/index.md">土木</a></div>
+<div class="dhu-bar"><strong>所属专业</strong><a class="dhu-tag" href="../../routes/EnergyEnv/index.md">能环</a><a class="dhu-tag" href="../../routes/EnvScience/index.md">环科</a><a class="dhu-tag" href="../../routes/BuildingEnv/index.md">建环</a><a class="dhu-tag" href="../../routes/CivilGreen/index.md">土木</a></div>
 
 > 本页为课程信息页，当前仅包含培养方案中的基本信息，其余内容待完善。
 
@@ -19,11 +19,11 @@ tags:
 | 项目 | 内容 |
 | ---- | ---- |
 | 适用专业 | 能源与环境系统工程、环境科学、建筑环境与能源应用工程、土木工程（绿色建造） |
-| 课程性质 | 通识教育·必修（能环）；通识教育·必修（环科）；通识教育·必修（建能环）；通识教育·必修（土木） |
+| 课程性质 | 通识教育·必修（能环）；通识教育·必修（环科）；通识教育·必修（建环）；通识教育·必修（土木） |
 | 课程编号 | 008061 |
-| 学分 | 2（能环）；2（环科）；2（建能环）；2（土木） |
-| 总学时 | 32.0（能环）；32.0（环科）；32.0（建能环）；32.0（土木） |
-| 建议修读学期 | 大二上 · 2学时/周（能环）；大二上 · 2学时/周（环科）；大二上 · 2学时/周（建能环）；大二上 · 2学时/周（土木）
+| 学分 | 2（能环）；2（环科）；2（建环）；2（土木） |
+| 总学时 | 32.0（能环）；32.0（环科）；32.0（建环）；32.0（土木） |
+| 建议修读学期 | 大二上 · 2学时/周（能环）；大二上 · 2学时/周（环科）；大二上 · 2学时/周（建环）；大二上 · 2学时/周（土木）
 
 !!! note "课程说明"
 

@@ -102,8 +102,8 @@ nav:
       - 画法几何及工程制图（2）: courses/public/fundamental/画法几何及工程制图（2）.md
       - 工程制图: courses/public/fundamental/工程制图.md
       - 机械设计基础（能环）: courses/public/fundamental/机械设计基础（能环）.md
-      - 机械设计基础（建能环）: courses/public/fundamental/机械设计基础（建能环）.md
-      - 工程训练(1)（能环·建能环）: courses/public/fundamental/工程训练(1)（能环·建能环）.md
+      - 机械设计基础（建环）: courses/public/fundamental/机械设计基础（建环）.md
+      - 工程训练(1)（能环·建环）: courses/public/fundamental/工程训练(1)（能环·建环）.md
       - 工程训练（环卓·环管）: courses/public/fundamental/工程训练（环卓·环管）.md
       - 工程训练（土木）: courses/public/fundamental/工程训练（土木）.md
       - 工程训练(2): courses/public/fundamental/工程训练(2).md
@@ -111,14 +111,16 @@ nav:
       - 机械设计课程设计: courses/public/fundamental/机械设计课程设计.md
       - 工程制图课程设计: courses/public/fundamental/工程制图课程设计.md
       - 工程Auto CAD（能环）: courses/public/fundamental/工程Auto CAD（能环）.md
-      - 工程Auto CAD实践（建能环）: courses/public/fundamental/工程Auto CAD实践（建能环）.md
+      - 工程Auto CAD实践（建环）: courses/public/fundamental/工程Auto CAD实践（建环）.md
       - 工程Auto CAD（土木）: courses/public/fundamental/工程Auto CAD（土木）.md
     - 电学及控制类:
       - 电工电子技术B: courses/public/fundamental/电工电子技术B.md
       - 电工电子技术C: courses/public/fundamental/电工电子技术C.md
       - 电工电子技术实验B: courses/public/fundamental/电工电子技术实验B.md
       - 电工电子技术实验C: courses/public/fundamental/电工电子技术实验C.md
-  - 能源与环境系统工程:
+    - 计算机类:
+      - 计算思维与人工智能（Python语言程序设计）: courses/public/fundamental/计算思维与人工智能（Python语言程序设计）.md
+  - 能环:
     - 导航页: courses/routes/EnergyEnv/index.md
     - 学科基础（必修）:
       - 概率论与数理统计A或B: courses/public/fundamental/概率论与数理统计A或B.md
@@ -154,7 +156,7 @@ nav:
       - 氢能及燃料电池基础: courses/routes/EnergyEnv/氢能及燃料电池基础.md
       - 信息检索与资源利用: courses/public/professional/信息检索与资源利用.md
     - 实践教学（必修）:
-      - 工程训练(1)（能环·建能环）: courses/public/fundamental/工程训练(1)（能环·建能环）.md
+      - 工程训练(1)（能环·建环）: courses/public/fundamental/工程训练(1)（能环·建环）.md
       - 工程训练(2): courses/public/fundamental/工程训练(2).md
       - 制图大作业: courses/public/fundamental/制图大作业.md
       - 机械设计课程设计: courses/public/fundamental/机械设计课程设计.md
@@ -172,8 +174,7 @@ nav:
       - 认识实习: courses/routes/EnergyEnv/认识实习.md
       - 锅炉课程设计: courses/routes/EnergyEnv/锅炉课程设计.md
       - 生产实习: courses/routes/EnergyEnv/生产实习.md
-      - 劳动教育类: courses/public/professional/劳动教育类.md
-  - 环境工程（卓越班）:
+  - 环卓:
     - 导航页: courses/routes/EnvEngExcellent/index.md
     - 学科基础（必修）:
       - 工程数学(1): courses/public/fundamental/工程数学(1).md
@@ -243,8 +244,7 @@ nav:
       - 微机上机与环境大数据分析: courses/routes/EnvEngExcellent/微机上机与环境大数据分析.md
       - 化工原理课程设计（环卓·环管）: courses/public/professional/化工原理课程设计（环卓·环管）.md
       - 毕业设计: courses/routes/EnvEngExcellent/毕业设计.md
-      - 劳动教育类: courses/public/professional/劳动教育类.md
-  - 环境工程（环境工程与工商管理双学位）:
+  - 环管:
     - 导航页: courses/routes/EnvEngDual/index.md
     - 学科基础（必修）:
       - 工程数学(1): courses/public/fundamental/工程数学(1).md
@@ -325,8 +325,7 @@ nav:
       - 水污染控制工程实验(1): courses/routes/EnvEngExcellent/水污染控制工程实验(1).md
       - 化工原理课程设计（环卓·环管）: courses/public/professional/化工原理课程设计（环卓·环管）.md
       - 毕业设计: courses/routes/EnvEngDual/毕业设计.md
-      - 劳动教育类: courses/public/professional/劳动教育类.md
-  - 环境科学:
+  - 环科:
     - 导航页: courses/routes/EnvScience/index.md
     - 学科基础（必修）:
       - 概率论与数理统计A或B: courses/public/fundamental/概率论与数理统计A或B.md
@@ -395,15 +394,14 @@ nav:
       - 化工原理课程设计（环科）: courses/public/professional/化工原理课程设计（环科）.md
       - 环境评价: courses/routes/EnvScience/环境评价.md
       - 毕业实习: courses/routes/EnvScience/毕业实习.md
-      - 劳动教育类: courses/public/professional/劳动教育类.md
-  - 建筑环境与能源应用工程:
+  - 建环:
     - 导航页: courses/routes/BuildingEnv/index.md
     - 学科基础（必修）:
       - 概率论与数理统计A或B: courses/public/fundamental/概率论与数理统计A或B.md
       - 工程力学: courses/public/fundamental/工程力学.md
       - 画法几何及工程制图（1）: courses/public/fundamental/画法几何及工程制图（1）.md
       - 画法几何及工程制图（2）: courses/public/fundamental/画法几何及工程制图（2）.md
-      - 机械设计基础（建能环）: courses/public/fundamental/机械设计基础（建能环）.md
+      - 机械设计基础（建环）: courses/public/fundamental/机械设计基础（建环）.md
       - 电工电子技术B: courses/public/fundamental/电工电子技术B.md
       - 工业通风: courses/routes/BuildingEnv/工业通风.md
       - 自动控制原理: courses/routes/BuildingEnv/自动控制原理.md
@@ -413,9 +411,9 @@ nav:
       - 热质交换原理与设备: courses/routes/BuildingEnv/热质交换原理与设备.md
       - 空气调节: courses/routes/BuildingEnv/空气调节.md
       - 建筑环境与能源系统测量技术: courses/routes/BuildingEnv/建筑环境与能源系统测量技术.md
-      - 流体力学（建能环）: courses/public/professional/流体力学（建能环）.md
-      - 工程热力学（建能环）: courses/public/professional/工程热力学（建能环）.md
-      - 传热学（建能环）: courses/public/professional/传热学（建能环）.md
+      - 流体力学（建环）: courses/public/professional/流体力学（建环）.md
+      - 工程热力学（建环）: courses/public/professional/工程热力学（建环）.md
+      - 传热学（建环）: courses/public/professional/传热学（建环）.md
       - 供热工程: courses/routes/BuildingEnv/供热工程.md
       - 空调用制冷技术: courses/routes/BuildingEnv/空调用制冷技术.md
       - 燃气供应: courses/routes/BuildingEnv/燃气供应.md
@@ -424,21 +422,21 @@ nav:
       - 环境保护概论: courses/routes/BuildingEnv/环境保护概论.md
       - 建筑工程基础: courses/routes/BuildingEnv/建筑工程基础.md
     - 专业方向（选修）:
-      - 工程伦理（建能环）: courses/public/professional/工程伦理（建能环）.md
+      - 工程伦理（建环）: courses/public/professional/工程伦理（建环）.md
       - 建筑专业导论: courses/routes/BuildingEnv/建筑专业导论.md
       - 空气洁净技术: courses/routes/BuildingEnv/空气洁净技术.md
-      - 泵与风机（建能环）: courses/public/professional/泵与风机（建能环）.md
+      - 泵与风机（建环）: courses/public/professional/泵与风机（建环）.md
       - 专业前沿: courses/routes/BuildingEnv/专业前沿.md
       - 施工组织技术与工程经济: courses/routes/BuildingEnv/施工组织技术与工程经济.md
       - 建筑给排水: courses/routes/BuildingEnv/建筑给排水.md
       - 高层建筑空调与防排烟: courses/routes/BuildingEnv/高层建筑空调与防排烟.md
       - 建筑节能技术与能耗模拟: courses/routes/BuildingEnv/建筑节能技术与能耗模拟.md
-      - 专业英语（建能环）: courses/public/professional/专业英语（建能环）.md
+      - 专业英语（建环）: courses/public/professional/专业英语（建环）.md
       - 专业报告写作与表达: courses/routes/BuildingEnv/专业报告写作与表达.md
       - BIM技术与应用实践: courses/routes/BuildingEnv/BIM技术与应用实践.md
       - 信息检索与资源利用: courses/public/professional/信息检索与资源利用.md
     - 实践教学（必修）:
-      - 工程训练(1)（能环·建能环）: courses/public/fundamental/工程训练(1)（能环·建能环）.md
+      - 工程训练(1)（能环·建环）: courses/public/fundamental/工程训练(1)（能环·建环）.md
       - 工程训练(2): courses/public/fundamental/工程训练(2).md
       - 制图大作业: courses/public/fundamental/制图大作业.md
       - 机械设计课程设计: courses/public/fundamental/机械设计课程设计.md
@@ -452,13 +450,12 @@ nav:
       - 生产实习: courses/routes/BuildingEnv/生产实习.md
       - 毕业论文: courses/routes/BuildingEnv/毕业论文.md
       - 毕业实习: courses/routes/BuildingEnv/毕业实习.md
-      - 工程Auto CAD实践（建能环）: courses/public/fundamental/工程Auto CAD实践（建能环）.md
+      - 工程Auto CAD实践（建环）: courses/public/fundamental/工程Auto CAD实践（建环）.md
       - 空调课程设计: courses/routes/BuildingEnv/空调课程设计.md
       - 供热课程设计: courses/routes/BuildingEnv/供热课程设计.md
       - 锅炉课程设计: courses/routes/BuildingEnv/锅炉课程设计.md
       - 认识实习: courses/routes/BuildingEnv/认识实习.md
-      - 劳动教育类: courses/public/professional/劳动教育类.md
-  - 土木工程（绿色建造）:
+  - 土木:
     - 导航页: courses/routes/CivilGreen/index.md
     - 学科基础（必修）:
       - 概率论与数理统计A或B: courses/public/fundamental/概率论与数理统计A或B.md
@@ -512,6 +509,5 @@ nav:
       - 钢结构课程设计: courses/routes/CivilGreen/钢结构课程设计.md
       - 毕业实习: courses/routes/CivilGreen/毕业实习.md
       - 毕业设计: courses/routes/CivilGreen/毕业设计.md
-      - 劳动教育类: courses/public/professional/劳动教育类.md
   - 平台资料:
     - 本科课程大纲: courses.md
