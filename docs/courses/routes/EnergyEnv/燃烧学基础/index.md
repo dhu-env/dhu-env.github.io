@@ -46,8 +46,8 @@
     </style>
 
     <div class="pdf-container">
-        <object data="/files/燃烧学基础简答题.pdf" type="application/pdf" aria-labelledby="PDF document">
-            <embed src="/files/燃烧学基础简答题.pdf" type="application/pdf" />
+        <object data="燃烧学基础简答题.pdf" type="application/pdf" aria-labelledby="PDF document">
+            <embed src="燃烧学基础简答题.pdf" type="application/pdf" />
             <p>
                 您的浏览器不支持 PDF 内嵌预览，请下载查看。
             </p>

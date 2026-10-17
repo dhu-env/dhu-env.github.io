@@ -20,8 +20,10 @@
 ## 课程资源
 
 ### 推荐教材 / 网课
+
 - 《工程热力学》（第六版）
 - B站视频：*[【工程热力学 主讲教师：何茂刚,何雅玲】](https://www.bilibili.com/video/BV1vT4y1A7M5/?share_source=copy_web)*
+
 ### 资源文件
 
 > 该部分待完善

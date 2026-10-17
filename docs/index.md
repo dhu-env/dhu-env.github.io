@@ -14,7 +14,7 @@ Hi~😉！
 
 !!! info "特别致谢"
 
-    本站参考了[**浙江大学的源梦紫金 ZJUSUEE**](https://zjusuee.github.io/)的建设思路，感谢浙江大学优秀平台给予的启迪。
+    本站参考了[**浙江大学的源梦紫金 ZJUSUEE**](https://zjusuee.github.io/)的建设思路，感谢友院优秀平台的启迪。
 
 **以下是一些常用课程资源（公共课程在「公共基础课程」区，专业课程按专业分区展示）：**
 
@@ -24,7 +24,7 @@ Hi~😉！
 
     ---
 
-    [**流体力学**](./courses/routes/EnergyEnv/流体力学.md)
+    [**流体力学（能环）**](./courses/routes/EnergyEnv/流体力学/index.md)
 
     （另有：环卓 / 环管 / 建环 专业页面）
 
@@ -32,7 +32,7 @@ Hi~😉！
 
     ---
 
-    [**工程热力学**](./courses/routes/EnergyEnv/工程热力学.md)
+    [**工程热力学（能环）**](./courses/routes/EnergyEnv/工程热力学/index.md)
 
     （另有：建环 专业页面）
 
@@ -40,7 +40,7 @@ Hi~😉！
 
     ---
 
-    [**传热学**](./courses/routes/EnergyEnv/传热学.md)
+    [**传热学（能环）**](./courses/routes/EnergyEnv/传热学/index.md)
 
     （另有：建环 专业页面）
 
@@ -48,7 +48,7 @@ Hi~😉！
 
     ---
 
-    [**化工原理（环卓）**](./courses/routes/EnvEngExcellent/化工原理.md)
+    [**化工原理（环卓）**](./courses/routes/EnvEngExcellent/化工原理/index.md)
 
     （另有：环管 / 环科 专业页面）
 
@@ -56,7 +56,7 @@ Hi~😉！
 
     ---
 
-    [**环境监测（环卓）**](./courses/routes/EnvEngExcellent/环境监测.md)
+    [**环境监测（环卓）**](./courses/routes/EnvEngExcellent/环境监测/index.md)
 
     （另有：环管 / 环科 专业页面）
 
@@ -86,4 +86,4 @@ Hi~😉！
 
 ### 维护者名单
 
-- 23级无名客
+- 待完善（欢迎登记成为维护者）

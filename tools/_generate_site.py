@@ -13,7 +13,7 @@ Course classification & naming rules (per user requirements):
   - Every course page carries a status bar listing the majors (所属专业).
   - 通识教育 & 综合实践 (common to all 6 majors) -> overview table pages.
 """
-import json, io, os, re, shutil
+import json, io, os, re, shutil, tempfile
 
 TOOLS = os.path.dirname(os.path.abspath(__file__))   # this tools/ directory
 NET = TOOLS                                           # parsed course data lives here
@@ -656,8 +656,14 @@ def route_full_index(dirname, major, title, short):
             missing_courses.append(nm)
             continue
         container, pt = reg
-        rel = os.path.relpath(os.path.join(container, f"{pt}.md"), os.path.join(ROUTES, dirname)).replace(os.sep, "/")
-        rel_docs = os.path.relpath(os.path.join(container, f"{pt}.md"), DOCS).replace(os.sep, "/")
+        if os.path.normpath(container) == os.path.normpath(FUND):
+            # 公共基础课程目录保持平铺（单文件）
+            target = os.path.join(container, f"{pt}.md")
+        else:
+            # 专业方向课程按课程名建子文件夹（index.md + 课程笔记/资料资源），便于维护与索引
+            target = os.path.join(container, pt, "index.md")
+        rel = os.path.relpath(target, os.path.join(ROUTES, dirname)).replace(os.sep, "/")
+        rel_docs = os.path.relpath(target, DOCS).replace(os.sep, "/")
         # 标记该课程是否已建在「公共基础课程」目录（侧边导航分区将剔除，表格仍保留全量）
         fund_flag = (os.path.normpath(container) == os.path.normpath(FUND))
         groups[key].append((pt, rel, rel_docs, fmt_credit(c["credit"]), fmt_sem(c["semester"]), fund_flag))
@@ -697,6 +703,23 @@ def wipe_dir(d):
                 os.remove(p)
         except OSError:
             pass
+
+# 重建前保留专业课程文件夹内的非 Markdown 资源（如 PDF 笔记、图片等），
+# 避免 wipe_dir 全量重建时丢失；重建完成后复制回原相对位置。
+_asset_tmp = tempfile.mkdtemp(prefix="dhu_assets_")
+_kept_assets = []
+for _dp, _dns, _fns in os.walk(os.path.join(DOCS, "courses", "routes")):
+    for _fn in _fns:
+        if not _fn.lower().endswith((".md", ".html")):
+            _full = os.path.join(_dp, _fn)
+            _rel = os.path.relpath(_full, DOCS)
+            _tmp = os.path.join(_asset_tmp, _rel)
+            os.makedirs(os.path.dirname(_tmp), exist_ok=True)
+            try:
+                shutil.copy2(_full, _tmp)
+                _kept_assets.append(_rel)
+            except OSError:
+                pass
 
 wipe_dir(DOCS)
 for d in [DOCS, PUB, FUND, ROUTES, os.path.join(DOCS, "stylesheets"), os.path.join(DOCS, "js")]:
@@ -807,7 +830,9 @@ for dirname, major, short, title, sections in ROUTE_SECTIONS:
                 missing.append((dirname, t))
                 continue
             for p in pages:
-                with io.open(os.path.join(rdir, f"{p['title']}.md"), "w", encoding="utf-8") as f:
+                cdir = os.path.join(rdir, p["title"])
+                os.makedirs(cdir, exist_ok=True)
+                with io.open(os.path.join(cdir, "index.md"), "w", encoding="utf-8") as f:
                     f.write(course_page(p))
     # 2) 方向导航页：按教学计划分类全量列出本专业培养方案课程（重叠课程同样列出并跳转）
     text, groups, miss = route_full_index(dirname, major, title, short)
@@ -1150,6 +1175,18 @@ os.makedirs(img_dir, exist_ok=True)
 if os.path.isfile(LOGO_SRC):
     shutil.copy2(LOGO_SRC, os.path.join(img_dir, "logo.png"))
     print("logo copied")
+
+# ---------- restore course-folder assets (PDF/notes/images) ----------
+for _rel in _kept_assets:
+    _tmp = os.path.join(_asset_tmp, _rel)
+    _dst = os.path.join(DOCS, _rel)
+    try:
+        os.makedirs(os.path.dirname(_dst), exist_ok=True)
+        shutil.copy2(_tmp, _dst)
+        print("restored asset:", _rel)
+    except OSError:
+        pass
+shutil.rmtree(_asset_tmp, ignore_errors=True)
 
 # ---------- mkdocs.yml ----------
 def nav_course_list(titles, base):
