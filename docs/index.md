@@ -24,7 +24,7 @@ Hi~😉！
 
     ---
 
-    [**流体力学（能环）**](./courses/routes/EnergyEnv/流体力学（能环）.md)
+    [**流体力学**](./courses/routes/EnergyEnv/流体力学.md)
 
     （另有：环卓 / 环管 / 建环 专业页面）
 
@@ -32,7 +32,7 @@ Hi~😉！
 
     ---
 
-    [**工程热力学（能环）**](./courses/routes/EnergyEnv/工程热力学（能环）.md)
+    [**工程热力学**](./courses/routes/EnergyEnv/工程热力学.md)
 
     （另有：建环 专业页面）
 
@@ -40,7 +40,7 @@ Hi~😉！
 
     ---
 
-    [**传热学（能环）**](./courses/routes/EnergyEnv/传热学（能环）.md)
+    [**传热学**](./courses/routes/EnergyEnv/传热学.md)
 
     （另有：建环 专业页面）
 
