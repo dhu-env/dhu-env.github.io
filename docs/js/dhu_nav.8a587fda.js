@@ -66,13 +66,21 @@
     /* 先快照当前展开状态（记住用户手动展开的分区），再记录目标顶层 */
     snapshotState();
     /* 按目标链接所属分区记录顶层：
-       - 指向某专业课程/方向页（/courses/routes/<专业>/…）→ 该专业缩写
-       - 指向公共基础课程（/courses/public/…，含课程页与列表页）→ 公共基础课程
+       - 指向某专业方向页/课程（/courses/routes/<专业>/…）→ 该专业缩写
+       - 指向公共基础课程·数理化等真公共课（/courses/public/fundamental/…）→ 公共基础课程
+       - 指向公共基础课程·专业性质课程（/courses/public/professional/…，如工程热力学（能环）、
+         化工原理实验、专业外语等）→ 从专业方向页点击时保持来源专业，否则公共基础课程
        - 其他（主页等）→ 清除 */
     var tAbs = absPath(href);
     var m = tAbs.match(/\/courses\/routes\/([^\/]+)\//);
     if (m && DIR_SHORT[m[1]]) { sessionStorage.setItem(KEY, DIR_SHORT[m[1]]); return; }
-    if (tAbs.indexOf("/courses/public/") !== -1) { sessionStorage.setItem(KEY, "公共基础课程"); return; }
+    if (tAbs.indexOf("/courses/public/fundamental/") !== -1) { sessionStorage.setItem(KEY, "公共基础课程"); return; }
+    if (tAbs.indexOf("/courses/public/professional/") !== -1) {
+      var curP = (location.pathname || "").replace(/\/+$/, "");
+      var cm = curP.match(/\/courses\/routes\/([^\/]+)\//);
+      if (cm && DIR_SHORT[cm[1]]) { sessionStorage.setItem(KEY, DIR_SHORT[cm[1]]); return; }
+      sessionStorage.setItem(KEY, "公共基础课程"); return;
+    }
     if (tAbs.indexOf("/courses/") !== -1) { sessionStorage.setItem(KEY, "公共基础课程"); return; }
     sessionStorage.removeItem(KEY);
   });
@@ -139,14 +147,16 @@
     if (isListPage) { sessionStorage.removeItem(KEY); return; }
     var ctx = sessionStorage.getItem(KEY);
     /* 课程标题带专业括号（如“工程热力学（能环）”“流体力学（建环）”等分设页面）：
-       这些是专业课程（虽建在公共基础课程目录），一律按括号内专业展开对应分区，
-       不随目标链接的物理目录跳到公共基础课程。 */
-    var bracketShort = null;
-    var bm = courseName.match(/（([^（）]+)）\s*$/);
-    if (bm) bracketShort = bm[1];
-    var shortSet = {};
-    for (var sd in DIR_SHORT) shortSet[DIR_SHORT[sd]] = 1;
-    if (bracketShort && shortSet[bracketShort]) ctx = bracketShort;
+       仅在无点击上下文（直开/刷新）时，按括号内专业展开对应分区；
+       有上下文时以点击来源为准（点击 professional 课程时已按来源专业/公共基础课程记录）。 */
+    if (!ctx) {
+      var bracketShort = null;
+      var bm = courseName.match(/（([^（）]+)）\s*$/);
+      if (bm) bracketShort = bm[1];
+      var shortSet = {};
+      for (var sd in DIR_SHORT) shortSet[DIR_SHORT[sd]] = 1;
+      if (bracketShort && shortSet[bracketShort]) ctx = bracketShort;
+    }
     var wantTops = [];
     var i, href, abs;
     if (ctx) {
