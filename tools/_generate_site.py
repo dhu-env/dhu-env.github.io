@@ -550,28 +550,22 @@ def page_tags(major_shorts):
     return "\n".join(f"  - {t}" for t in dict.fromkeys(major_shorts))
 
 def status_bar(c):
+    """课程页正文顶部状态栏：所属专业（绿色标签，点击跳转对应专业方向页）。
+    使用绝对路径（/courses/routes/<dir>/index.html），HTML 块内的链接不会被
+    pathconverter 重写，相对路径会相对当前课程页解析导致 404。"""
     tags = []
     for t in dict.fromkeys(c["majors"]):
         route = ROUTE_BY_SHORT.get(t)
         if route:
-            rel = os.path.relpath(
-                os.path.join(ROUTES, route, "index.md"),
-                c.get("container", ROUTES)).replace(os.sep, "/")
-            tags.append(f'<a class="dhu-tag" href="{rel}">{t}</a>')
+            tags.append(f'<a class="dhu-tag" href="/courses/routes/{route}/index.html">{t}</a>')
         else:
             tags.append(f'<span class="dhu-tag">{t}</span>')
     return f'<div class="dhu-bar"><strong>所属专业</strong>{"".join(tags)}</div>'
 
 def course_page(c):
-    tags = page_tags(c["majors"])
     note_line = f"\n\n!!! note \"课程说明\"\n\n    {c['note']}" if c["note"] else ""
     bar = status_bar(c)
-    return f"""---
-tags:
-{tags}
----
-
-# {c['title']}
+    return f"""# {c['title']}
 
 {bar}
 
@@ -1108,16 +1102,8 @@ nav_js = r"""/* 东华环院课程攻略 · 侧边导航"专业上下文保持"�
       }
     }
     if (!wantTops.length) return;
+    /* 只展开目标分区，不收起其他分区（避免点击课程时左侧导航自动收起） */
     wantTops.forEach(function (ti) { expandTop(ti, root); });
-    /* 收起未匹配的根级分区 */
-    var tops = topList.children;
-    for (var j = 0; j < tops.length; j++) {
-      var item = tops[j];
-      if (item && wantTops.indexOf(item) === -1 && item.classList.contains("md-nav__item--nested")) {
-        var t = item.querySelector(":scope > .md-nav__toggle");
-        if (t && t.checked) t.checked = false;
-      }
-    }
     /* 高亮：各展开分区内课程名匹配当前课程的链接，清除其它高亮 */
     var keepItems = [];
     wantTops.forEach(function (ti) {

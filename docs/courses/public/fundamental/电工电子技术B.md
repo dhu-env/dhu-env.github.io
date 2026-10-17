@@ -1,12 +1,6 @@
----
-tags:
-  - 能环
-  - 建环
----
-
 # 电工电子技术B
 
-<div class="dhu-bar"><strong>所属专业</strong><a class="dhu-tag" href="../../routes/EnergyEnv/index.md">能环</a><a class="dhu-tag" href="../../routes/BuildingEnv/index.md">建环</a></div>
+<div class="dhu-bar"><strong>所属专业</strong><a class="dhu-tag" href="/courses/routes/EnergyEnv/index.html">能环</a><a class="dhu-tag" href="/courses/routes/BuildingEnv/index.html">建环</a></div>
 
 > 本页为课程信息页，当前仅包含培养方案中的基本信息，其余内容待完善。
 

@@ -188,16 +188,8 @@
       }
     }
     if (!wantTops.length) return;
+    /* 只展开目标分区，不收起其他分区（避免点击课程时左侧导航自动收起） */
     wantTops.forEach(function (ti) { expandTop(ti, root); });
-    /* 收起未匹配的根级分区 */
-    var tops = topList.children;
-    for (var j = 0; j < tops.length; j++) {
-      var item = tops[j];
-      if (item && wantTops.indexOf(item) === -1 && item.classList.contains("md-nav__item--nested")) {
-        var t = item.querySelector(":scope > .md-nav__toggle");
-        if (t && t.checked) t.checked = false;
-      }
-    }
     /* 高亮：各展开分区内课程名匹配当前课程的链接，清除其它高亮 */
     var keepItems = [];
     wantTops.forEach(function (ti) {

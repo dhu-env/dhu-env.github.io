@@ -1,14 +1,6 @@
----
-tags:
-  - 能环
-  - 环科
-  - 建环
-  - 土木
----
-
 # 概率论与数理统计A或B
 
-<div class="dhu-bar"><strong>所属专业</strong><a class="dhu-tag" href="../../routes/EnergyEnv/index.md">能环</a><a class="dhu-tag" href="../../routes/EnvScience/index.md">环科</a><a class="dhu-tag" href="../../routes/BuildingEnv/index.md">建环</a><a class="dhu-tag" href="../../routes/CivilGreen/index.md">土木</a></div>
+<div class="dhu-bar"><strong>所属专业</strong><a class="dhu-tag" href="/courses/routes/EnergyEnv/index.html">能环</a><a class="dhu-tag" href="/courses/routes/EnvScience/index.html">环科</a><a class="dhu-tag" href="/courses/routes/BuildingEnv/index.html">建环</a><a class="dhu-tag" href="/courses/routes/CivilGreen/index.html">土木</a></div>
 
 > 本页为课程信息页，当前仅包含培养方案中的基本信息，其余内容待完善。
 
