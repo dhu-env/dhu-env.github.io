@@ -1045,6 +1045,15 @@ nav_js = r"""/* 东华环院课程攻略 · 侧边导航"展开状态保持"脚�
     }
     if (isListPage) { sessionStorage.removeItem(KEY); return; }
     var ctx = sessionStorage.getItem(KEY);
+    /* 课程标题带专业括号（如“工程热力学（能环）”“流体力学（建环）”等分设页面）：
+       这些是专业课程（虽建在公共基础课程目录），一律按括号内专业展开对应分区，
+       不随目标链接的物理目录跳到公共基础课程。 */
+    var bracketShort = null;
+    var bm = courseName.match(/（([^（）]+)）\s*$/);
+    if (bm) bracketShort = bm[1];
+    var shortSet = {};
+    for (var sd in DIR_SHORT) shortSet[DIR_SHORT[sd]] = 1;
+    if (bracketShort && shortSet[bracketShort]) ctx = bracketShort;
     var wantTops = [];
     var i, href, abs;
     if (ctx) {
