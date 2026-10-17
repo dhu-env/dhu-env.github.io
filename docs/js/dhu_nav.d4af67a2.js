@@ -72,12 +72,12 @@
          化工原理实验、专业外语等）→ 从专业方向页点击时保持来源专业，否则公共基础课程
        - 其他（主页等）→ 清除 */
     var tAbs = absPath(href);
-    var m = tAbs.match(/\/courses\/routes\/([^\/]+)\//);
+    var m = tAbs.match(/\/courses\/routes\/([^\/]+)(?:\/|$)/);
     if (m && DIR_SHORT[m[1]]) { sessionStorage.setItem(KEY, DIR_SHORT[m[1]]); return; }
     if (tAbs.indexOf("/courses/public/fundamental/") !== -1) { sessionStorage.setItem(KEY, "公共基础课程"); return; }
     if (tAbs.indexOf("/courses/public/professional/") !== -1) {
       var curP = (location.pathname || "").replace(/\/+$/, "");
-      var cm = curP.match(/\/courses\/routes\/([^\/]+)\//);
+      var cm = curP.match(/\/courses\/routes\/([^\/]+)(?:\/|$)/);
       if (cm && DIR_SHORT[cm[1]]) { sessionStorage.setItem(KEY, DIR_SHORT[cm[1]]); return; }
       sessionStorage.setItem(KEY, "公共基础课程"); return;
     }
