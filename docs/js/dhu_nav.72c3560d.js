@@ -14,14 +14,6 @@
     "EnvScience": "环科", "BuildingEnv": "建环", "CivilGreen": "土木"
   };
 
-  /* 当前页面 URL 所属的顶层分区 label（公共基础课程或专业缩写） */
-  function currentTopFromURL() {
-    var m = location.pathname.match(/\/courses\/routes\/([^\/]+)\//);
-    if (m && DIR_SHORT[m[1]]) return DIR_SHORT[m[1]];
-    if (location.pathname.indexOf("/courses/public/") !== -1) return "公共基础课程";
-    return null; /* 主页等无专业归属 */
-  }
-
   /* 把相对 href 解析为绝对路径（用于与 location.pathname 比对） */
   function absPath(href) {
     var a = document.createElement("a");
@@ -73,19 +65,16 @@
     if (href.indexOf("index.html") !== -1 || href.indexOf(".md") !== -1) return;
     /* 先快照当前展开状态（记住用户手动展开的分区），再记录目标顶层 */
     snapshotState();
-    /* 顶部 tab 链接（header 内）：按目标 URL 记录目标顶层分区 */
-    if (a.closest(".md-header")) {
-      var tAbs = absPath(href);
-      var m = tAbs.match(/\/courses\/routes\/([^\/]+)\//);
-      if (m && DIR_SHORT[m[1]]) { sessionStorage.setItem(KEY, DIR_SHORT[m[1]]); return; }
-      if (tAbs.indexOf("/courses/") !== -1) { sessionStorage.setItem(KEY, "公共基础课程"); return; }
-      sessionStorage.removeItem(KEY);
-      return;
-    }
-    /* 侧边栏/内容区链接：记录当前页面所属顶层分区（保持点击时的展开状态） */
-    var cur = currentTopFromURL();
-    if (cur) sessionStorage.setItem(KEY, cur);
-    else sessionStorage.removeItem(KEY);
+    /* 按目标链接所属分区记录顶层：
+       - 指向某专业课程/方向页（/courses/routes/<专业>/…）→ 该专业缩写
+       - 指向公共基础课程（/courses/public/…，含课程页与列表页）→ 公共基础课程
+       - 其他（主页等）→ 清除 */
+    var tAbs = absPath(href);
+    var m = tAbs.match(/\/courses\/routes\/([^\/]+)\//);
+    if (m && DIR_SHORT[m[1]]) { sessionStorage.setItem(KEY, DIR_SHORT[m[1]]); return; }
+    if (tAbs.indexOf("/courses/public/") !== -1) { sessionStorage.setItem(KEY, "公共基础课程"); return; }
+    if (tAbs.indexOf("/courses/") !== -1) { sessionStorage.setItem(KEY, "公共基础课程"); return; }
+    sessionStorage.removeItem(KEY);
   });
 
   /* 展开单个顶层分区路径上的所有折叠开关 */
