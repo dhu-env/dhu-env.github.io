@@ -195,12 +195,8 @@ FUND_SECTIONS = [
     ]),
 ]
 
-PROF_COURSES = [
-    ("环境学", ["环境工程（卓越班）", "环境科学"], None, "两专业课程编号一致（140031），合并为同一页面"),
-    ("环境分析化学", ["环境工程（卓越班）", "环境工程（双学位）"], None, "环科以“环境分析化学(双语)”单列"),
-    ("环境分析化学实验", ["环境工程（卓越班）", "环境工程（双学位）", "环境科学"], None, "三专业课程编号一致（141381），合并为同一页面"),
-    ("环境经济学", ["环境工程（双学位）", "环境科学"], None, ""),
-]
+# 原「公共专业课程」区的课程已全部按用户要求移入各专业目录（无后缀独立页面），该区不再保留
+PROF_COURSES = []
 
 ROUTE_SECTIONS = [
     ("EnergyEnv", "能源与环境系统工程", "能环",
@@ -282,6 +278,9 @@ ROUTE_SECTIONS = [
             ("环境监测", ["环境工程（卓越班）"], None, ""),
             ("环境监测实验", ["环境工程（卓越班）"], None, ""),
             ("环境仪器分析", ["环境工程（卓越班）"], None, ""),
+            ("环境学", ["环境工程（卓越班）"], None, ""),
+            ("环境分析化学", ["环境工程（卓越班）"], None, ""),
+            ("环境分析化学实验", ["环境工程（卓越班）"], None, ""),
         ]),
         ("实践教学环节", [
             ("水污染控制工程课程设计", ["环境工程（卓越班）", "环境工程（双学位）"], None, ""),
@@ -403,6 +402,11 @@ ROUTE_SECTIONS = [
             ("环境监测实验", ["环境科学"], None, ""),
             ("环境仪器分析", ["环境科学"], None, ""),
             ("环境评价学", ["环境科学"], None, ""),
+            ("环境学", ["环境科学"], None, ""),
+            ("环境分析化学实验", ["环境科学"], None, ""),
+        ]),
+        ("专业方向（选修）", [
+            ("环境经济学", ["环境科学"], None, ""),
         ]),
         ("专业方向选修 · 环境管理与规划模块", [
             ("环境法学", ["环境科学"], None, ""),
@@ -695,7 +699,7 @@ def wipe_dir(d):
             pass
 
 wipe_dir(DOCS)
-for d in [DOCS, PUB, FUND, PROF, ROUTES, os.path.join(DOCS, "stylesheets"), os.path.join(DOCS, "js")]:
+for d in [DOCS, PUB, FUND, ROUTES, os.path.join(DOCS, "stylesheets"), os.path.join(DOCS, "js")]:
     os.makedirs(d, exist_ok=True)
 
 missing = []
@@ -713,15 +717,7 @@ for sec_name, entries in FUND_SECTIONS:
                 f.write(course_page(p))
 
 prof_pages = []
-for (t, majors, nm, note) in PROF_COURSES:
-    pages, _ = expand_entry(t, majors, nm, note, PROF)
-    if pages is None:
-        missing.append(("PROF", t))
-        continue
-    prof_pages.extend(pages)
-    for p in pages:
-        with io.open(os.path.join(PROF, f"{p['title']}.md"), "w", encoding="utf-8") as f:
-            f.write(course_page(p))
+# 「公共专业课程」区已取消：PROF_COURSES 为空，不再生成 public/professional 课程页面
 
 # 通识教育总览
 gen_table = """| 课程名称 | 学分 | 课程性质 | 适用专业 | 备注 |
@@ -792,21 +788,6 @@ pub_idx.append("| [**通识教育与公共环节总览**](./fundamental/通识�
 pub_idx.append("")
 with io.open(os.path.join(PUB, "index.md"), "w", encoding="utf-8") as f:
     f.write("\n".join(pub_idx))
-
-# public/professional/index.md
-pro_idx = ["# 公共专业课程", "",
-"""!!! info "说明"
-
-    以下为**两个及以上专业共同修读**的专业性质课程。同名课程按课程编号一致与否决定合并或分设页面；仅单个专业开设的课程请前往对应专业方向页面查看。
-""",
-"| 课程名称 | 学分 | 适用专业 | 资料情况 |",
-"| ------- | ---- | ---- | ---- |"]
-for p in prof_pages:
-    rel = f"./{p['title']}.md"
-    pro_idx.append(f"| [**{p['title']}**]({rel}) | {p['credits']} | {'、'.join(p['majors'])} | :x: 待完善 |")
-pro_idx.append("")
-with io.open(os.path.join(PROF, "index.md"), "w", encoding="utf-8") as f:
-    f.write("\n".join(pro_idx))
 
 # routes
 route_nav_data = {}  # dirname -> [(sec_title, [(page_title, rel_docs)])]

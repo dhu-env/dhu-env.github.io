@@ -161,11 +161,11 @@ nav:
       - 工程项目管理: courses/routes/EnvEngExcellent/工程项目管理.md
       - 化工原理: courses/routes/EnvEngExcellent/化工原理.md
       - 化工原理实验: courses/routes/EnvEngExcellent/化工原理实验.md
-      - 环境学: courses/public/professional/环境学.md
+      - 环境学: courses/routes/EnvEngExcellent/环境学.md
       - 流体力学: courses/routes/EnvEngExcellent/流体力学.md
       - 环境微生物学: courses/routes/EnvEngExcellent/环境微生物学.md
-      - 环境分析化学: courses/public/professional/环境分析化学.md
-      - 环境分析化学实验: courses/public/professional/环境分析化学实验.md
+      - 环境分析化学: courses/routes/EnvEngExcellent/环境分析化学.md
+      - 环境分析化学实验: courses/routes/EnvEngExcellent/环境分析化学实验.md
       - 环境监测: courses/routes/EnvEngExcellent/环境监测.md
       - 环境监测实验: courses/routes/EnvEngExcellent/环境监测实验.md
       - 创新思维与方法: courses/routes/EnvEngExcellent/创新思维与方法.md
@@ -222,8 +222,8 @@ nav:
       - 微观经济学: courses/routes/EnvEngDual/微观经济学.md
       - 流体力学: courses/routes/EnvEngDual/流体力学.md
       - 环境微生物学: courses/routes/EnvEngExcellent/环境微生物学.md
-      - 环境分析化学: courses/public/professional/环境分析化学.md
-      - 环境分析化学实验: courses/public/professional/环境分析化学实验.md
+      - 环境分析化学: courses/routes/EnvEngDual/环境分析化学.md
+      - 环境分析化学实验: courses/routes/EnvEngDual/环境分析化学实验.md
       - 环境监测: courses/routes/EnvEngDual/环境监测.md
       - 环境监测实验: courses/routes/EnvEngDual/环境监测实验.md
       - 环管融合专业导论: courses/routes/EnvEngDual/环管融合专业导论.md
@@ -240,7 +240,7 @@ nav:
       - 建筑概论及制图: courses/routes/EnvEngExcellent/建筑概论及制图.md
     - 专业方向（必修）:
       - 管理信息系统: courses/routes/EnvEngDual/管理信息系统.md
-      - 环境经济学（环管）: courses/public/professional/环境经济学（环管）.md
+      - 环境经济学: courses/routes/EnvEngDual/环境经济学.md
       - 大气污染控制工程: courses/routes/EnvEngExcellent/大气污染控制工程.md
       - 固体废物处理与处置: courses/routes/EnvEngExcellent/固体废物处理与处置.md
       - 环境评价学: courses/routes/EnvEngDual/环境评价学.md
@@ -283,7 +283,7 @@ nav:
       - 生物化学实验: courses/routes/EnvScience/生物化学实验.md
       - 化工原理: courses/routes/EnvScience/化工原理.md
       - 化工原理实验: courses/routes/EnvScience/化工原理实验.md
-      - 环境学: courses/public/professional/环境学.md
+      - 环境学: courses/routes/EnvScience/环境学.md
       - 环境化学: courses/routes/EnvScience/环境化学.md
       - 环境生物学: courses/routes/EnvScience/环境生物学.md
       - 环境工程学实验: courses/routes/EnvScience/环境工程学实验.md
@@ -291,7 +291,7 @@ nav:
       - 环境生物学实验: courses/routes/EnvScience/环境生物学实验.md
       - 生态学: courses/routes/EnvScience/生态学.md
       - 环境工程制图: courses/routes/EnvScience/环境工程制图.md
-      - 环境分析化学实验: courses/public/professional/环境分析化学实验.md
+      - 环境分析化学实验: courses/routes/EnvScience/环境分析化学实验.md
       - 环境监测: courses/routes/EnvScience/环境监测.md
       - 环境监测实验: courses/routes/EnvScience/环境监测实验.md
       - 环境仪器分析: courses/routes/EnvScience/环境仪器分析.md
@@ -300,7 +300,7 @@ nav:
       - 环境分析化学(双语): courses/routes/EnvScience/环境分析化学(双语).md
       - 环境评价学: courses/routes/EnvScience/环境评价学.md
     - 专业方向（选修）:
-      - 环境经济学（环科）: courses/public/professional/环境经济学（环科）.md
+      - 环境经济学: courses/routes/EnvScience/环境经济学.md
       - 专业外语: courses/routes/EnvScience/专业外语.md
     - 专业方向（选修） · 环境管理与规划模块:
       - 环境法学: courses/routes/EnvScience/环境法学.md
