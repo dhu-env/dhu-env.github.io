@@ -123,9 +123,9 @@ nav:
     - 学科基础（必修）:
       - 热交换器原理与设计: courses/routes/EnergyEnv/热交换器原理与设计.md
       - 大气污染控制技术: courses/routes/EnergyEnv/大气污染控制技术.md
-      - 流体力学（能环）: courses/public/professional/流体力学（能环）.md
-      - 工程热力学（能环）: courses/public/professional/工程热力学（能环）.md
-      - 传热学（能环）: courses/public/professional/传热学（能环）.md
+      - 流体力学: courses/routes/EnergyEnv/流体力学.md
+      - 工程热力学: courses/routes/EnergyEnv/工程热力学.md
+      - 传热学: courses/routes/EnergyEnv/传热学.md
       - 燃烧学基础: courses/routes/EnergyEnv/燃烧学基础.md
       - 热工控制及自动化: courses/routes/EnergyEnv/热工控制及自动化.md
       - 能源转化（含锅炉原理）: courses/routes/EnergyEnv/能源转化（含锅炉原理）.md
@@ -133,9 +133,9 @@ nav:
       - 热力系统工程: courses/routes/EnergyEnv/热力系统工程.md
     - 专业方向（选修）:
       - 工程材料及机械制造基础: courses/routes/EnergyEnv/工程材料及机械制造基础.md
-      - 能环专业英语（能环）: courses/public/professional/能环专业英语（能环）.md
-      - 工程伦理（能环）: courses/public/professional/工程伦理（能环）.md
-      - 泵与风机（能环）: courses/public/professional/泵与风机（能环）.md
+      - 能环专业英语: courses/routes/EnergyEnv/能环专业英语.md
+      - 工程伦理: courses/routes/EnergyEnv/工程伦理.md
+      - 泵与风机: courses/routes/EnergyEnv/泵与风机.md
       - 能源与环境系统工程专业导论: courses/routes/EnergyEnv/能源与环境系统工程专业导论.md
       - 专业前沿课程: courses/routes/EnergyEnv/专业前沿课程.md
       - 余热利用: courses/routes/EnergyEnv/余热利用.md
@@ -151,8 +151,6 @@ nav:
       - 热工基础实验（一）: courses/routes/EnergyEnv/热工基础实验（一）.md
       - 热工基础实验（二）: courses/routes/EnergyEnv/热工基础实验（二）.md
       - 热力系统工程课程设计: courses/routes/EnergyEnv/热力系统工程课程设计.md
-      - 毕业论文: courses/routes/EnergyEnv/毕业论文.md
-      - 毕业实习: courses/routes/EnergyEnv/毕业实习.md
       - 热交换器课程设计: courses/routes/EnergyEnv/热交换器课程设计.md
       - 认识实习: courses/routes/EnergyEnv/认识实习.md
       - 锅炉课程设计: courses/routes/EnergyEnv/锅炉课程设计.md
@@ -161,15 +159,15 @@ nav:
     - 导航页: courses/routes/EnvEngExcellent/index.md
     - 学科基础（必修）:
       - 工程项目管理: courses/routes/EnvEngExcellent/工程项目管理.md
-      - 化工原理（环卓·环管）: courses/public/professional/化工原理（环卓·环管）.md
-      - 化工原理实验（环卓·环管）: courses/public/professional/化工原理实验（环卓·环管）.md
+      - 化工原理: courses/routes/EnvEngExcellent/化工原理.md
+      - 化工原理实验: courses/routes/EnvEngExcellent/化工原理实验.md
       - 环境学: courses/public/professional/环境学.md
-      - 流体力学（环卓）: courses/public/professional/流体力学（环卓）.md
+      - 流体力学: courses/routes/EnvEngExcellent/流体力学.md
       - 环境微生物学: courses/routes/EnvEngExcellent/环境微生物学.md
       - 环境分析化学: courses/public/professional/环境分析化学.md
       - 环境分析化学实验: courses/public/professional/环境分析化学实验.md
-      - 环境监测（环卓·环管）: courses/public/professional/环境监测（环卓·环管）.md
-      - 环境监测实验（环卓·环管）: courses/public/professional/环境监测实验（环卓·环管）.md
+      - 环境监测: courses/routes/EnvEngExcellent/环境监测.md
+      - 环境监测实验: courses/routes/EnvEngExcellent/环境监测实验.md
       - 创新思维与方法: courses/routes/EnvEngExcellent/创新思维与方法.md
     - 学科基础（选修）:
       - 环境问题分析与研讨: courses/routes/EnvEngExcellent/环境问题分析与研讨.md
@@ -177,12 +175,12 @@ nav:
       - 工程概预算: courses/routes/EnvEngExcellent/工程概预算.md
       - 环境系统分析: courses/routes/EnvEngExcellent/环境系统分析.md
       - 环境工程CAD: courses/routes/EnvEngExcellent/环境工程CAD.md
-      - 环境仪器分析（环卓·环管）: courses/public/professional/环境仪器分析（环卓·环管）.md
+      - 环境仪器分析: courses/routes/EnvEngExcellent/环境仪器分析.md
       - 建筑概论及制图: courses/routes/EnvEngExcellent/建筑概论及制图.md
     - 专业方向（必修）:
       - 大气污染控制工程: courses/routes/EnvEngExcellent/大气污染控制工程.md
       - 固体废物处理与处置: courses/routes/EnvEngExcellent/固体废物处理与处置.md
-      - 环境评价学（环卓·环管）: courses/public/professional/环境评价学（环卓·环管）.md
+      - 环境评价学: courses/routes/EnvEngExcellent/环境评价学.md
       - 环境管理与规划: courses/routes/EnvEngExcellent/环境管理与规划.md
       - 物理性污染控制: courses/routes/EnvEngExcellent/物理性污染控制.md
       - 水污染控制工程(上): courses/routes/EnvEngExcellent/水污染控制工程(上).md
@@ -200,36 +198,34 @@ nav:
     - 实践教学（必修）:
       - 水污染控制工程课程设计: courses/routes/EnvEngExcellent/水污染控制工程课程设计.md
       - 环境微生物学实验: courses/routes/EnvEngExcellent/环境微生物学实验.md
-      - 环境监测大实验（环卓·环管）: courses/public/professional/环境监测大实验（环卓·环管）.md
+      - 环境监测大实验: courses/routes/EnvEngExcellent/环境监测大实验.md
       - 固体废物处理与处置课程设计: courses/routes/EnvEngExcellent/固体废物处理与处置课程设计.md
-      - 环境评价课程设计（环卓）: courses/routes/EnvEngExcellent/环境评价课程设计（环卓）.md
+      - 环境评价课程设计: courses/routes/EnvEngExcellent/环境评价课程设计.md
       - 大气污染控制工程课程设计: courses/routes/EnvEngExcellent/大气污染控制工程课程设计.md
       - 固体废物处理与处置实验: courses/routes/EnvEngExcellent/固体废物处理与处置实验.md
       - 大气污染控制工程实验: courses/routes/EnvEngExcellent/大气污染控制工程实验.md
       - 水污染控制工程实验(2)（环卓）: courses/routes/EnvEngExcellent/水污染控制工程实验(2)（环卓）.md
       - 水污染控制工程实验(1): courses/routes/EnvEngExcellent/水污染控制工程实验(1).md
-      - 毕业实习: courses/routes/EnvEngExcellent/毕业实习.md
       - 生产实习: courses/routes/EnvEngExcellent/生产实习.md
       - 认识实习: courses/routes/EnvEngExcellent/认识实习.md
       - 微机上机与环境大数据分析: courses/routes/EnvEngExcellent/微机上机与环境大数据分析.md
-      - 化工原理课程设计（环卓·环管）: courses/public/professional/化工原理课程设计（环卓·环管）.md
-      - 毕业设计: courses/routes/EnvEngExcellent/毕业设计.md
+      - 化工原理课程设计: courses/routes/EnvEngExcellent/化工原理课程设计.md
   - 环管:
     - 导航页: courses/routes/EnvEngDual/index.md
     - 学科基础（必修）:
       - 管理学: courses/routes/EnvEngDual/管理学.md
       - 工程项目管理: courses/routes/EnvEngExcellent/工程项目管理.md
       - 环管融合创新思维与方法: courses/routes/EnvEngDual/环管融合创新思维与方法.md
-      - 化工原理（环卓·环管）: courses/public/professional/化工原理（环卓·环管）.md
-      - 化工原理实验（环卓·环管）: courses/public/professional/化工原理实验（环卓·环管）.md
+      - 化工原理: courses/routes/EnvEngDual/化工原理.md
+      - 化工原理实验: courses/routes/EnvEngDual/化工原理实验.md
       - 宏观经济学: courses/routes/EnvEngDual/宏观经济学.md
       - 微观经济学: courses/routes/EnvEngDual/微观经济学.md
-      - 流体力学（环管）: courses/public/professional/流体力学（环管）.md
+      - 流体力学: courses/routes/EnvEngDual/流体力学.md
       - 环境微生物学: courses/routes/EnvEngExcellent/环境微生物学.md
       - 环境分析化学: courses/public/professional/环境分析化学.md
       - 环境分析化学实验: courses/public/professional/环境分析化学实验.md
-      - 环境监测（环卓·环管）: courses/public/professional/环境监测（环卓·环管）.md
-      - 环境监测实验（环卓·环管）: courses/public/professional/环境监测实验（环卓·环管）.md
+      - 环境监测: courses/routes/EnvEngDual/环境监测.md
+      - 环境监测实验: courses/routes/EnvEngDual/环境监测实验.md
       - 环管融合专业导论: courses/routes/EnvEngDual/环管融合专业导论.md
     - 学科基础（选修）:
       - 会计学: courses/routes/EnvEngDual/会计学.md
@@ -240,14 +236,14 @@ nav:
       - 组织行为学: courses/routes/EnvEngDual/组织行为学.md
       - 工程概预算: courses/routes/EnvEngExcellent/工程概预算.md
       - 环境工程CAD: courses/routes/EnvEngExcellent/环境工程CAD.md
-      - 环境仪器分析（环卓·环管）: courses/public/professional/环境仪器分析（环卓·环管）.md
+      - 环境仪器分析: courses/routes/EnvEngDual/环境仪器分析.md
       - 建筑概论及制图: courses/routes/EnvEngExcellent/建筑概论及制图.md
     - 专业方向（必修）:
       - 管理信息系统: courses/routes/EnvEngDual/管理信息系统.md
       - 环境经济学（环管）: courses/public/professional/环境经济学（环管）.md
       - 大气污染控制工程: courses/routes/EnvEngExcellent/大气污染控制工程.md
       - 固体废物处理与处置: courses/routes/EnvEngExcellent/固体废物处理与处置.md
-      - 环境评价学（环卓·环管）: courses/public/professional/环境评价学（环卓·环管）.md
+      - 环境评价学: courses/routes/EnvEngDual/环境评价学.md
       - 环境管理与规划: courses/routes/EnvEngExcellent/环境管理与规划.md
       - 物理性污染控制: courses/routes/EnvEngExcellent/物理性污染控制.md
       - 水污染控制工程(上): courses/routes/EnvEngExcellent/水污染控制工程(上).md
@@ -267,28 +263,26 @@ nav:
     - 实践教学（必修）:
       - 环管融合生产实习: courses/routes/EnvEngDual/环管融合生产实习.md
       - 环管融合认识实习: courses/routes/EnvEngDual/环管融合认识实习.md
-      - 环管融合毕业实习: courses/routes/EnvEngDual/环管融合毕业实习.md
       - 水污染控制工程课程设计: courses/routes/EnvEngExcellent/水污染控制工程课程设计.md
       - 创业决策: courses/routes/EnvEngDual/创业决策.md
       - 微机上机和管理系统: courses/routes/EnvEngDual/微机上机和管理系统.md
       - 环境微生物学实验: courses/routes/EnvEngExcellent/环境微生物学实验.md
-      - 环境监测大实验（环卓·环管）: courses/public/professional/环境监测大实验（环卓·环管）.md
+      - 环境监测大实验: courses/routes/EnvEngDual/环境监测大实验.md
       - 固体废物处理与处置课程设计: courses/routes/EnvEngExcellent/固体废物处理与处置课程设计.md
-      - 环境评价课程设计（环管）: courses/routes/EnvEngExcellent/环境评价课程设计（环管）.md
+      - 环境评价课程设计: courses/routes/EnvEngDual/环境评价课程设计.md
       - 大气污染控制工程课程设计: courses/routes/EnvEngExcellent/大气污染控制工程课程设计.md
       - 固体废物处理与处置实验: courses/routes/EnvEngExcellent/固体废物处理与处置实验.md
       - 大气污染控制工程实验: courses/routes/EnvEngExcellent/大气污染控制工程实验.md
       - 水污染控制工程实验（2）（环管）: courses/routes/EnvEngExcellent/水污染控制工程实验（2）（环管）.md
       - 水污染控制工程实验(1): courses/routes/EnvEngExcellent/水污染控制工程实验(1).md
-      - 化工原理课程设计（环卓·环管）: courses/public/professional/化工原理课程设计（环卓·环管）.md
-      - 毕业设计: courses/routes/EnvEngDual/毕业设计.md
+      - 化工原理课程设计: courses/routes/EnvEngDual/化工原理课程设计.md
   - 环科:
     - 导航页: courses/routes/EnvScience/index.md
     - 学科基础（必修）:
       - 生物化学: courses/routes/EnvScience/生物化学.md
       - 生物化学实验: courses/routes/EnvScience/生物化学实验.md
-      - 化工原理（环科）: courses/public/professional/化工原理（环科）.md
-      - 化工原理实验（环科）: courses/public/professional/化工原理实验（环科）.md
+      - 化工原理: courses/routes/EnvScience/化工原理.md
+      - 化工原理实验: courses/routes/EnvScience/化工原理实验.md
       - 环境学: courses/public/professional/环境学.md
       - 环境化学: courses/routes/EnvScience/环境化学.md
       - 环境生物学: courses/routes/EnvScience/环境生物学.md
@@ -298,16 +292,16 @@ nav:
       - 生态学: courses/routes/EnvScience/生态学.md
       - 环境工程制图: courses/routes/EnvScience/环境工程制图.md
       - 环境分析化学实验: courses/public/professional/环境分析化学实验.md
-      - 环境监测（环科）: courses/public/professional/环境监测（环科）.md
-      - 环境监测实验（环科）: courses/public/professional/环境监测实验（环科）.md
-      - 环境仪器分析（环科）: courses/public/professional/环境仪器分析（环科）.md
+      - 环境监测: courses/routes/EnvScience/环境监测.md
+      - 环境监测实验: courses/routes/EnvScience/环境监测实验.md
+      - 环境仪器分析: courses/routes/EnvScience/环境仪器分析.md
       - 环境仪器分析实验: courses/routes/EnvScience/环境仪器分析实验.md
       - 环境工程学: courses/routes/EnvScience/环境工程学.md
       - 环境分析化学(双语): courses/routes/EnvScience/环境分析化学(双语).md
-      - 环境评价学（环科）: courses/public/professional/环境评价学（环科）.md
+      - 环境评价学: courses/routes/EnvScience/环境评价学.md
     - 专业方向（选修）:
       - 环境经济学（环科）: courses/public/professional/环境经济学（环科）.md
-      - 专业外语（环科）: courses/public/professional/专业外语（环科）.md
+      - 专业外语: courses/routes/EnvScience/专业外语.md
     - 专业方向（选修） · 环境管理与规划模块:
       - 环境法学: courses/routes/EnvScience/环境法学.md
       - 环境信息系统: courses/routes/EnvScience/环境信息系统.md
@@ -334,15 +328,13 @@ nav:
     - 实践教学（必修）:
       - 环境数据分析上机: courses/routes/EnvScience/环境数据分析上机.md
       - 环境工程制图课程设计: courses/routes/EnvScience/环境工程制图课程设计.md
-      - 毕业论文: courses/routes/EnvScience/毕业论文.md
       - 环境生物技术综合实验: courses/routes/EnvScience/环境生物技术综合实验.md
       - 生态实习: courses/routes/EnvScience/生态实习.md
       - 环境材料综合实验: courses/routes/EnvScience/环境材料综合实验.md
-      - 环境监测大型实验（环科）: courses/public/professional/环境监测大型实验（环科）.md
+      - 环境监测大型实验: courses/routes/EnvScience/环境监测大型实验.md
       - 认识实习: courses/routes/EnvScience/认识实习.md
-      - 化工原理课程设计（环科）: courses/public/professional/化工原理课程设计（环科）.md
+      - 化工原理课程设计: courses/routes/EnvScience/化工原理课程设计.md
       - 环境评价: courses/routes/EnvScience/环境评价.md
-      - 毕业实习: courses/routes/EnvScience/毕业实习.md
   - 建环:
     - 导航页: courses/routes/BuildingEnv/index.md
     - 学科基础（必修）:
@@ -354,9 +346,9 @@ nav:
       - 热质交换原理与设备: courses/routes/BuildingEnv/热质交换原理与设备.md
       - 空气调节: courses/routes/BuildingEnv/空气调节.md
       - 建筑环境与能源系统测量技术: courses/routes/BuildingEnv/建筑环境与能源系统测量技术.md
-      - 流体力学（建环）: courses/public/professional/流体力学（建环）.md
-      - 工程热力学（建环）: courses/public/professional/工程热力学（建环）.md
-      - 传热学（建环）: courses/public/professional/传热学（建环）.md
+      - 流体力学: courses/routes/BuildingEnv/流体力学.md
+      - 工程热力学: courses/routes/BuildingEnv/工程热力学.md
+      - 传热学: courses/routes/BuildingEnv/传热学.md
       - 供热工程: courses/routes/BuildingEnv/供热工程.md
       - 空调用制冷技术: courses/routes/BuildingEnv/空调用制冷技术.md
       - 燃气供应: courses/routes/BuildingEnv/燃气供应.md
@@ -365,16 +357,16 @@ nav:
       - 环境保护概论: courses/routes/BuildingEnv/环境保护概论.md
       - 建筑工程基础: courses/routes/BuildingEnv/建筑工程基础.md
     - 专业方向（选修）:
-      - 工程伦理（建环）: courses/public/professional/工程伦理（建环）.md
+      - 工程伦理: courses/routes/BuildingEnv/工程伦理.md
       - 建筑专业导论: courses/routes/BuildingEnv/建筑专业导论.md
       - 空气洁净技术: courses/routes/BuildingEnv/空气洁净技术.md
-      - 泵与风机（建环）: courses/public/professional/泵与风机（建环）.md
+      - 泵与风机: courses/routes/BuildingEnv/泵与风机.md
       - 专业前沿: courses/routes/BuildingEnv/专业前沿.md
       - 施工组织技术与工程经济: courses/routes/BuildingEnv/施工组织技术与工程经济.md
       - 建筑给排水: courses/routes/BuildingEnv/建筑给排水.md
       - 高层建筑空调与防排烟: courses/routes/BuildingEnv/高层建筑空调与防排烟.md
       - 建筑节能技术与能耗模拟: courses/routes/BuildingEnv/建筑节能技术与能耗模拟.md
-      - 专业英语（建环）: courses/public/professional/专业英语（建环）.md
+      - 专业英语: courses/routes/BuildingEnv/专业英语.md
       - 专业报告写作与表达: courses/routes/BuildingEnv/专业报告写作与表达.md
       - BIM技术与应用实践: courses/routes/BuildingEnv/BIM技术与应用实践.md
     - 实践教学（必修）:
@@ -385,8 +377,6 @@ nav:
       - 专业综合实验（一）: courses/routes/BuildingEnv/专业综合实验（一）.md
       - 专业综合实验（二）: courses/routes/BuildingEnv/专业综合实验（二）.md
       - 生产实习: courses/routes/BuildingEnv/生产实习.md
-      - 毕业论文: courses/routes/BuildingEnv/毕业论文.md
-      - 毕业实习: courses/routes/BuildingEnv/毕业实习.md
       - 空调课程设计: courses/routes/BuildingEnv/空调课程设计.md
       - 供热课程设计: courses/routes/BuildingEnv/供热课程设计.md
       - 锅炉课程设计: courses/routes/BuildingEnv/锅炉课程设计.md
@@ -399,8 +389,8 @@ nav:
       - 荷载与可靠度设计原理: courses/routes/CivilGreen/荷载与可靠度设计原理.md
       - 水力学: courses/routes/CivilGreen/水力学.md
     - 学科基础（选修）:
-      - 工程伦理（土木）: courses/public/professional/工程伦理（土木）.md
-      - 专业英语（土木）: courses/public/professional/专业英语（土木）.md
+      - 工程伦理: courses/routes/CivilGreen/工程伦理.md
+      - 专业英语: courses/routes/CivilGreen/专业英语.md
       - BIM与虚拟现实: courses/routes/CivilGreen/BIM与虚拟现实.md
       - 地下空间规划与利用: courses/routes/CivilGreen/地下空间规划与利用.md
       - 弹性力学: courses/routes/CivilGreen/弹性力学.md
@@ -435,7 +425,5 @@ nav:
       - 基础工程课程设计: courses/routes/CivilGreen/基础工程课程设计.md
       - 地下建筑结构设计: courses/routes/CivilGreen/地下建筑结构设计.md
       - 钢结构课程设计: courses/routes/CivilGreen/钢结构课程设计.md
-      - 毕业实习: courses/routes/CivilGreen/毕业实习.md
-      - 毕业设计: courses/routes/CivilGreen/毕业设计.md
   - 平台资料:
     - 本科课程大纲: courses.md
