@@ -7,7 +7,7 @@ exclude_docs: |
 extra_css:
   - stylesheets/extra.css
 extra_javascript:
-  - js/dhu_nav.17f83b4d.js
+  - js/dhu_nav.d169e613.js
 markdown_extensions:
   - pymdownx.pathconverter:
       base_path: ''

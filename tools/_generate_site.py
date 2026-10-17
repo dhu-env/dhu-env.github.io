@@ -1025,6 +1025,13 @@ nav_js = r"""/* 东华环院课程攻略 · 侧边导航"专业上下文保持"�
     }
   }
 
+  /* 展开顶层分区内的全部子分区（该专业所有分类标题展开，避免点击课程后侧边栏“收起”） */
+  function expandAllIn(topItem) {
+    if (!topItem) return;
+    var toggles = topItem.querySelectorAll(".md-nav__item--nested > .md-nav__toggle");
+    for (var q = 0; q < toggles.length; q++) toggles[q].checked = true;
+  }
+
   /* 找到链接所属的顶层分区 */
   function topOf(link, root) {
     var topList = root.querySelector(":scope > .md-nav__list");
@@ -1102,8 +1109,8 @@ nav_js = r"""/* 东华环院课程攻略 · 侧边导航"专业上下文保持"�
       }
     }
     if (!wantTops.length) return;
-    /* 只展开目标分区，不收起其他分区（避免点击课程时左侧导航自动收起） */
-    wantTops.forEach(function (ti) { expandTop(ti, root); });
+    /* 只展开目标分区（含全部子分区），不收起其他分区（避免点击课程时左侧导航自动收起） */
+    wantTops.forEach(function (ti) { expandTop(ti, root); expandAllIn(ti); });
     /* 高亮：各展开分区内课程名匹配当前课程的链接，清除其它高亮 */
     var keepItems = [];
     wantTops.forEach(function (ti) {
