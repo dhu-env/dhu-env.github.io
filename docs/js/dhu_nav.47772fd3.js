@@ -36,12 +36,43 @@
     (document.head || document.documentElement).appendChild(st);
   })();
 
+  /* 快照当前侧边导航的展开状态：每个顶层分区下已展开的子分区 label 列表 */
+  function snapshotState() {
+    var root = document.querySelector('.md-nav[data-md-level="0"]');
+    if (!root) return;
+    var state = {};
+    var topList = root.querySelector(":scope > .md-nav__list");
+    if (!topList) return;
+    var tops = topList.children;
+    for (var k = 0; k < tops.length; k++) {
+      var ti = tops[k];
+      if (!ti.classList.contains("md-nav__item--nested")) continue;
+      var lb = ti.querySelector(":scope > .md-nav__link");
+      var topLabel = (lb && (lb.textContent || "").trim()) || "";
+      if (!topLabel) continue;
+      var openSubs = [];
+      var subToggles = ti.querySelectorAll(".md-nav__item--nested > .md-nav__toggle");
+      for (var q = 0; q < subToggles.length; q++) {
+        if (subToggles[q].checked) {
+          var sli = subToggles[q].closest(".md-nav__item");
+          var slb = sli.querySelector(":scope > .md-nav__link");
+          var s = (slb && (slb.textContent || "").trim()) || "";
+          if (s && openSubs.indexOf(s) === -1) openSubs.push(s);
+        }
+      }
+      state[topLabel] = openSubs;
+    }
+    try { sessionStorage.setItem("dhu-nav-state", JSON.stringify(state)); } catch (e) {}
+  }
+
   document.addEventListener("click", function (e) {
     var a = e.target && e.target.closest ? e.target.closest("a") : null;
     if (!a) return;
     var href = a.getAttribute("href") || "";
     if (href === "#" || href.indexOf("#") === 0 || href.indexOf("http") === 0) return;
     if (href.indexOf("index.html") !== -1 || href.indexOf(".md") !== -1) return;
+    /* 先快照当前展开状态（记住用户手动展开的分区），再记录目标顶层 */
+    snapshotState();
     /* 顶部 tab 链接（header 内）：按目标 URL 记录目标顶层分区 */
     if (a.closest(".md-header")) {
       var tAbs = absPath(href);
@@ -66,13 +97,6 @@
       if (toggle && !toggle.checked) toggle.checked = true;
       node = node.parentElement;
     }
-  }
-
-  /* 展开顶层分区内的全部子分区（该分区所有分类标题展开，避免点击课程后侧边栏“收起”） */
-  function expandAllIn(topItem) {
-    if (!topItem) return;
-    var toggles = topItem.querySelectorAll(".md-nav__item--nested > .md-nav__toggle");
-    for (var q = 0; q < toggles.length; q++) toggles[q].checked = true;
   }
 
   /* 找到链接所属的顶层分区 */
@@ -140,8 +164,24 @@
       }
     }
     if (!wantTops.length) return;
-    /* 只展开目标分区（含全部子分区），不收起其他分区（避免点击课程时左侧导航自动收起） */
-    wantTops.forEach(function (ti) { expandTop(ti, root); expandAllIn(ti); });
+    /* 展开目标顶层分区；子分区按点击时快照的展开状态恢复（不强制全展开），
+       避免把用户未展开的分区也一并展开 */
+    wantTops.forEach(function (ti) { expandTop(ti, root); });
+    var savedState = {};
+    try { savedState = JSON.parse(sessionStorage.getItem("dhu-nav-state") || "{}"); } catch (e) {}
+    var openSubs = savedState[ctx] || [];
+    if (openSubs.length) {
+      wantTops.forEach(function (ti) {
+        var subToggles = ti.querySelectorAll(".md-nav__item--nested > .md-nav__toggle");
+        for (var q = 0; q < subToggles.length; q++) {
+          var sli = subToggles[q].closest(".md-nav__item");
+          var slb = sli.querySelector(":scope > .md-nav__link");
+          if ((slb && (slb.textContent || "").trim()) && openSubs.indexOf((slb.textContent || "").trim()) !== -1) {
+            subToggles[q].checked = true;
+          }
+        }
+      });
+    }
     /* 高亮：各展开分区内课程名匹配当前课程的链接，清除其它高亮 */
     var keepItems = [];
     wantTops.forEach(function (ti) {
