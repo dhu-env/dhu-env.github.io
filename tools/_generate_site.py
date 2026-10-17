@@ -851,6 +851,20 @@ for dirname, major, short, title, sections in ROUTE_SECTIONS:
         rows = [(pt, rel_docs) for pt, rel, rel_docs, cr, sem, fg in items if not fg]
         if rows:
             nav_rows.append((sec, rows))
+        # 3) 分类索引页：每个分类生成独立页面，侧边导航点击分类名时打开该页（列出分类下全部课程）
+        sec_dir = os.path.join(rdir, sec)
+        os.makedirs(sec_dir, exist_ok=True)
+        lines = [f"# {sec}", "",
+                 f'<div class="dhu-bar"><strong>专业方向</strong><span class="dhu-tag">{short}</span></div>', "",
+                 f"> 本页汇总「{sec}」分类下的课程，完整培养方案见[专业方向导航页](../index.md)。", "",
+                 "| 课程名称 | 学分 | 建议学期 | 资料情况 |",
+                 "| ------- | ---- | ---- | ---- |"]
+        for pt, _rel, rel_docs, cr, sem, _fg in items:
+            c_rel = os.path.relpath(os.path.join(DOCS, rel_docs), sec_dir).replace(os.sep, "/")
+            lines.append(f"| [**{pt}**]({c_rel}) | {cr} | {sem} | :x: 待完善 |")
+        lines.append("")
+        with io.open(os.path.join(sec_dir, "index.md"), "w", encoding="utf-8") as f:
+            f.write("\n".join(lines))
     route_nav_data[dirname] = nav_rows
 
 # courses.md
@@ -1209,7 +1223,10 @@ for dirname, major, short, title, sections in ROUTE_SECTIONS:
     nav.append(f"  - {short}:")
     nav.append(f"    - 导航页: courses/routes/{dirname}/index.md")
     for sec, rows in route_nav_data[dirname]:
+        # Material navigation.indexes：分类索引页作为第一个子项（同名子项由主题自动隐藏），
+        # 点击分类名即打开分类索引页（列出该分类全部课程）
         nav.append(f"    - {sec}:")
+        nav.append(f"      - {sec}: courses/routes/{dirname}/{sec}/index.md")
         for pt, rel_docs in rows:
             nav.append(f"      - {pt}: {rel_docs}")
 nav.append("  - 平台资料:")
