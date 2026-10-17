@@ -16,7 +16,7 @@ Hi~😉！
 
     本站参考了[**浙江大学的源梦紫金 ZJUSUEE**](https://zjusuee.github.io/)的建设思路，感谢友院优秀平台的启迪。
 
-**以下是一些常用课程资源（同名课程按专业分设页面，以括号标注专业）：**
+**以下是一些常用课程资源（公共课程在「公共基础课程」区，专业课程按专业分区展示）：**
 
 <div class="grid cards" markdown>
 
@@ -24,7 +24,7 @@ Hi~😉！
 
     ---
 
-    [**流体力学（能环）**](./courses/public/professional/流体力学（能环）.md)
+    [**流体力学（能环）**](./courses/routes/EnergyEnv/流体力学.md)
 
     （另有：环卓 / 环管 / 建环 专业页面）
 
@@ -32,7 +32,7 @@ Hi~😉！
 
     ---
 
-    [**工程热力学（能环）**](./courses/public/professional/工程热力学（能环）.md)
+    [**工程热力学（能环）**](./courses/routes/EnergyEnv/工程热力学.md)
 
     （另有：建环 专业页面）
 
@@ -40,7 +40,7 @@ Hi~😉！
 
     ---
 
-    [**传热学（能环）**](./courses/public/professional/传热学（能环）.md)
+    [**传热学（能环）**](./courses/routes/EnergyEnv/传热学.md)
 
     （另有：建环 专业页面）
 
@@ -48,17 +48,17 @@ Hi~😉！
 
     ---
 
-    [**化工原理（环卓·环管）**](./courses/public/professional/化工原理（环卓·环管）.md)
+    [**化工原理（环卓）**](./courses/routes/EnvEngExcellent/化工原理.md)
 
-    （另有：环科 专业页面）
+    （另有：环管 / 环科 专业页面）
 
 -   :material-test-tube:{ .lg .middle } __环境监测__
 
     ---
 
-    [**环境监测（环卓·环管）**](./courses/public/professional/环境监测（环卓·环管）.md)
+    [**环境监测（环卓）**](./courses/routes/EnvEngExcellent/环境监测.md)
 
-    （另有：环科 专业页面）
+    （另有：环管 / 环科 专业页面）
 
 -   :material-school:{ .lg .middle } __高等数学类__
 

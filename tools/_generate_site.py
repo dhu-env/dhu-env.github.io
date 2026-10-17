@@ -24,7 +24,7 @@ FUND = os.path.join(PUB, "fundamental")
 PROF = os.path.join(PUB, "professional")
 ROUTES = os.path.join(DOCS, "courses", "routes")
 MANUAL = os.path.join(TOOLS, "_manual_docs")          # hand-written static pages, copied back after rebuild
-LOGO_SRC = os.path.join(os.path.dirname(OUT), "logo.jpg")  # net/logo.jpg (院徽)
+LOGO_SRC = os.path.join(os.path.dirname(OUT), "logo.png")  # net/logo.png (院徽，透明背景)
 
 MAJORS = ["能源与环境系统工程", "环境工程（卓越班）", "环境工程（双学位）",
           "环境科学", "建筑环境与能源应用工程", "土木工程（绿色建造）"]
@@ -1148,7 +1148,7 @@ if os.path.isdir(MANUAL):
 img_dir = os.path.join(DOCS, "images")
 os.makedirs(img_dir, exist_ok=True)
 if os.path.isfile(LOGO_SRC):
-    shutil.copy2(LOGO_SRC, os.path.join(img_dir, "logo.jpg"))
+    shutil.copy2(LOGO_SRC, os.path.join(img_dir, "logo.png"))
     print("logo copied")
 
 # ---------- mkdocs.yml ----------
@@ -1221,8 +1221,8 @@ theme:
         name: 切换到浅色模式
   font:
     text: Noto Serif SC
-  logo: images/logo.jpg
-  favicon: images/logo.jpg
+  logo: images/logo.png
+  favicon: images/logo.png
   icon:
     admonition:
       note: fontawesome/solid/note-sticky

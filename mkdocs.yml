@@ -41,8 +41,8 @@ theme:
         name: 切换到浅色模式
   font:
     text: Noto Serif SC
-  logo: images/logo.jpg
-  favicon: images/logo.jpg
+  logo: images/logo.png
+  favicon: images/logo.png
   icon:
     admonition:
       note: fontawesome/solid/note-sticky
