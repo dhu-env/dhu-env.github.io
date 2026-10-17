@@ -7,7 +7,7 @@ exclude_docs: |
 extra_css:
   - stylesheets/extra.css
 extra_javascript:
-  - js/dhu_nav.72c3560d.js
+  - js/dhu_nav.1946a9c3.js
 markdown_extensions:
   - pymdownx.pathconverter:
       base_path: ''
@@ -148,7 +148,6 @@ nav:
       - 能源审计: courses/routes/EnergyEnv/能源审计.md
       - 太阳能利用技术: courses/routes/EnergyEnv/太阳能利用技术.md
       - 氢能及燃料电池基础: courses/routes/EnergyEnv/氢能及燃料电池基础.md
-      - 信息检索与资源利用: courses/public/professional/信息检索与资源利用.md
     - 实践教学（必修）:
       - 制冷课程设计: courses/routes/EnergyEnv/制冷课程设计.md
       - 热工测试技术与实验（一）: courses/routes/EnergyEnv/热工测试技术与实验（一）.md
@@ -184,7 +183,6 @@ nav:
       - 环境工程CAD: courses/routes/EnvEngExcellent/环境工程CAD.md
       - 环境仪器分析（环卓·环管）: courses/public/professional/环境仪器分析（环卓·环管）.md
       - 建筑概论及制图: courses/routes/EnvEngExcellent/建筑概论及制图.md
-      - 信息检索与资源利用: courses/public/professional/信息检索与资源利用.md
     - 专业方向（必修）:
       - 大气污染控制工程: courses/routes/EnvEngExcellent/大气污染控制工程.md
       - 固体废物处理与处置: courses/routes/EnvEngExcellent/固体废物处理与处置.md
@@ -248,7 +246,6 @@ nav:
       - 环境工程CAD: courses/routes/EnvEngExcellent/环境工程CAD.md
       - 环境仪器分析（环卓·环管）: courses/public/professional/环境仪器分析（环卓·环管）.md
       - 建筑概论及制图: courses/routes/EnvEngExcellent/建筑概论及制图.md
-      - 信息检索与资源利用: courses/public/professional/信息检索与资源利用.md
     - 专业方向（必修）:
       - 管理信息系统: courses/routes/EnvEngDual/管理信息系统.md
       - 环境经济学（环管）: courses/public/professional/环境经济学（环管）.md
@@ -315,7 +312,6 @@ nav:
     - 专业方向（选修）:
       - 环境经济学（环科）: courses/public/professional/环境经济学（环科）.md
       - 专业外语（环科）: courses/public/professional/专业外语（环科）.md
-      - 信息检索与资源利用: courses/public/professional/信息检索与资源利用.md
     - 专业方向（选修） · 环境管理与规划模块:
       - 环境法学: courses/routes/EnvScience/环境法学.md
       - 环境信息系统: courses/routes/EnvScience/环境信息系统.md
@@ -385,7 +381,6 @@ nav:
       - 专业英语（建环）: courses/public/professional/专业英语（建环）.md
       - 专业报告写作与表达: courses/routes/BuildingEnv/专业报告写作与表达.md
       - BIM技术与应用实践: courses/routes/BuildingEnv/BIM技术与应用实践.md
-      - 信息检索与资源利用: courses/public/professional/信息检索与资源利用.md
     - 实践教学（必修）:
       - 通风课程设计: courses/routes/BuildingEnv/通风课程设计.md
       - 制冷课程设计: courses/routes/BuildingEnv/制冷课程设计.md

@@ -77,6 +77,32 @@
     sessionStorage.removeItem(KEY);
   });
 
+  /* 同层互斥：展开某个子分区（数理类/化学类/…）时，自动收起同一层的其他子分区。
+     仅处理顶层之下的子分区；顶层 tab 由 Material 管理，不干预。
+     程序化恢复展开状态不触发 change 事件，因此不影响"记住展开状态"逻辑。 */
+  document.addEventListener("change", function (e) {
+    var t = e.target;
+    if (!t || !t.classList || !t.classList.contains("md-nav__toggle")) return;
+    if (!t.checked) return;
+    var root = document.querySelector('.md-nav[data-md-level="0"]');
+    if (!root) return;
+    var item = t.closest(".md-nav__item");
+    if (!item) return;
+    var topList = root.querySelector(":scope > .md-nav__list");
+    if (!topList) return;
+    var isTop = false;
+    var it = item;
+    while (it && topList && it.parentElement !== topList) it = it.parentElement;
+    if (it === item) isTop = true; /* item 本身就是顶层分区 */
+    if (isTop) return;
+    var container = item.parentElement;
+    if (!container) return;
+    var siblings = container.querySelectorAll(":scope > .md-nav__item > .md-nav__toggle");
+    for (var q = 0; q < siblings.length; q++) {
+      if (siblings[q] !== t && siblings[q].checked) siblings[q].checked = false;
+    }
+  });
+
   /* 展开单个顶层分区路径上的所有折叠开关 */
   function expandTop(topItem, root) {
     if (!topItem) return;

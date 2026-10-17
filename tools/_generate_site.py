@@ -216,7 +216,6 @@ PROF_COURSES = [
     ("环境仪器分析", ["环境工程（卓越班）", "环境工程（双学位）", "环境科学"], None, ""),
     ("环境评价学", ["环境工程（卓越班）", "环境工程（双学位）", "环境科学"], None, ""),
     ("环境经济学", ["环境工程（双学位）", "环境科学"], None, ""),
-    ("信息检索与资源利用", ["能源与环境系统工程", "环境工程（卓越班）", "环境工程（双学位）", "环境科学", "建筑环境与能源应用工程"], None, "土木工程（绿色建造）培养方案未列"),
     ("工程伦理", ["能源与环境系统工程", "建筑环境与能源应用工程", "土木工程（绿色建造）"], None, "各专业课程编号不同，按课程代码分设页面"),
     ("专业英语", ["能源与环境系统工程", "环境科学", "建筑环境与能源应用工程", "土木工程（绿色建造）"],
      {"能源与环境系统工程": "能环专业英语", "环境科学": "专业外语"}, "各专业课程名称与编号均不同，分设页面"),
@@ -344,7 +343,6 @@ ROUTE_SECTIONS = [
             ("环境工程CAD", ["环境工程（双学位）"], None, ""),
             ("建筑概论及制图", ["环境工程（双学位）"], None, ""),
             ("环境仪器分析", ["环境工程（双学位）"], None, ""),
-            ("信息检索与资源利用", ["环境工程（双学位）"], None, ""),
             ("会计学", ["环境工程（双学位）"], None, ""),
             ("环境系统分析与管理", ["环境工程（双学位）"], None, ""),
             ("环境与经济法基础", ["环境工程（双学位）"], None, ""),
@@ -619,7 +617,7 @@ ENVSCI_MODULES = {
 
 # 不进方向页/导航目录的公共环节课程（劳动教育类在教学计划中属实践教学，
 # 其余公共环节课程如军训、学术讲座、安全教育、社会实践等已因属通识教育/综合实践被过滤）
-EXCLUDE_COURSES = {"劳动教育类"}
+EXCLUDE_COURSES = {"劳动教育类", "信息检索与资源利用"}
 
 def route_full_index(dirname, major, title, short):
     """按教学计划原始分类（课程类别·必修/选修，环境科学专业方向选修含模块）
@@ -989,6 +987,32 @@ nav_js = r"""/* 东华环院课程攻略 · 侧边导航"展开状态保持"脚�
     if (tAbs.indexOf("/courses/public/") !== -1) { sessionStorage.setItem(KEY, "公共基础课程"); return; }
     if (tAbs.indexOf("/courses/") !== -1) { sessionStorage.setItem(KEY, "公共基础课程"); return; }
     sessionStorage.removeItem(KEY);
+  });
+
+  /* 同层互斥：展开某个子分区（数理类/化学类/…）时，自动收起同一层的其他子分区。
+     仅处理顶层之下的子分区；顶层 tab 由 Material 管理，不干预。
+     程序化恢复展开状态不触发 change 事件，因此不影响"记住展开状态"逻辑。 */
+  document.addEventListener("change", function (e) {
+    var t = e.target;
+    if (!t || !t.classList || !t.classList.contains("md-nav__toggle")) return;
+    if (!t.checked) return;
+    var root = document.querySelector('.md-nav[data-md-level="0"]');
+    if (!root) return;
+    var item = t.closest(".md-nav__item");
+    if (!item) return;
+    var topList = root.querySelector(":scope > .md-nav__list");
+    if (!topList) return;
+    var isTop = false;
+    var it = item;
+    while (it && topList && it.parentElement !== topList) it = it.parentElement;
+    if (it === item) isTop = true; /* item 本身就是顶层分区 */
+    if (isTop) return;
+    var container = item.parentElement;
+    if (!container) return;
+    var siblings = container.querySelectorAll(":scope > .md-nav__item > .md-nav__toggle");
+    for (var q = 0; q < siblings.length; q++) {
+      if (siblings[q] !== t && siblings[q].checked) siblings[q].checked = false;
+    }
   });
 
   /* 展开单个顶层分区路径上的所有折叠开关 */
