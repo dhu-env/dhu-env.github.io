@@ -139,10 +139,16 @@
     var links = root.querySelectorAll(".md-nav__link");
     var courseName = decodeURIComponent((curPath.split("/").pop() || "").replace(/\.html?$/, ""));
     /* 列表/导航页（URL 末段不是任何课程名）：由 Material 按当前页自动处理，
-       同时清除残留的顶层上下文，避免直开列表页时侧边栏停留在旧专业 */
+       同时清除残留的顶层上下文，避免直开列表页时侧边栏停留在旧专业。
+       分类索引页（如 /courses/routes/环卓/学科基础（必修）/）的 URL 末段是
+       「分类父项」文本（.md-nav__item--nested 的链接），同样视为列表页，
+       交由 Material 按 URL 展开正确的专业分区。 */
     var isListPage = true;
     for (i = 0; i < links.length; i++) {
-      if ((links[i].textContent || "").trim() === courseName) { isListPage = false; break; }
+      if ((links[i].textContent || "").trim() === courseName) {
+        var li0 = links[i].closest(".md-nav__item");
+        if (!li0 || !li0.classList.contains("md-nav__item--nested")) { isListPage = false; break; }
+      }
     }
     if (isListPage) { sessionStorage.removeItem(KEY); return; }
     var ctx = sessionStorage.getItem(KEY);
